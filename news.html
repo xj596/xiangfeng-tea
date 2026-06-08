@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" id="metaDesc" content="湘丰茶叶最新资讯 - 公司新闻、行业动态、活动预告。了解湘丰集团的最新发展。">
+    <meta name="keywords" content="湘丰茶叶新闻, 茶叶行业资讯, 公司动态">
+    <title id="pageTitle">新闻资讯 - 湘丰茶叶 | News & Events</title>
+    <link rel="canonical" href="https://xiangfeng-tea.github.io/news.html">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">X</div>
+                <div class="logo-text"><span>Xiangfeng Tea</span><small>Premium Chinese Tea</small></div>
+            </a>
+            <nav class="nav">
+                <a href="index.html">首页</a>
+                <a href="products.html">产品</a>
+                <a href="about.html">关于我们</a>
+                <a href="news.html" class="active">资讯</a>
+                <a href="contact.html">联系我们</a>
+            </nav>
+            <a href="contact.html" class="btn-primary">获取报价</a>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">首页</a>
+        <a href="products.html">产品</a>
+        <a href="about.html">关于我们</a>
+        <a href="news.html" class="active">资讯</a>
+        <a href="contact.html">联系我们</a>
+    </div>
+
+    <section class="page-header">
+        <div class="container">
+            <span class="tagline" id="pageTagline">最新动态</span>
+            <h1 id="pageHeaderTitle">新闻资讯</h1>
+            <p class="section-desc" id="pageHeaderDesc">了解我们的最新发展、行业洞察和即将举行的活动。</p>
+        </div>
+    </section>
+
+    <section class="section" style="background: white;">
+        <div class="container">
+            <div class="news-grid" id="newsGrid">
+                <!-- 新闻将通过JavaScript动态加载 -->
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <div class="logo-icon gold">X</div>
+                        <div class="logo-text"><span>Xiangfeng Tea</span><small>湘丰茶叶</small></div>
+                    </div>
+                    <p id="footerBrandDesc">湘丰集团是中国领先的茶叶出口商。</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="products.html">产品中心</a></li>
+                        <li><a href="about.html">关于我们</a></li>
+                        <li><a href="news.html">新闻资讯</a></li>
+                        <li><a href="contact.html">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>联系方式</h4>
+                    <ul id="footerContact">
+                        <li>📍 浙江省杭州市茶道888号</li>
+                        <li>📞 +86 571 8888 8888</li>
+                        <li>✉️ export@xiangfeng-tea.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p id="footerCopyright">&copy; 2024 湘丰茶叶集团. 版权所有.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 全局数据存储
+        let newsData = { news: [] };
+        let settingsData = {};
+
+        // 初始化
+        async function init() {
+            await loadData();
+            renderAll();
+        }
+
+        // 加载数据
+        async function loadData() {
+            try {
+                const [newsRes, settingsRes] = await Promise.all([
+                    fetch('./data/news.json').then(r => r.ok ? r.json() : null).catch(() => null),
+                    fetch('./data/settings.json').then(r => r.ok ? r.json() : null).catch(() => null)
+                ]);
+
+                if (newsRes) newsData = newsRes;
+                if (settingsRes) settingsData = settingsRes;
+            } catch (e) {
+                console.warn('加载数据失败');
+            }
+        }
+
+        // 渲染所有内容
+        function renderAll() {
+            renderNews();
+            renderFooter();
+            renderPageMeta();
+        }
+
+        // 渲染新闻列表
+        function renderNews() {
+            const grid = document.getElementById('newsGrid');
+
+            if (!newsData.news || newsData.news.length === 0) {
+                grid.innerHTML = `
+                    <div class="empty-state" style="grid-column: 1 / -1; text-align: center; padding: 60px 20px;">
+                        <div style="font-size: 48px; margin-bottom: 16px;">📰</div>
+                        <p style="font-size: 16px; color: #666;">暂无新闻资讯</p>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = newsData.news.map(item => `
+                <article class="news-card">
+                    <div class="news-card-image">
+                        <img src="${item.image}" alt="${item.title}" loading="lazy">
+                    </div>
+                    <div class="news-card-content">
+                        <span class="news-card-category">${item.category}</span>
+                        <div class="news-card-date">${item.date}</div>
+                        <h3>${item.title}</h3>
+                        <p>${item.content ? item.content.substring(0, 100) + '...' : ''}</p>
+                        <a href="#" class="read-more" onclick="showNewsDetail('${item.id}'); return false;">阅读更多 →</a>
+                    </div>
+                </article>
+            `).join('');
+        }
+
+        // 显示新闻详情（简化版，实际可扩展）
+        function showNewsDetail(id) {
+            const news = newsData.news.find(n => n.id === id);
+            if (news) {
+                alert(`${news.title}\n\n${news.content}\n\n发布日期: ${news.date}`);
+            }
+        }
+
+        // 渲染页脚
+        function renderFooter() {
+            if (settingsData.contact) {
+                const contact = settingsData.contact;
+                const contactHtml = [];
+                if (contact.address) contactHtml.push(`📍 ${contact.address}`);
+                if (contact.phone) contactHtml.push(`📞 ${contact.phone}`);
+                if (contact.email) contactHtml.push(`✉️ ${contact.email}`);
+                if (contact.hours) contactHtml.push(`🕐 ${contact.hours}`);
+                document.getElementById('footerContact').innerHTML = contactHtml.map(c => `<li>${c}</li>`).join('');
+            }
+        }
+
+        // 渲染页面Meta
+        function renderPageMeta() {
+            if (settingsData.site) {
+                document.title = `新闻资讯 - ${settingsData.site.name || '湘丰茶叶'} | News & Events`;
+            }
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('active');
+        }
+        window.addEventListener('scroll', () => {
+            document.querySelector('.header').classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        init();
+    </script>
+</body>
+</html>

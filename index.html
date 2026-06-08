@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="湘丰集团 - 中国优质茶叶出口商。提供西湖龙井、大红袍、祁门红茶等优质绿茶、红茶、乌龙茶。36年专业茶叶出口经验，出口50多个国家。">
+    <meta name="keywords" content="中国茶叶,绿茶,红茶,乌龙茶,普洱茶,白茶,茶叶出口,湘丰茶叶">
+    <meta name="author" content="Xiangfeng Tea Group">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="湘丰茶叶 - 优质中国茶叶出口">
+    <meta property="og:description" content="36年专业茶叶出口经验，出口50多个国家和地区">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://xiangfeng-tea.github.io">
+    <meta property="og:image" id="ogImage" content="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Beautiful%20Chinese%20tea%20garden%20misty%20morning%20mountains%20traditional%20architecture&image_size=landscape_16_9">
+
+    <title id="pageTitle">湘丰茶叶 - 优质中国茶叶出口 | Premium Chinese Tea Export</title>
+
+    <link rel="canonical" href="https://xiangfeng-tea.github.io">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <div class="logo-icon" id="headerLogoIcon">X</div>
+                <div class="logo-text">
+                    <span id="headerLogoText">Xiangfeng Tea</span>
+                    <small id="headerLogoSub">Premium Chinese Tea</small>
+                </div>
+            </a>
+            <nav class="nav">
+                <a href="index.html" class="active">首页</a>
+                <a href="products.html">产品</a>
+                <a href="about.html">关于我们</a>
+                <a href="news.html">资讯</a>
+                <a href="contact.html">联系我们</a>
+            </nav>
+            <a href="contact.html" class="btn-primary">获取报价</a>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" class="active">首页</a>
+        <a href="products.html">产品</a>
+        <a href="about.html">关于我们</a>
+        <a href="news.html">资讯</a>
+        <a href="contact.html">联系我们</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg" id="heroBg"></div>
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <div class="hero-badge">
+                <span class="pulse"></span>
+                <span id="heroBadge">自1988年，品质保证</span>
+            </div>
+            <h1 id="heroTitle">
+                发现中国<br>
+                <span class="gold">最优质的茶叶</span>
+            </h1>
+            <p id="heroSubtitle">
+                体验中国最负盛名茶叶的纯正风味。<br>
+                源自中国最优茶区，由专家精心采摘。
+            </p>
+            <div class="hero-buttons">
+                <a href="products.html" class="btn-primary">探索产品</a>
+                <button class="btn-outline" id="heroVideoBtn">观看视频</button>
+            </div>
+            <div class="hero-stats" id="heroStats">
+                <div class="stat">
+                    <strong id="heroStat1Value">36+</strong>
+                    <span id="heroStat1Label">年经验</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <strong id="heroStat2Value">50+</strong>
+                    <span id="heroStat2Label">国家地区</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <strong id="heroStat3Value">100%</strong>
+                    <span id="heroStat3Label">天然有机</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-hint">
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="section products-section">
+        <div class="container">
+            <div class="section-header">
+                <div>
+                    <span class="tagline">精选产品</span>
+                    <h2>优质茶叶系列</h2>
+                    <p class="section-desc" id="productsSectionDesc">
+                        从中国各地最优茶园精心挑选，每款茶叶都代表着几个世纪的传统和工艺。
+                    </p>
+                </div>
+                <a href="products.html" class="link-arrow">查看全部产品 →</a>
+            </div>
+            <div class="products-grid" id="featuredProductsGrid">
+                <!-- 产品将通过JavaScript动态加载 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section stats-section">
+        <div class="container">
+            <div class="section-header centered">
+                <span class="tagline">我们的成就</span>
+                <h2>全球信赖的品牌</h2>
+                <p class="section-desc" id="statsSectionDesc">
+                    三十多年来，我们致力于为全球消费者提供最优质的中国茶叶。
+                </p>
+            </div>
+            <div class="stats-grid" id="statsGrid">
+                <!-- 统计数据将通过JavaScript动态加载 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications -->
+    <section class="section cert-section">
+        <div class="container">
+            <div class="section-header centered">
+                <span class="tagline">品质保证</span>
+                <h2>权威认证</h2>
+                <p class="section-desc" id="certSectionDesc">
+                    我们对品质的承诺得到全球权威认证机构的认可。
+                </p>
+            </div>
+            <div class="cert-grid" id="certGrid">
+                <!-- 认证将通过JavaScript动态加载 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Preview -->
+    <section class="section about-preview">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content">
+                    <span class="tagline" id="aboutTagline">我们的故事</span>
+                    <h2 id="aboutTitle">传承与卓越</h2>
+                    <div id="aboutContent">
+                        <p>
+                            湘丰集团创立于1988年，位于浙江杭州西湖畔的龙井茶故乡。三十多年来，我们从一个小茶园发展成为享誉全球的中国茶叶出口企业。
+                        </p>
+                        <p>
+                            我们与中国50多个优质茶园建立合作关系，确保每一片茶叶都讲述着传统、品质和热情的故事。
+                        </p>
+                    </div>
+                    <div class="about-features" id="aboutFeatures">
+                        <!-- 特色将通过JavaScript动态加载 -->
+                    </div>
+                    <a href="about.html" class="btn-primary">了解更多</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Traditional%20Chinese%20tea%20ceremony%20master%20preparing%20tea%20elegant%20setting%20soft%20lighting&image_size=landscape_4_3" alt="茶艺师" id="aboutImage">
+                    <div class="experience-badge">
+                        <strong id="aboutExperienceValue">36+</strong>
+                        <span>年经验</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 id="ctaTitle">准备好体验最优质的茶叶了吗？</h2>
+                <p id="ctaDesc">探索我们的优质茶叶系列，提升您的茶饮体验。立即联系我们获取批发报价和特别优惠。</p>
+                <div class="cta-buttons">
+                    <a href="products.html" class="btn-white" id="ctaBtn1">浏览产品</a>
+                    <a href="contact.html" class="btn-outline-white" id="ctaBtn2">联系我们</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <div class="logo-icon gold" id="footerLogoIcon">X</div>
+                        <div class="logo-text">
+                            <span id="footerLogoText">Xiangfeng Tea</span>
+                            <small id="footerLogoSub">湘丰茶叶</small>
+                        </div>
+                    </div>
+                    <p id="footerBrandDesc">湘丰集团是中国领先的茶叶出口商，致力于将最优质的中国茶叶带给全世界。三十多年经验，品质保证。</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="products.html">产品中心</a></li>
+                        <li><a href="about.html">关于我们</a></li>
+                        <li><a href="news.html">新闻资讯</a></li>
+                        <li><a href="contact.html">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>产品分类</h4>
+                    <ul>
+                        <li><a href="products.html">绿茶系列</a></li>
+                        <li><a href="products.html">红茶系列</a></li>
+                        <li><a href="products.html">乌龙茶系列</a></li>
+                        <li><a href="products.html">白茶系列</a></li>
+                        <li><a href="products.html">普洱茶系列</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>联系方式</h4>
+                    <ul id="footerContact">
+                        <li>📍 浙江省杭州市茶道888号</li>
+                        <li>📞 +86 571 8888 8888</li>
+                        <li>✉️ export@xiangfeng-tea.com</li>
+                        <li>🕐 周一至周五 9:00-18:00</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p id="footerCopyright">&copy; 2024 湘丰茶叶集团. 版权所有.</p>
+                <div class="social-links" id="socialLinks">
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">Twitter</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 全局数据存储
+        let productsData = { products: [], categories: [] };
+        let settingsData = {};
+        let mediaData = { images: [], videos: [], pdfs: [] };
+
+        // 初始化
+        async function init() {
+            await loadData();
+            renderAll();
+        }
+
+        // 加载所有数据
+        async function loadData() {
+            try {
+                // 加载JSON数据
+                const [productsRes, settingsRes, mediaRes] = await Promise.all([
+                    fetch('./data/products.json').then(r => r.ok ? r.json() : null).catch(() => null),
+                    fetch('./data/settings.json').then(r => r.ok ? r.json() : null).catch(() => null),
+                    fetch('./data/media.json').then(r => r.ok ? r.json() : null).catch(() => null)
+                ]);
+
+                if (productsRes) productsData = productsRes;
+                if (settingsRes) settingsData = settingsRes;
+                if (mediaRes) mediaData = mediaRes;
+
+            } catch (e) {
+                console.warn('加载数据失败，使用默认设置');
+            }
+        }
+
+        // 渲染所有内容
+        function renderAll() {
+            renderHero();
+            renderFeaturedProducts();
+            renderStats();
+            renderCertifications();
+            renderAboutPreview();
+            renderFooter();
+            renderPageMeta();
+        }
+
+        // 渲染Hero区域
+        function renderHero() {
+            if (settingsData.hero) {
+                const hero = settingsData.hero;
+                if (hero.badge) document.getElementById('heroBadge').textContent = hero.badge;
+                if (hero.title) document.getElementById('heroTitle').innerHTML = hero.title.replace(/\n/g, '<br>');
+                if (hero.subtitle) document.getElementById('heroSubtitle').innerHTML = hero.subtitle.replace(/\n/g, '<br>');
+
+                if (hero.stats && hero.stats.length >= 3) {
+                    document.getElementById('heroStat1Value').textContent = hero.stats[0].value;
+                    document.getElementById('heroStat1Label').textContent = hero.stats[0].label;
+                    document.getElementById('heroStat2Value').textContent = hero.stats[1].value;
+                    document.getElementById('heroStat2Label').textContent = hero.stats[1].label;
+                    document.getElementById('heroStat3Value').textContent = hero.stats[2].value;
+                    document.getElementById('heroStat3Label').textContent = hero.stats[2].label;
+                }
+            }
+        }
+
+        // 渲染精选产品
+        function renderFeaturedProducts() {
+            const grid = document.getElementById('featuredProductsGrid');
+            const featuredProducts = productsData.products.filter(p => p.featured).slice(0, 4);
+
+            if (featuredProducts.length === 0) {
+                // 如果没有精选产品，显示前4个产品
+                featuredProducts = productsData.products.slice(0, 4);
+            }
+
+            grid.innerHTML = featuredProducts.map(product => `
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.name}" loading="lazy">
+                        <div class="product-overlay">
+                            <a href="${product.id}.html" class="btn-view">查看详情</a>
+                        </div>
+                        ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ''}
+                    </div>
+                    <div class="product-info">
+                        <div class="product-meta">
+                            <span>${product.category}</span><span>|</span><span>${product.origin}</span>
+                        </div>
+                        <h3>${product.name}</h3>
+                        <p class="product-origin">${product.nameEn || ''}</p>
+                        <p class="product-desc">${product.description}</p>
+                        <div class="product-footer">
+                            <div class="price">¥${product.price} <small>/ ${product.priceUnit}</small></div>
+                            <div class="cert-tags">
+                                ${(product.certifications || []).map(c => `<span>${c}</span>`).join('')}
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            `).join('');
+        }
+
+        // 渲染统计数据
+        function renderStats() {
+            const grid = document.getElementById('statsGrid');
+
+            if (settingsData.stats && settingsData.stats.length > 0) {
+                grid.innerHTML = settingsData.stats.map(stat => `
+                    <div class="stat-card">
+                        <div class="stat-icon">${stat.icon}</div>
+                        <div class="stat-number" data-target="${stat.value}">0</div>
+                        <div class="stat-label">${stat.label}</div>
+                    </div>
+                `).join('');
+            } else {
+                // 默认数据
+                grid.innerHTML = `
+                    <div class="stat-card">
+                        <div class="stat-icon">🍃</div>
+                        <div class="stat-number" data-target="10000">0</div>
+                        <div class="stat-label">吨/年产量</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🌍</div>
+                        <div class="stat-number" data-target="50">0</div>
+                        <div class="stat-label">国家和地区</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🏆</div>
+                        <div class="stat-number" data-target="200">0</div>
+                        <div class="stat-label">奖项认证</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-number" data-target="5000">0</div>
+                        <div class="stat-label">满意客户</div>
+                    </div>
+                `;
+            }
+
+            // 初始化数字动画
+            animateNumbers();
+        }
+
+        // 渲染认证
+        function renderCertifications() {
+            const grid = document.getElementById('certGrid');
+
+            if (settingsData.certifications && settingsData.certifications.length > 0) {
+                grid.innerHTML = settingsData.certifications.map(cert => `
+                    <div class="cert-card">
+                        <div class="cert-icon">${cert.icon}</div>
+                        <h3>${cert.name}</h3>
+                        <p>${cert.desc}</p>
+                    </div>
+                `).join('');
+            } else {
+                // 默认数据
+                grid.innerHTML = `
+                    <div class="cert-card">
+                        <div class="cert-icon">✓</div>
+                        <h3>ISO 9001</h3>
+                        <p>质量管理</p>
+                    </div>
+                    <div class="cert-card">
+                        <div class="cert-icon">🌿</div>
+                        <h3>有机认证</h3>
+                        <p>100%天然</p>
+                    </div>
+                    <div class="cert-card">
+                        <div class="cert-icon">🛡️</div>
+                        <h3>HACCP</h3>
+                        <p>食品安全</p>
+                    </div>
+                    <div class="cert-card">
+                        <div class="cert-icon">📍</div>
+                        <h3>地理标志</h3>
+                        <p>原产地保护</p>
+                    </div>
+                `;
+            }
+        }
+
+        // 渲染关于我们预览
+        function renderAboutPreview() {
+            if (settingsData.about) {
+                const about = settingsData.about;
+                if (about.tagline) document.getElementById('aboutTagline').textContent = about.tagline;
+                if (about.title) document.getElementById('aboutTitle').textContent = about.title;
+                if (about.content && about.content.length > 0) {
+                    document.getElementById('aboutContent').innerHTML = about.content.map(p => `<p>${p}</p>`).join('');
+                }
+                if (about.image) document.getElementById('aboutImage').src = about.image;
+
+                if (about.features && about.features.length > 0) {
+                    const featuresHtml = about.features.map(f => `
+                        <div class="feature">
+                            <span class="feature-icon">${f.icon}</span>
+                            <div>
+                                <strong>${f.title}</strong>
+                                <p>${f.desc}</p>
+                            </div>
+                        </div>
+                    `).join('');
+                    document.getElementById('aboutFeatures').innerHTML = featuresHtml;
+                }
+            }
+        }
+
+        // 渲染页脚
+        function renderFooter() {
+            if (settingsData.site) {
+                const site = settingsData.site;
+                if (site.name) {
+                    document.getElementById('footerLogoText').textContent = site.nameEn || site.name;
+                    document.getElementById('footerLogoSub').textContent = site.name;
+                }
+                if (site.description) {
+                    document.getElementById('footerBrandDesc').textContent = site.description;
+                }
+            }
+
+            if (settingsData.contact) {
+                const contact = settingsData.contact;
+                const contactHtml = [];
+                if (contact.address) contactHtml.push(`📍 ${contact.address}`);
+                if (contact.phone) contactHtml.push(`📞 ${contact.phone}`);
+                if (contact.email) contactHtml.push(`✉️ ${contact.email}`);
+                if (contact.hours) contactHtml.push(`🕐 ${contact.hours}`);
+                document.getElementById('footerContact').innerHTML = contactHtml.map(c => `<li>${c}</li>`).join('');
+            }
+
+            if (settingsData.footer) {
+                if (settingsData.footer.copyright) {
+                    document.getElementById('footerCopyright').textContent = settingsData.footer.copyright;
+                }
+            }
+
+            if (settingsData.social) {
+                const social = settingsData.social;
+                const socialHtml = [];
+                if (social.facebook) socialHtml.push(`<a href="${social.facebook}" target="_blank">Facebook</a>`);
+                if (social.instagram) socialHtml.push(`<a href="${social.instagram}" target="_blank">Instagram</a>`);
+                if (social.twitter) socialHtml.push(`<a href="${social.twitter}" target="_blank">Twitter</a>`);
+                if (socialHtml.length > 0) {
+                    document.getElementById('socialLinks').innerHTML = socialHtml.join('');
+                }
+            }
+        }
+
+        // 渲染页面Meta
+        function renderPageMeta() {
+            if (settingsData.site) {
+                const site = settingsData.site;
+                if (site.name) {
+                    document.title = `${site.name} - 优质中国茶叶出口 | Premium Chinese Tea Export`;
+                }
+                if (site.description) {
+                    document.querySelector('meta[name="description"]').setAttribute('content', site.description);
+                }
+                if (site.keywords) {
+                    document.querySelector('meta[name="keywords"]').setAttribute('content', site.keywords);
+                }
+                if (site.ogImage) {
+                    document.getElementById('ogImage').setAttribute('content', site.ogImage);
+                }
+            }
+        }
+
+        // 数字动画
+        function animateNumbers() {
+            const numbers = document.querySelectorAll('.stat-number');
+            numbers.forEach(num => {
+                const target = parseInt(num.dataset.target);
+                if (isNaN(target)) {
+                    num.textContent = num.dataset.target;
+                    return;
+                }
+                const duration = 2000;
+                const step = target / (duration / 16);
+                let current = 0;
+
+                const timer = setInterval(() => {
+                    current += step;
+                    if (current >= target) {
+                        num.textContent = target.toLocaleString() + '+';
+                        clearInterval(timer);
+                    } else {
+                        num.textContent = Math.floor(current).toLocaleString();
+                    }
+                }, 16);
+            });
+        }
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+        }
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // 初始化
+        init();
+    </script>
+</body>
+</html>

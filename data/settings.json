@@ -1,0 +1,60 @@
+{
+  "site": {
+    "name": "湘丰茶叶",
+    "nameEn": "Xiangfeng Tea",
+    "description": "中国优质茶叶出口商",
+    "keywords": "中国茶叶,绿茶,红茶,乌龙茶,普洱茶,白茶,茶叶出口,湘丰茶叶",
+    "logo": "X",
+    "ogImage": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Beautiful%20Chinese%20tea%20garden%20misty%20morning%20mountains%20traditional%20architecture&image_size=landscape_16_9"
+  },
+  "hero": {
+    "badge": "自1988年，品质保证",
+    "title": "发现中国最优质的茶叶",
+    "subtitle": "体验中国最负盛名茶叶的纯正风味。源自中国最优茶区，由专家精心采摘。",
+    "videoUrl": "",
+    "stats": [
+      {"value": "36+", "label": "年经验"},
+      {"value": "50+", "label": "国家地区"},
+      {"value": "100%", "label": "天然有机"}
+    ]
+  },
+  "about": {
+    "title": "传承与卓越",
+    "content": [
+      "湘丰集团创立于1988年，位于浙江杭州西湖畔的龙井茶故乡。三十多年来，我们从一个小茶园发展成为享誉全球的中国茶叶出口企业。",
+      "我们与中国50多个优质茶园建立合作关系，确保每一片茶叶都讲述着传统、品质和热情的故事。"
+    ],
+    "image": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Traditional%20Chinese%20tea%20ceremony%20master%20preparing%20tea%20elegant%20setting%20soft%20lighting&image_size=landscape_4_3",
+    "features": [
+      {"icon": "🏔️", "title": "优质产区", "desc": "精选中国核心茶区"},
+      {"icon": "👨‍🌾", "title": "传统工艺", "desc": "保留非遗制茶技艺"},
+      {"icon": "🔬", "title": "严格品控", "desc": "200多项检测标准"}
+    ]
+  },
+  "stats": [
+    {"icon": "🍃", "value": "10000", "label": "吨/年产量"},
+    {"icon": "🌍", "value": "50", "label": "国家和地区"},
+    {"icon": "🏆", "value": "200", "label": "奖项认证"},
+    {"icon": "👥", "value": "5000", "label": "满意客户"}
+  ],
+  "certifications": [
+    {"icon": "✓", "name": "ISO 9001", "desc": "质量管理"},
+    {"icon": "🌿", "name": "有机认证", "desc": "100%天然"},
+    {"icon": "🛡️", "name": "HACCP", "desc": "食品安全"},
+    {"icon": "📍", "name": "地理标志", "desc": "原产地保护"}
+  ],
+  "contact": {
+    "address": "浙江省杭州市茶道888号",
+    "phone": "+86 571 8888 8888",
+    "email": "export@xiangfeng-tea.com",
+    "hours": "周一至周五 9:00-18:00"
+  },
+  "footer": {
+    "copyright": "© 2024 湘丰茶叶集团. 版权所有."
+  },
+  "social": {
+    "facebook": "#",
+    "instagram": "#",
+    "twitter": "#"
+  }
+}
