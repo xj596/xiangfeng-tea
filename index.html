@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="湘丰集团 - 中国优质茶叶出口商。提供西湖龙井、大红袍、祁门红茶等优质绿茶、红茶、乌龙茶。36年专业茶叶出口经验，出口50多个国家。">
+    <meta name="keywords" content="中国茶叶,绿茶,红茶,乌龙茶,普洱茶,白茶,茶叶出口,湘丰茶叶">
+    <meta name="author" content="Xiangfeng Tea Group">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="湘丰茶叶 - 优质中国茶叶出口">
+    <meta property="og:description" content="36年专业茶叶出口经验，出口50多个国家和地区">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://xiangfeng-tea.github.io">
+    <meta property="og:image" content="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Beautiful%20Chinese%20tea%20garden%20misty%20morning%20mountains%20traditional%20architecture&image_size=landscape_16_9">
+    
+    <title>湘丰茶叶 - 优质中国茶叶出口 | Premium Chinese Tea Export</title>
+    
+    <link rel="canonical" href="https://xiangfeng-tea.github.io">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">X</div>
+                <div class="logo-text">
+                    <span>Xiangfeng Tea</span>
+                    <small>Premium Chinese Tea</small>
+                </div>
+            </a>
+            <nav class="nav">
+                <a href="index.html" class="active">首页</a>
+                <a href="products.html">产品</a>
+                <a href="about.html">关于我们</a>
+                <a href="news.html">资讯</a>
+                <a href="contact.html">联系我们</a>
+            </nav>
+            <a href="contact.html" class="btn-primary">获取报价</a>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" class="active">首页</a>
+        <a href="products.html">产品</a>
+        <a href="about.html">关于我们</a>
+        <a href="news.html">资讯</a>
+        <a href="contact.html">联系我们</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <div class="hero-badge">
+                <span class="pulse"></span>
+                自1988年，品质保证
+            </div>
+            <h1>
+                发现中国<br>
+                <span class="gold">最优质的茶叶</span>
+            </h1>
+            <p>
+                体验中国最负盛名茶叶的纯正风味。<br>
+                源自中国最优茶区，由专家精心采摘。
+            </p>
+            <div class="hero-buttons">
+                <a href="products.html" class="btn-primary">探索产品</a>
+                <button class="btn-outline">观看视频</button>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <strong>36+</strong>
+                    <span>年经验</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <strong>50+</strong>
+                    <span>国家地区</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <strong>100%</strong>
+                    <span>天然有机</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-hint">
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="section products-section">
+        <div class="container">
+            <div class="section-header">
+                <div>
+                    <span class="tagline">精选产品</span>
+                    <h2>优质茶叶系列</h2>
+                    <p class="section-desc">
+                        从中国各地最优茶园精心挑选，每款茶叶都代表着几个世纪的传统和工艺。
+                    </p>
+                </div>
+                <a href="products.html" class="link-arrow">查看全部产品 →</a>
+            </div>
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Premium%20Chinese%20green%20tea%20leaves%20in%20elegant%20ceramic%20container%20traditional%20Chinese%20style&image_size=landscape_4_3" alt="西湖龙井">
+                        <div class="product-overlay">
+                            <a href="product-dragon-well.html" class="btn-view">查看详情</a>
+                        </div>
+                        <span class="product-badge">精选</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-meta">
+                            <span>绿茶</span>
+                            <span>|</span>
+                            <span>浙江杭州</span>
+                        </div>
+                        <h3>西湖龙井</h3>
+                        <p class="product-origin">West Lake Dragon Well</p>
+                        <p class="product-desc">中国十大名茶之一，外形扁平光滑，色泽翠绿，香气清高持久。</p>
+                        <div class="product-footer">
+                            <div class="price">¥280 <small>/ 100g</small></div>
+                            <div class="cert-tags">
+                                <span>ISO 9001</span>
+                                <span>有机认证</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Product 2 -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Premium%20oolong%20tea%20Da%20Hong%20Pao%20in%20elegant%20wooden%20box%20traditional%20style&image_size=landscape_4_3" alt="大红袍">
+                        <div class="product-overlay">
+                            <a href="product-da-hong-pao.html" class="btn-view">查看详情</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-meta">
+                            <span>乌龙茶</span>
+                            <span>|</span>
+                            <span>福建武夷山</span>
+                        </div>
+                        <h3>大红袍</h3>
+                        <p class="product-origin">Big Red Robe</p>
+                        <p class="product-desc">武夷岩茶代表，被誉为"茶中之王"，香气馥郁，滋味醇厚。</p>
+                        <div class="product-footer">
+                            <div class="price">¥680 <small>/ 100g</small></div>
+                            <div class="cert-tags">
+                                <span>ISO 9001</span>
+                                <span>地理标志</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Product 3 -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Premium%20Chinese%20black%20tea%20Keemun%20in%20golden%20packaging%20elegant%20presentation&image_size=landscape_4_3" alt="祁门红茶">
+                        <div class="product-overlay">
+                            <a href="product-keemun.html" class="btn-view">查看详情</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-meta">
+                            <span>红茶</span>
+                            <span>|</span>
+                            <span>安徽祁门</span>
+                        </div>
+                        <h3>祁门红茶</h3>
+                        <p class="product-origin">Keemun Black Tea</p>
+                        <p class="product-desc">中国著名工夫红茶，香气独特，被誉为"群芳最"。</p>
+                        <div class="product-footer">
+                            <div class="price">¥180 <small>/ 100g</small></div>
+                            <div class="cert-tags">
+                                <span>ISO 9001</span>
+                                <span>HACCP</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Product 4 -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Premium%20white%20tea%20Silver%20Needle%20in%20glass%20jar%20soft%20light%20elegant%20display&image_size=landscape_4_3" alt="白毫银针">
+                        <div class="product-overlay">
+                            <a href="product-silver-needle.html" class="btn-view">查看详情</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-meta">
+                            <span>白茶</span>
+                            <span>|</span>
+                            <span>福建福鼎</span>
+                        </div>
+                        <h3>白毫银针</h3>
+                        <p class="product-origin">Silver Needle</p>
+                        <p class="product-desc">白茶中的极品，芽头肥壮，满披白毫，滋味清鲜爽口。</p>
+                        <div class="product-footer">
+                            <div class="price">¥420 <small>/ 100g</small></div>
+                            <div class="cert-tags">
+                                <span>有机认证</span>
+                                <span>地理标志</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section stats-section">
+        <div class="container">
+            <div class="section-header centered">
+                <span class="tagline">我们的成就</span>
+                <h2>全球信赖的品牌</h2>
+                <p class="section-desc">
+                    三十多年来，我们致力于为全球消费者提供最优质的中国茶叶。
+                </p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">🍃</div>
+                    <div class="stat-number" data-target="10000">0</div>
+                    <div class="stat-label">吨/年产量</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🌍</div>
+                    <div class="stat-number" data-target="50">0</div>
+                    <div class="stat-label">国家和地区</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🏆</div>
+                    <div class="stat-number" data-target="200">0</div>
+                    <div class="stat-label">奖项认证</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-number" data-target="5000">0</div>
+                    <div class="stat-label">满意客户</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications -->
+    <section class="section cert-section">
+        <div class="container">
+            <div class="section-header centered">
+                <span class="tagline">品质保证</span>
+                <h2>权威认证</h2>
+                <p class="section-desc">
+                    我们对品质的承诺得到全球权威认证机构的认可。
+                </p>
+            </div>
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <div class="cert-icon">✓</div>
+                    <h3>ISO 9001</h3>
+                    <p>质量管理</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">🌿</div>
+                    <h3>有机认证</h3>
+                    <p>100%天然</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">🛡️</div>
+                    <h3>HACCP</h3>
+                    <p>食品安全</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">📍</div>
+                    <h3>地理标志</h3>
+                    <p>原产地保护</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Preview -->
+    <section class="section about-preview">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content">
+                    <span class="tagline">我们的故事</span>
+                    <h2>传承与卓越</h2>
+                    <p>
+                        湘丰集团创立于1988年，位于浙江杭州西湖畔的龙井茶故乡。三十多年来，我们从一个小茶园发展成为享誉全球的中国茶叶出口企业。
+                    </p>
+                    <p>
+                        我们与中国50多个优质茶园建立合作关系，确保每一片茶叶都讲述着传统、品质和热情的故事。
+                    </p>
+                    <div class="about-features">
+                        <div class="feature">
+                            <span class="feature-icon">🏔️</span>
+                            <div>
+                                <strong>优质产区</strong>
+                                <p>精选中国核心茶区</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">👨‍🌾</span>
+                            <div>
+                                <strong>传统工艺</strong>
+                                <p>保留非遗制茶技艺</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">🔬</span>
+                            <div>
+                                <strong>严格品控</strong>
+                                <p>200多项检测标准</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="about.html" class="btn-primary">了解更多</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Traditional%20Chinese%20tea%20ceremony%20master%20preparing%20tea%20elegant%20setting%20soft%20lighting&image_size=landscape_4_3" alt="茶艺师">
+                    <div class="experience-badge">
+                        <strong>36+</strong>
+                        <span>年经验</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>准备好体验最优质的茶叶了吗？</h2>
+                <p>探索我们的优质茶叶系列，提升您的茶饮体验。立即联系我们获取批发报价和特别优惠。</p>
+                <div class="cta-buttons">
+                    <a href="products.html" class="btn-white">浏览产品</a>
+                    <a href="contact.html" class="btn-outline-white">联系我们</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <div class="logo-icon gold">X</div>
+                        <div class="logo-text">
+                            <span>Xiangfeng Tea</span>
+                            <small>湘丰茶叶</small>
+                        </div>
+                    </div>
+                    <p>湘丰集团是中国领先的茶叶出口商，致力于将最优质的中国茶叶带给全世界。三十多年经验，品质保证。</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="products.html">产品中心</a></li>
+                        <li><a href="about.html">关于我们</a></li>
+                        <li><a href="news.html">新闻资讯</a></li>
+                        <li><a href="contact.html">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>产品分类</h4>
+                    <ul>
+                        <li><a href="products.html">绿茶系列</a></li>
+                        <li><a href="products.html">红茶系列</a></li>
+                        <li><a href="products.html">乌龙茶系列</a></li>
+                        <li><a href="products.html">白茶系列</a></li>
+                        <li><a href="products.html">普洱茶系列</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>联系方式</h4>
+                    <ul>
+                        <li>📍 浙江省杭州市茶道888号</li>
+                        <li>📞 +86 571 8888 8888</li>
+                        <li>✉️ export@xiangfeng-tea.com</li>
+                        <li>🕐 周一至周五 9:00-18:00</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 湘丰茶叶集团. 版权所有.</p>
+                <div class="social-links">
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">Twitter</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+        }
+
+        // Animate Numbers
+        function animateNumbers() {
+            const numbers = document.querySelectorAll('.stat-number');
+            numbers.forEach(num => {
+                const target = parseInt(num.dataset.target);
+                const duration = 2000;
+                const step = target / (duration / 16);
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += step;
+                    if (current >= target) {
+                        num.textContent = target.toLocaleString() + '+';
+                        clearInterval(timer);
+                    } else {
+                        num.textContent = Math.floor(current).toLocaleString();
+                    }
+                }, 16);
+            });
+        }
+
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateNumbers();
+                    observer.disconnect();
+                }
+            });
+        }, { threshold: 0.3 });
+
+        const statsSection = document.querySelector('.stats-section');
+        if (statsSection) {
+            observer.observe(statsSection);
+        }
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

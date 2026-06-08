@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://xiangfeng-tea.github.io/sitemap.xml
+
+Disallow: /.git/
