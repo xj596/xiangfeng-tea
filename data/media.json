@@ -1,0 +1,10 @@
+{
+  "images": [
+    {
+      "name": "首页横幅",
+      "url": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Beautiful%20Chinese%20tea%20garden%20misty%20morning%20mountains%20traditional%20architecture&image_size=landscape_16_9"
+    }
+  ],
+  "videos": [],
+  "pdfs": []
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理员登录 - 湘丰茶叶后台管理系统</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body class="login-page">
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <div class="login-logo">
+                    <div class="logo-icon">X</div>
+                    <div class="logo-text">
+                        <span>湘丰茶叶</span>
+                        <small>后台管理系统</small>
+                    </div>
+                </div>
+            </div>
+            <form class="login-form" id="loginForm">
+                <div class="form-group">
+                    <label for="username">用户名</label>
+                    <input type="text" id="username" name="username" placeholder="请输入用户名" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">密码</label>
+                    <input type="password" id="password" name="password" placeholder="请输入密码" required>
+                </div>
+                <div class="form-group">
+                    <label for="githubToken">GitHub Personal Access Token</label>
+                    <input type="password" id="githubToken" name="githubToken" placeholder="请输入GitHub Token" required>
+                    <small class="help-text">用于访问GitHub仓库数据的Token</small>
+                </div>
+                <div class="form-group">
+                    <label for="repo">仓库信息</label>
+                    <input type="text" id="repo" name="repo" placeholder="例如: username/xiangfeng-tea" required>
+                    <small class="help-text">您的GitHub仓库地址</small>
+                </div>
+                <button type="submit" class="btn-login">登录</button>
+            </form>
+            <div class="login-footer">
+                <p>首次使用请先在GitHub创建Personal Access Token</p>
+                <a href="https://github.com/settings/tokens/new" target="_blank">创建Token →</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 检查是否已保存登录信息
+        const savedConfig = localStorage.getItem('adminConfig');
+        if (savedConfig) {
+            const config = JSON.parse(savedConfig);
+            document.getElementById('repo').value = config.repo || '';
+        }
+
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const githubToken = document.getElementById('githubToken').value;
+            const repo = document.getElementById('repo').value;
+
+            // 验证输入
+            if (!username || !password || !githubToken || !repo) {
+                alert('请填写所有必填项');
+                return;
+            }
+
+            // 保存配置到localStorage
+            const config = {
+                username: username,
+                password: password,
+                githubToken: githubToken,
+                repo: repo
+            };
+            localStorage.setItem('adminConfig', JSON.stringify(config));
+            localStorage.setItem('isLoggedIn', 'true');
+
+            // 跳转到管理后台
+            window.location.href = 'admin.html';
+        });
+    </script>
+</body>
+</html>
