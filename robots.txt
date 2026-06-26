@@ -1,6 +1,10 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://xiangfeng-tea.github.io/sitemap.xml
+Sitemap: https://www.xiangfeng-tea.com/sitemap.xml
 
+# 安全配置：禁止爬取敏感目录
+Disallow: /admin/
+Disallow: /backup/
 Disallow: /.git/
+Disallow: /config/
