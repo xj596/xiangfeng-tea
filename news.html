@@ -3,68 +3,199 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" id="metaDesc" content="湘丰茶叶最新资讯 - 公司新闻、行业动态、活动预告。了解湘丰集团的最新发展。">
-    <meta name="keywords" content="湘丰茶叶新闻, 茶叶行业资讯, 公司动态">
-    <title id="pageTitle">新闻资讯 - 湘丰茶叶 | News & Events</title>
-    <link rel="canonical" href="https://xiangfeng-tea.github.io/news.html">
+    <meta name="description" content="湘丰茶业集团最新资讯 — 公司动态、行业新闻、产品发布、展会信息。了解湘丰茶业的最新发展。">
+    <meta name="keywords" content="湘丰茶业新闻,茶叶行业资讯,茶业动态,茶叶出口">
+    <title>新闻资讯 - 湘丰茶业集团 | News & Events</title>
+    <link rel="canonical" href="https://www.xiangfeng-tea.com/news.html">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="header">
-        <div class="container header-content">
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-inner">
             <a href="index.html" class="logo">
-                <div class="logo-icon">X</div>
-                <div class="logo-text"><span>Xiangfeng Tea</span><small>Premium Chinese Tea</small></div>
+                <div class="logo-icon">XF</div>
+                <div class="logo-text">
+                    <strong>湘丰茶业</strong>
+                    <small>Xiangfeng Tea Group</small>
+                </div>
             </a>
             <nav class="nav">
                 <a href="index.html">首页</a>
-                <a href="products.html">产品</a>
+                <a href="products.html">产品中心</a>
                 <a href="about.html">关于我们</a>
-                <a href="news.html" class="active">资讯</a>
+                <a href="news.html" class="active">新闻资讯</a>
                 <a href="contact.html">联系我们</a>
             </nav>
-            <a href="contact.html" class="btn-primary">获取报价</a>
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+            <div class="header-actions">
+                <a href="contact.html" class="btn btn-primary btn-sm">获取报价</a>
+            </div>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="菜单">☰</button>
         </div>
     </header>
 
     <div class="mobile-menu" id="mobileMenu">
         <a href="index.html">首页</a>
-        <a href="products.html">产品</a>
+        <a href="products.html">产品中心</a>
         <a href="about.html">关于我们</a>
-        <a href="news.html" class="active">资讯</a>
+        <a href="news.html" class="active">新闻资讯</a>
         <a href="contact.html">联系我们</a>
     </div>
 
-    <section class="page-header">
+    <!-- Page Hero -->
+    <section class="page-hero">
         <div class="container">
-            <span class="tagline" id="pageTagline">最新动态</span>
-            <h1 id="pageHeaderTitle">新闻资讯</h1>
-            <p class="section-desc" id="pageHeaderDesc">了解我们的最新发展、行业洞察和即将举行的活动。</p>
+            <span class="section-tag">News & Events</span>
+            <h1>新闻资讯</h1>
+            <p class="section-desc">了解湘丰茶业最新动态、行业趋势与展会信息</p>
         </div>
     </section>
 
-    <section class="section" style="background: white;">
+    <!-- News Grid -->
+    <section class="section bg-white">
         <div class="container">
-            <div class="news-grid" id="newsGrid">
-                <!-- 新闻将通过JavaScript动态加载 -->
+            <div class="news-grid">
+                <!-- News 1 -->
+                <article class="news-card">
+                    <div class="news-card-img">
+                        <img src="https://images.unsplash.com/photo-1563911892437-1feda0179e1b?w=600&q=80"
+                             alt="茶叶出口创历史新高"
+                             loading="lazy"
+                             onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#e0f5f3,#30B4A8)';">
+                    </div>
+                    <div class="news-card-body">
+                        <div class="news-meta">
+                            <span class="news-cat">公司动态</span>
+                            <span>2024-06-15</span>
+                        </div>
+                        <h3>湘丰茶业2024年上半年茶叶出口额同比增长35%，创历史新高</h3>
+                        <p>在全球茶叶市场需求持续增长的背景下，湘丰茶业集团凭借优质的产品品质和稳定的供应链体系，2024年上半年茶叶出口总额突破1.2亿美元，较去年同期增长35%。其中绿茶和乌龙茶品类表现尤为突出，欧洲市场增长最为显著。</p>
+                    </div>
+                </article>
+
+                <!-- News 2 -->
+                <article class="news-card">
+                    <div class="news-card-img">
+                        <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=600&q=80"
+                             alt="茶园有机认证"
+                             loading="lazy"
+                             onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#e0f5f3,#30B4A8)';">
+                    </div>
+                    <div class="news-card-body">
+                        <div class="news-meta">
+                            <span class="news-cat">品质认证</span>
+                            <span>2024-05-22</span>
+                        </div>
+                        <h3>湘丰茶业新增3个茶园获得欧盟有机认证，有机茶产量提升40%</h3>
+                        <p>湘丰茶业集团旗下位于浙江、福建、云南的三个核心茶园近日正式通过欧盟有机产品认证（EU Organic）。至此，集团共有8个茶园获得有机认证，有机茶年产量提升至4000吨，进一步满足欧洲及北美市场对有机茶叶的旺盛需求。</p>
+                    </div>
+                </article>
+
+                <!-- News 3 -->
+                <article class="news-card">
+                    <div class="news-card-img">
+                        <img src="https://images.unsplash.com/photo-1558160074-4d7d8bdf4256?w=600&q=80"
+                             alt="国际茶博会参展"
+                             loading="lazy"
+                             onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#e0f5f3,#30B4A8)';">
+                    </div>
+                    <div class="news-card-body">
+                        <div class="news-meta">
+                            <span class="news-cat">展会活动</span>
+                            <span>2024-05-08</span>
+                        </div>
+                        <h3>湘丰茶业精彩亮相2024年德国科隆国际食品展（Anuga），大获好评</h3>
+                        <p>在刚刚结束的2024年德国科隆国际食品展上，湘丰茶业集团携旗下全系列产品精彩亮相。展会期间，集团展位接待了来自30多个国家的超过200位专业采购商，现场签约意向金额超过800万美元。多款新品受到欧洲买家热烈追捧。</p>
+                    </div>
+                </article>
+
+                <!-- News 4 -->
+                <article class="news-card">
+                    <div class="news-card-img">
+                        <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=600&q=80"
+                             alt="数字化升级"
+                             loading="lazy"
+                             onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#e0f5f3,#30B4A8)';">
+                    </div>
+                    <div class="news-card-body">
+                        <div class="news-meta">
+                            <span class="news-cat">公司动态</span>
+                            <span>2024-04-20</span>
+                        </div>
+                        <h3>湘丰茶业启动"智慧茶园"项目，全面推动数字化转型</h3>
+                        <p>湘丰茶业集团宣布投资5000万元启动"智慧茶园"数字化转型项目。该项目将在核心茶园部署物联网传感器、无人机巡检、AI品质检测等先进技术，实现从种植、采摘到加工的全流程数字化管理，进一步提升产品品质的可控性和可追溯性。</p>
+                    </div>
+                </article>
+
+                <!-- News 5 -->
+                <article class="news-card">
+                    <div class="news-card-img">
+                        <img src="https://images.unsplash.com/photo-1597318181409-cf64d0b5d8a2?w=600&q=80"
+                             alt="新品发布"
+                             loading="lazy"
+                             onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#e0f5f3,#30B4A8)';">
+                    </div>
+                    <div class="news-card-body">
+                        <div class="news-meta">
+                            <span class="news-cat">产品发布</span>
+                            <span>2024-04-05</span>
+                        </div>
+                        <h3>湘丰茶业推出春季限定"龙井新茶"系列，预售首日即告罄</h3>
+                        <p>清明前后是西湖龙井采摘的最佳时节。湘丰茶业集团今年春季全新推出"大师手作·龙井新茶"限量系列，由三代传承的制茶大师全程监制。首批500公斤产品在预售首日即被海外客户预订一空，日韩及欧洲市场需求格外旺盛。</p>
+                    </div>
+                </article>
+
+                <!-- News 6 -->
+                <article class="news-card">
+                    <div class="news-card-img">
+                        <img src="https://images.unsplash.com/photo-1563822249366-3efb23b8e0c9?w=600&q=80"
+                             alt="产业合作"
+                             loading="lazy"
+                             onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#e0f5f3,#30B4A8)';">
+                    </div>
+                    <div class="news-card-body">
+                        <div class="news-meta">
+                            <span class="news-cat">合作动态</span>
+                            <span>2024-03-18</span>
+                        </div>
+                        <h3>湘丰茶业与法国知名茶品牌签署战略合作协议，深度开拓欧洲零售市场</h3>
+                        <p>湘丰茶业集团近日与法国知名茶品牌Maison de Thé签署为期五年的战略合作协议。根据协议，湘丰茶业将成为该品牌在中国茶叶品类的独家供应商，年供货量预计超过800吨，涵盖绿茶、红茶、白茶等多个品类。</p>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
 
+    <!-- CTA -->
+    <section class="section cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>想了解更多？</h2>
+                <p>关注湘丰茶业最新动态，第一时间获取产品信息和行业资讯。</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-white">联系我们</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <div class="logo">
-                        <div class="logo-icon gold">X</div>
-                        <div class="logo-text"><span>Xiangfeng Tea</span><small>湘丰茶叶</small></div>
-                    </div>
-                    <p id="footerBrandDesc">湘丰集团是中国领先的茶叶出口商。</p>
+                    <a href="index.html" class="logo" style="margin-bottom:16px;">
+                        <div class="logo-icon">XF</div>
+                        <div class="logo-text">
+                            <strong>湘丰茶业集团</strong>
+                            <small>Xiangfeng Tea Group</small>
+                        </div>
+                    </a>
+                    <p>湘丰茶业集团是中国领先的茶叶出口商，致力于将最优质的中国茶叶带给全世界。</p>
                 </div>
-                <div class="footer-links">
-                    <h4>快速链接</h4>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
                     <ul>
                         <li><a href="index.html">首页</a></li>
                         <li><a href="products.html">产品中心</a></li>
@@ -73,120 +204,44 @@
                         <li><a href="contact.html">联系我们</a></li>
                     </ul>
                 </div>
-                <div class="footer-contact">
+                <div class="footer-col">
+                    <h4>产品分类</h4>
+                    <ul>
+                        <li><a href="products.html">绿茶系列</a></li>
+                        <li><a href="products.html">红茶系列</a></li>
+                        <li><a href="products.html">乌龙茶系列</a></li>
+                        <li><a href="products.html">白茶系列</a></li>
+                        <li><a href="products.html">普洱茶系列</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact footer-col">
                     <h4>联系方式</h4>
-                    <ul id="footerContact">
-                        <li>📍 浙江省杭州市茶道888号</li>
-                        <li>📞 +86 571 8888 8888</li>
+                    <ul>
+                        <li>📍 中国浙江省杭州市茶韵路168号</li>
+                        <li>📞 +86 571 8888 6666</li>
                         <li>✉️ export@xiangfeng-tea.com</li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p id="footerCopyright">&copy; 2024 湘丰茶叶集团. 版权所有.</p>
+                <p>&copy; 2024 湘丰茶业集团 版权所有</p>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/company/xiangfeng-tea" target="_blank" rel="noopener" title="LinkedIn">in</a>
+                    <a href="https://www.facebook.com/xiangfengtea" target="_blank" rel="noopener" title="Facebook">f</a>
+                    <a href="https://www.instagram.com/xiangfeng_tea" target="_blank" rel="noopener" title="Instagram">ig</a>
+                </div>
             </div>
         </div>
     </footer>
 
     <script>
-        // 全局数据存储
-        let newsData = { news: [] };
-        let settingsData = {};
-
-        // 初始化
-        async function init() {
-            await loadData();
-            renderAll();
-        }
-
-        // 加载数据
-        async function loadData() {
-            try {
-                const [newsRes, settingsRes] = await Promise.all([
-                    fetch('./data/news.json').then(r => r.ok ? r.json() : null).catch(() => null),
-                    fetch('./data/settings.json').then(r => r.ok ? r.json() : null).catch(() => null)
-                ]);
-
-                if (newsRes) newsData = newsRes;
-                if (settingsRes) settingsData = settingsRes;
-            } catch (e) {
-                console.warn('加载数据失败');
-            }
-        }
-
-        // 渲染所有内容
-        function renderAll() {
-            renderNews();
-            renderFooter();
-            renderPageMeta();
-        }
-
-        // 渲染新闻列表
-        function renderNews() {
-            const grid = document.getElementById('newsGrid');
-
-            if (!newsData.news || newsData.news.length === 0) {
-                grid.innerHTML = `
-                    <div class="empty-state" style="grid-column: 1 / -1; text-align: center; padding: 60px 20px;">
-                        <div style="font-size: 48px; margin-bottom: 16px;">📰</div>
-                        <p style="font-size: 16px; color: #666;">暂无新闻资讯</p>
-                    </div>
-                `;
-                return;
-            }
-
-            grid.innerHTML = newsData.news.map(item => `
-                <article class="news-card">
-                    <div class="news-card-image">
-                        <img src="${item.image}" alt="${item.title}" loading="lazy">
-                    </div>
-                    <div class="news-card-content">
-                        <span class="news-card-category">${item.category}</span>
-                        <div class="news-card-date">${item.date}</div>
-                        <h3>${item.title}</h3>
-                        <p>${item.content ? item.content.substring(0, 100) + '...' : ''}</p>
-                        <a href="#" class="read-more" onclick="showNewsDetail('${item.id}'); return false;">阅读更多 →</a>
-                    </div>
-                </article>
-            `).join('');
-        }
-
-        // 显示新闻详情（简化版，实际可扩展）
-        function showNewsDetail(id) {
-            const news = newsData.news.find(n => n.id === id);
-            if (news) {
-                alert(`${news.title}\n\n${news.content}\n\n发布日期: ${news.date}`);
-            }
-        }
-
-        // 渲染页脚
-        function renderFooter() {
-            if (settingsData.contact) {
-                const contact = settingsData.contact;
-                const contactHtml = [];
-                if (contact.address) contactHtml.push(`📍 ${contact.address}`);
-                if (contact.phone) contactHtml.push(`📞 ${contact.phone}`);
-                if (contact.email) contactHtml.push(`✉️ ${contact.email}`);
-                if (contact.hours) contactHtml.push(`🕐 ${contact.hours}`);
-                document.getElementById('footerContact').innerHTML = contactHtml.map(c => `<li>${c}</li>`).join('');
-            }
-        }
-
-        // 渲染页面Meta
-        function renderPageMeta() {
-            if (settingsData.site) {
-                document.title = `新闻资讯 - ${settingsData.site.name || '湘丰茶叶'} | News & Events`;
-            }
-        }
-
         function toggleMobileMenu() {
             document.getElementById('mobileMenu').classList.toggle('active');
         }
         window.addEventListener('scroll', () => {
-            document.querySelector('.header').classList.toggle('scrolled', window.scrollY > 50);
+            const header = document.getElementById('header');
+            header.classList.toggle('scrolled', window.scrollY > 50);
         });
-
-        init();
     </script>
 </body>
 </html>
