@@ -3,210 +3,280 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="湘丰集团 - 中国优质茶叶出口商。提供西湖龙井、大红袍、祁门红茶等优质绿茶、红茶、乌龙茶。36年专业茶叶出口经验，出口50多个国家。">
-    <meta name="keywords" content="中国茶叶,绿茶,红茶,乌龙茶,普洱茶,白茶,茶叶出口,湘丰茶叶">
+    <meta name="description" content="湘丰茶业集团 - 中国优质茶叶出口商。提供西湖龙井、大红袍、祁门红茶等优质绿茶、红茶、乌龙茶。专业茶叶出口经验，产品远销全球。">
+    <meta name="keywords" content="中国茶叶,绿茶,红茶,乌龙茶,普洱茶,白茶,茶叶出口,湘丰茶业">
     <meta name="author" content="Xiangfeng Tea Group">
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="湘丰茶叶 - 优质中国茶叶出口">
-    <meta property="og:description" content="36年专业茶叶出口经验，出口50多个国家和地区">
+    <meta property="og:title" content="湘丰茶业集团 - 优质中国茶叶出口">
+    <meta property="og:description" content="传承中国茶文化，将最优质的中国茶叶带给全世界。">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://xiangfeng-tea.github.io">
-    <meta property="og:image" id="ogImage" content="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Beautiful%20Chinese%20tea%20garden%20misty%20morning%20mountains%20traditional%20architecture&image_size=landscape_16_9">
-
-    <title id="pageTitle">湘丰茶叶 - 优质中国茶叶出口 | Premium Chinese Tea Export</title>
-
-    <link rel="canonical" href="https://xiangfeng-tea.github.io">
+    <title>湘丰茶业集团 - 优质中国茶叶出口 | Xiangfeng Tea Group</title>
+    <link rel="canonical" href="https://www.xiangfeng-tea.com">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container header-content">
+    <!-- ========== Header ========== -->
+    <header class="header" id="header">
+        <div class="header-inner">
             <a href="index.html" class="logo">
-                <div class="logo-icon" id="headerLogoIcon">X</div>
+                <div class="logo-icon">XF</div>
                 <div class="logo-text">
-                    <span id="headerLogoText">Xiangfeng Tea</span>
-                    <small id="headerLogoSub">Premium Chinese Tea</small>
+                    <strong>湘丰茶业</strong>
+                    <small>Xiangfeng Tea Group</small>
                 </div>
             </a>
             <nav class="nav">
                 <a href="index.html" class="active">首页</a>
-                <a href="products.html">产品</a>
+                <a href="products.html">产品中心</a>
                 <a href="about.html">关于我们</a>
-                <a href="news.html">资讯</a>
+                <a href="news.html">新闻资讯</a>
                 <a href="contact.html">联系我们</a>
             </nav>
-            <a href="contact.html" class="btn-primary">获取报价</a>
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+            <div class="header-actions">
+                <a href="contact.html" class="btn btn-primary btn-sm">获取报价</a>
+            </div>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="菜单">☰</button>
         </div>
     </header>
 
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <a href="index.html" class="active">首页</a>
-        <a href="products.html">产品</a>
+        <a href="products.html">产品中心</a>
         <a href="about.html">关于我们</a>
-        <a href="news.html">资讯</a>
+        <a href="news.html">新闻资讯</a>
         <a href="contact.html">联系我们</a>
     </div>
 
-    <!-- Hero Section -->
+    <!-- ========== Hero Section ========== -->
     <section class="hero">
-        <div class="hero-bg" id="heroBg"></div>
-        <div class="hero-overlay"></div>
-        <div class="container hero-content">
-            <div class="hero-badge">
-                <span class="pulse"></span>
-                <span id="heroBadge">自1988年，品质保证</span>
-            </div>
-            <h1 id="heroTitle">
-                发现中国<br>
-                <span class="gold">最优质的茶叶</span>
-            </h1>
-            <p id="heroSubtitle">
-                体验中国最负盛名茶叶的纯正风味。<br>
-                源自中国最优茶区，由专家精心采摘。
-            </p>
-            <div class="hero-buttons">
-                <a href="products.html" class="btn-primary">探索产品</a>
-                <button class="btn-outline" id="heroVideoBtn">观看视频</button>
-            </div>
-            <div class="hero-stats" id="heroStats">
-                <div class="stat">
-                    <strong id="heroStat1Value">36+</strong>
-                    <span id="heroStat1Label">年经验</span>
+        <div class="hero-bg">
+            <img class="hero-bg-img"
+                 src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=1920&q=80"
+                 alt="中国茶园"
+                 onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg, #0d2624 0%, #1a8f84 50%, #30B4A8 100%)';">
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-badge">
+                    <span class="dot"></span>
+                    <span>中国优质茶叶出口商</span>
                 </div>
-                <div class="stat-divider"></div>
-                <div class="stat">
-                    <strong id="heroStat2Value">50+</strong>
-                    <span id="heroStat2Label">国家地区</span>
+                <h1>源自中国<br><span class="accent">走向世界</span></h1>
+                <p class="hero-subtitle">
+                    湘丰茶业集团致力于将中国最优质的茶叶带给全球消费者。
+                    从西湖龙井到武夷山大红袍，每一片茶叶都承载着千年的东方韵味。
+                </p>
+                <div class="hero-buttons">
+                    <a href="products.html" class="btn btn-primary">探索产品</a>
+                    <button class="btn btn-outline" onclick="openInquiry()">在线询盘</button>
                 </div>
-                <div class="stat-divider"></div>
-                <div class="stat">
-                    <strong id="heroStat3Value">100%</strong>
-                    <span id="heroStat3Label">天然有机</span>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <strong>30+<span style="font-size:0.7em">年</span></strong>
+                        <span>行业经验</span>
+                    </div>
+                    <div class="hero-stat">
+                        <strong>50+<span style="font-size:0.7em">国</span></strong>
+                        <span>出口覆盖</span>
+                    </div>
+                    <div class="hero-stat">
+                        <strong>200+<span style="font-size:0.7em">项</span></strong>
+                        <span>品质认证</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-card">
+                    <div class="hero-card-label">热门产品</div>
+                    <h3>精选茶叶系列</h3>
+                    <p>从中国核心茶区直采，经过严格品质把控，为您呈现最纯正的中国茶。</p>
+                    <div class="hero-card-features">
+                        <div class="hf-item"><span class="hf-icon">✓</span> 西湖龙井 — 绿茶之王</div>
+                        <div class="hf-item"><span class="hf-icon">✓</span> 武夷山大红袍 — 岩茶之首</div>
+                        <div class="hf-item"><span class="hf-icon">✓</span> 祁门红茶 — 世界高香</div>
+                        <div class="hf-item"><span class="hf-icon">✓</span> 福鼎白茶 — 自然之选</div>
+                    </div>
+                    <a href="products.html" class="btn btn-white btn-sm">查看全部产品 →</a>
                 </div>
             </div>
         </div>
-        <div class="scroll-hint">
+        <div class="scroll-indicator">
             <div class="scroll-line"></div>
         </div>
     </section>
 
-    <!-- Featured Products -->
-    <section class="section products-section">
+    <!-- ========== Featured Products ========== -->
+    <section class="section bg-white">
         <div class="container">
             <div class="section-header">
-                <div>
-                    <span class="tagline">精选产品</span>
-                    <h2>优质茶叶系列</h2>
-                    <p class="section-desc" id="productsSectionDesc">
-                        从中国各地最优茶园精心挑选，每款茶叶都代表着几个世纪的传统和工艺。
-                    </p>
-                </div>
-                <a href="products.html" class="link-arrow">查看全部产品 →</a>
+                <span class="section-tag">精选产品</span>
+                <h2>核心茶叶系列</h2>
+                <p class="section-desc">从中国各大名茶产区精心甄选，涵盖绿茶、红茶、乌龙茶、白茶、普洱茶等主要品类。</p>
             </div>
-            <div class="products-grid" id="featuredProductsGrid">
-                <!-- 产品将通过JavaScript动态加载 -->
+            <div class="products-grid" id="featuredProducts">
+                <!-- 产品通过JS动态渲染 -->
+            </div>
+            <div class="text-center mt-40">
+                <a href="products.html" class="btn btn-outline-dark">查看全部产品</a>
             </div>
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="section stats-section">
-        <div class="container">
-            <div class="section-header centered">
-                <span class="tagline">我们的成就</span>
-                <h2>全球信赖的品牌</h2>
-                <p class="section-desc" id="statsSectionDesc">
-                    三十多年来，我们致力于为全球消费者提供最优质的中国茶叶。
-                </p>
-            </div>
-            <div class="stats-grid" id="statsGrid">
-                <!-- 统计数据将通过JavaScript动态加载 -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Certifications -->
-    <section class="section cert-section">
-        <div class="container">
-            <div class="section-header centered">
-                <span class="tagline">品质保证</span>
-                <h2>权威认证</h2>
-                <p class="section-desc" id="certSectionDesc">
-                    我们对品质的承诺得到全球权威认证机构的认可。
-                </p>
-            </div>
-            <div class="cert-grid" id="certGrid">
-                <!-- 认证将通过JavaScript动态加载 -->
-            </div>
-        </div>
-    </section>
-
-    <!-- About Preview -->
-    <section class="section about-preview">
+    <!-- ========== About Preview ========== -->
+    <section class="section bg-pale">
         <div class="container">
             <div class="about-grid">
-                <div class="about-content">
-                    <span class="tagline" id="aboutTagline">我们的故事</span>
-                    <h2 id="aboutTitle">传承与卓越</h2>
-                    <div id="aboutContent">
-                        <p>
-                            湘丰集团创立于1988年，位于浙江杭州西湖畔的龙井茶故乡。三十多年来，我们从一个小茶园发展成为享誉全球的中国茶叶出口企业。
-                        </p>
-                        <p>
-                            我们与中国50多个优质茶园建立合作关系，确保每一片茶叶都讲述着传统、品质和热情的故事。
-                        </p>
+                <div class="about-image-wrap">
+                    <img src="https://images.unsplash.com/photo-1558160074-4d7d8bdf4256?w=600&q=80"
+                         alt="中国茶文化"
+                         onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22400%22><rect fill=%22%23e0f5f3%22 width=%22600%22 height=%22400%22/><text x=%22300%22 y=%22200%22 text-anchor=%22middle%22 fill=%22%2330B4A8%22 font-size=%2220%22>茶文化</text></svg>'">
+                    <div class="about-badge">
+                        <strong>30+</strong>
+                        <span>年行业深耕</span>
                     </div>
-                    <div class="about-features" id="aboutFeatures">
-                        <!-- 特色将通过JavaScript动态加载 -->
-                    </div>
-                    <a href="about.html" class="btn-primary">了解更多</a>
                 </div>
-                <div class="about-image">
-                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Traditional%20Chinese%20tea%20ceremony%20master%20preparing%20tea%20elegant%20setting%20soft%20lighting&image_size=landscape_4_3" alt="茶艺师" id="aboutImage">
-                    <div class="experience-badge">
-                        <strong id="aboutExperienceValue">36+</strong>
-                        <span>年经验</span>
+                <div class="about-content">
+                    <span class="section-tag">关于我们</span>
+                    <h2>传承千年茶韵<br>连接世界市场</h2>
+                    <p>湘丰茶业集团扎根中国核心茶产区，拥有三十余年茶叶种植、加工与出口经验。我们与中国50多个优质茶园建立了长期战略合作关系，产品远销欧洲、北美、东南亚、中东等50多个国家和地区。</p>
+                    <p>我们不仅是一家茶叶出口企业，更是中国茶文化的传播者。每一批茶叶都经过严格品控，从茶园到茶杯，全程可追溯。</p>
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <div class="about-feature-icon">🏔️</div>
+                            <div class="about-feature-text">
+                                <strong>核心产区</strong>
+                                <p>精选中国名茶原产地</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">🌿</div>
+                            <div class="about-feature-text">
+                                <strong>天然有机</strong>
+                                <p>100%自然种植无添加</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">🔬</div>
+                            <div class="about-feature-text">
+                                <strong>严格品控</strong>
+                                <p>200+项检测标准把关</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">📦</div>
+                            <div class="about-feature-text">
+                                <strong>全球物流</strong>
+                                <p>专业出口包装配送</p>
+                            </div>
+                        </div>
                     </div>
+                    <a href="about.html" class="btn btn-primary">了解更多</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="section cta-section">
+    <!-- ========== Stats ========== -->
+    <section class="section bg-white">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">实力数据</span>
+                <h2>全球信赖的合作伙伴</h2>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card fade-in">
+                    <div class="stat-icon">🍃</div>
+                    <div class="stat-number counter" data-target="10000">0</div>
+                    <div class="stat-label">年产量（吨）</div>
+                </div>
+                <div class="stat-card fade-in">
+                    <div class="stat-icon">🌍</div>
+                    <div class="stat-number counter" data-target="50">0</div>
+                    <div class="stat-label">出口国家地区</div>
+                </div>
+                <div class="stat-card fade-in">
+                    <div class="stat-icon">🏆</div>
+                    <div class="stat-number counter" data-target="200">0</div>
+                    <div class="stat-label">品质认证奖项</div>
+                </div>
+                <div class="stat-card fade-in">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-number counter" data-target="5000">0</div>
+                    <div class="stat-label">合作客户</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== Certifications ========== -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">品质保证</span>
+                <h2>国际权威认证</h2>
+                <p class="section-desc">我们对品质的承诺获得了全球权威认证机构的认可。</p>
+            </div>
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <div class="cert-icon">✓</div>
+                    <h3>ISO 9001</h3>
+                    <p>国际质量管理体系</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">🌿</div>
+                    <h3>有机认证</h3>
+                    <p>中国有机产品认证</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">🛡️</div>
+                    <h3>HACCP</h3>
+                    <p>食品安全管理体系</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">📍</div>
+                    <h3>地理标志</h3>
+                    <p>原产地产品保护</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">🇪🇺</div>
+                    <h3>EU Organic</h3>
+                    <p>欧盟有机食品标准</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CTA ========== -->
+    <section class="section cta">
         <div class="container">
             <div class="cta-content">
-                <h2 id="ctaTitle">准备好体验最优质的茶叶了吗？</h2>
-                <p id="ctaDesc">探索我们的优质茶叶系列，提升您的茶饮体验。立即联系我们获取批发报价和特别优惠。</p>
+                <h2>寻找可靠的茶叶供应商？</h2>
+                <p>无论是大宗批发还是品牌定制，湘丰茶业集团都能为您提供一站式解决方案。立即联系我们，获取专属报价。</p>
                 <div class="cta-buttons">
-                    <a href="products.html" class="btn-white" id="ctaBtn1">浏览产品</a>
-                    <a href="contact.html" class="btn-outline-white" id="ctaBtn2">联系我们</a>
+                    <a href="contact.html" class="btn btn-white">立即询盘</a>
+                    <a href="products.html" class="btn btn-outline" style="color:white;border-color:rgba(255,255,255,0.4);">浏览产品</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ========== Footer ========== -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <div class="logo">
-                        <div class="logo-icon gold" id="footerLogoIcon">X</div>
+                    <a href="index.html" class="logo" style="margin-bottom:16px;">
+                        <div class="logo-icon">XF</div>
                         <div class="logo-text">
-                            <span id="footerLogoText">Xiangfeng Tea</span>
-                            <small id="footerLogoSub">湘丰茶叶</small>
+                            <strong>湘丰茶业集团</strong>
+                            <small>Xiangfeng Tea Group</small>
                         </div>
-                    </div>
-                    <p id="footerBrandDesc">湘丰集团是中国领先的茶叶出口商，致力于将最优质的中国茶叶带给全世界。三十多年经验，品质保证。</p>
+                    </a>
+                    <p>湘丰茶业集团是中国领先的茶叶出口商，致力于将最优质的中国茶叶带给全世界。三十余年行业经验，品质值得信赖。</p>
                 </div>
-                <div class="footer-links">
-                    <h4>快速链接</h4>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
                     <ul>
                         <li><a href="index.html">首页</a></li>
                         <li><a href="products.html">产品中心</a></li>
@@ -215,7 +285,7 @@
                         <li><a href="contact.html">联系我们</a></li>
                     </ul>
                 </div>
-                <div class="footer-links">
+                <div class="footer-col">
                     <h4>产品分类</h4>
                     <ul>
                         <li><a href="products.html">绿茶系列</a></li>
@@ -225,335 +295,318 @@
                         <li><a href="products.html">普洱茶系列</a></li>
                     </ul>
                 </div>
-                <div class="footer-contact">
+                <div class="footer-contact footer-col">
                     <h4>联系方式</h4>
-                    <ul id="footerContact">
-                        <li>📍 浙江省杭州市茶道888号</li>
-                        <li>📞 +86 571 8888 8888</li>
+                    <ul>
+                        <li>📍 中国浙江省杭州市茶韵路168号</li>
+                        <li>📞 +86 571 8888 6666</li>
                         <li>✉️ export@xiangfeng-tea.com</li>
-                        <li>🕐 周一至周五 9:00-18:00</li>
+                        <li>🕐 周一至周五 9:00-18:00 (GMT+8)</li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p id="footerCopyright">&copy; 2024 湘丰茶叶集团. 版权所有.</p>
-                <div class="social-links" id="socialLinks">
-                    <a href="#">Facebook</a>
-                    <a href="#">Instagram</a>
-                    <a href="#">Twitter</a>
+                <p>&copy; 2024 湘丰茶业集团 版权所有 | Xiangfeng Tea Group Co., Ltd.</p>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/company/xiangfeng-tea" target="_blank" rel="noopener" title="LinkedIn">in</a>
+                    <a href="https://www.facebook.com/xiangfengtea" target="_blank" rel="noopener" title="Facebook">f</a>
+                    <a href="https://www.instagram.com/xiangfeng_tea" target="_blank" rel="noopener" title="Instagram">ig</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <script>
-        // 全局数据存储
-        let productsData = { products: [], categories: [] };
-        let settingsData = {};
-        let mediaData = { images: [], videos: [], pdfs: [] };
+    <!-- ========== Inquiry Popup Modal ========== -->
+    <div class="popup-overlay" id="inquiryPopup" style="display:none;">
+        <div class="popup">
+            <div class="popup-header">
+                <h2>获取报价 · 在线询盘</h2>
+                <button class="popup-close" onclick="closeInquiry()" aria-label="关闭">✕</button>
+            </div>
+            <div class="popup-body">
+                <!-- 茶叶简介 -->
+                <div class="popup-intro">
+                    <h3>🍵 湘丰茶业 — 优质中国茶叶出口</h3>
+                    <p>我们精选中国各大核心产区的优质茶叶，覆盖绿茶、红茶、乌龙茶、白茶、普洱茶等主要品类，满足全球客户多样化的采购需求。</p>
+                </div>
 
-        // 初始化
-        async function init() {
-            await loadData();
-            renderAll();
-        }
-
-        // 加载所有数据
-        async function loadData() {
-            try {
-                // 加载JSON数据
-                const [productsRes, settingsRes, mediaRes] = await Promise.all([
-                    fetch('./data/products.json').then(r => r.ok ? r.json() : null).catch(() => null),
-                    fetch('./data/settings.json').then(r => r.ok ? r.json() : null).catch(() => null),
-                    fetch('./data/media.json').then(r => r.ok ? r.json() : null).catch(() => null)
-                ]);
-
-                if (productsRes) productsData = productsRes;
-                if (settingsRes) settingsData = settingsRes;
-                if (mediaRes) mediaData = mediaRes;
-
-            } catch (e) {
-                console.warn('加载数据失败，使用默认设置');
-            }
-        }
-
-        // 渲染所有内容
-        function renderAll() {
-            renderHero();
-            renderFeaturedProducts();
-            renderStats();
-            renderCertifications();
-            renderAboutPreview();
-            renderFooter();
-            renderPageMeta();
-        }
-
-        // 渲染Hero区域
-        function renderHero() {
-            if (settingsData.hero) {
-                const hero = settingsData.hero;
-                if (hero.badge) document.getElementById('heroBadge').textContent = hero.badge;
-                if (hero.title) document.getElementById('heroTitle').innerHTML = hero.title.replace(/\n/g, '<br>');
-                if (hero.subtitle) document.getElementById('heroSubtitle').innerHTML = hero.subtitle.replace(/\n/g, '<br>');
-
-                if (hero.stats && hero.stats.length >= 3) {
-                    document.getElementById('heroStat1Value').textContent = hero.stats[0].value;
-                    document.getElementById('heroStat1Label').textContent = hero.stats[0].label;
-                    document.getElementById('heroStat2Value').textContent = hero.stats[1].value;
-                    document.getElementById('heroStat2Label').textContent = hero.stats[1].label;
-                    document.getElementById('heroStat3Value').textContent = hero.stats[2].value;
-                    document.getElementById('heroStat3Label').textContent = hero.stats[2].label;
-                }
-            }
-        }
-
-        // 渲染精选产品
-        function renderFeaturedProducts() {
-            const grid = document.getElementById('featuredProductsGrid');
-            const featuredProducts = productsData.products.filter(p => p.featured).slice(0, 4);
-
-            if (featuredProducts.length === 0) {
-                // 如果没有精选产品，显示前4个产品
-                featuredProducts = productsData.products.slice(0, 4);
-            }
-
-            grid.innerHTML = featuredProducts.map(product => `
-                <article class="product-card">
-                    <div class="product-image">
-                        <img src="${product.image}" alt="${product.name}" loading="lazy">
-                        <div class="product-overlay">
-                            <a href="${product.id}.html" class="btn-view">查看详情</a>
+                <!-- 推荐茶叶 -->
+                <div class="popup-teas">
+                    <div class="tea-mini-card">
+                        <div class="tea-mini-icon">🍃</div>
+                        <div class="tea-mini-info">
+                            <strong>西湖龙井</strong>
+                            <span>中国十大名茶之首，色绿、香郁、味甘、形美</span>
                         </div>
-                        ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ''}
                     </div>
-                    <div class="product-info">
-                        <div class="product-meta">
-                            <span>${product.category}</span><span>|</span><span>${product.origin}</span>
+                    <div class="tea-mini-card">
+                        <div class="tea-mini-icon">🪨</div>
+                        <div class="tea-mini-info">
+                            <strong>武夷山大红袍</strong>
+                            <span>岩茶之王，香气馥郁，岩韵悠长</span>
                         </div>
-                        <h3>${product.name}</h3>
-                        <p class="product-origin">${product.nameEn || ''}</p>
-                        <p class="product-desc">${product.description}</p>
-                        <div class="product-footer">
-                            <div class="price">¥${product.price} <small>/ ${product.priceUnit}</small></div>
-                            <div class="cert-tags">
-                                ${(product.certifications || []).map(c => `<span>${c}</span>`).join('')}
-                            </div>
+                    </div>
+                    <div class="tea-mini-card">
+                        <div class="tea-mini-icon">🫖</div>
+                        <div class="tea-mini-info">
+                            <strong>祁门红茶</strong>
+                            <span>世界三大高香红茶之一，蜜糖花香</span>
+                        </div>
+                    </div>
+                    <div class="tea-mini-card">
+                        <div class="tea-mini-icon">🌸</div>
+                        <div class="tea-mini-info">
+                            <strong>白毫银针</strong>
+                            <span>白茶极品，满披白毫，清鲜甘醇</span>
+                        </div>
+                    </div>
+                    <div class="tea-mini-card">
+                        <div class="tea-mini-icon">🍂</div>
+                        <div class="tea-mini-info">
+                            <strong>普洱熟茶</strong>
+                            <span>云南大叶种，陈香醇厚，温润养胃</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 询盘表单 -->
+                <form class="popup-form" id="inquiryForm" onsubmit="submitInquiry(event)">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>姓名 <span class="required">*</span></label>
+                            <input type="text" name="name" placeholder="您的姓名" required>
+                        </div>
+                        <div class="form-group">
+                            <label>公司名称</label>
+                            <input type="text" name="company" placeholder="公司名称（选填）">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>邮箱 <span class="required">*</span></label>
+                            <input type="email" name="email" placeholder="your@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label>电话 / WhatsApp</label>
+                            <input type="tel" name="phone" placeholder="+86 138 xxxx xxxx">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>国家/地区 <span class="required">*</span></label>
+                        <input type="text" name="country" placeholder="您所在的国家或地区" required>
+                    </div>
+                    <div class="form-group">
+                        <label>感兴趣的茶叶品类</label>
+                        <select name="teaType">
+                            <option value="">请选择（可多选，留言中补充）</option>
+                            <option value="green">绿茶（西湖龙井、碧螺春等）</option>
+                            <option value="black">红茶（祁门红茶、正山小种等）</option>
+                            <option value="oolong">乌龙茶（大红袍、铁观音等）</option>
+                            <option value="white">白茶（白毫银针、白牡丹等）</option>
+                            <option value="puer">普洱茶（生茶/熟茶）</option>
+                            <option value="multiple">多种品类</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>需求描述 <span class="required">*</span></label>
+                        <textarea name="message" placeholder="请描述您的采购需求：数量、包装要求、目标市场等..." required></textarea>
+                    </div>
+                    <button type="submit" class="form-submit">提交询盘</button>
+                    <p style="font-size:0.78rem;color:#888;margin-top:12px;text-align:center;">
+                        提交后我们的外贸团队将在24小时内与您联系
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ========== Product Data ==========
+        const products = [
+            {
+                id: "longjing",
+                name: "西湖龙井",
+                nameEn: "West Lake Longjing",
+                category: "绿茶",
+                origin: "浙江杭州",
+                price: "280",
+                priceUnit: "100g",
+                desc: "中国十大名茶之首，外形扁平光滑，色泽翠绿，香气清高持久，滋味鲜爽甘醇。",
+                certs: ["ISO 9001", "有机认证"],
+                image: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=600&q=80",
+                badge: "热销"
+            },
+            {
+                id: "dahongpao",
+                name: "大红袍",
+                nameEn: "Da Hong Pao",
+                category: "乌龙茶",
+                origin: "福建武夷山",
+                price: "680",
+                priceUnit: "100g",
+                desc: "武夷岩茶代表，誉为"茶中之王"，香气馥郁持久，岩韵显著，七泡有余香。",
+                certs: ["ISO 9001", "地理标志"],
+                image: "https://images.unsplash.com/photo-1563822249366-3efb23b8e0c9?w=600&q=80",
+                badge: ""
+            },
+            {
+                id: "keemun",
+                name: "祁门红茶",
+                nameEn: "Keemun Black Tea",
+                category: "红茶",
+                origin: "安徽祁门",
+                price: "180",
+                priceUnit: "100g",
+                desc: "世界三大高香红茶之一，香气似花似蜜似果，汤色红艳明亮，滋味醇厚甘甜。",
+                certs: ["ISO 9001", "HACCP"],
+                image: "https://images.unsplash.com/photo-1597318181409-cf64d0b5d8a2?w=600&q=80",
+                badge: ""
+            },
+            {
+                id: "silverneedle",
+                name: "白毫银针",
+                nameEn: "Silver Needle",
+                category: "白茶",
+                origin: "福建福鼎",
+                price: "420",
+                priceUnit: "100g",
+                desc: "白茶中的极品，满披白毫如银似雪，汤色浅杏黄，滋味清鲜醇爽，毫香明显。",
+                certs: ["有机认证", "地理标志"],
+                image: "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=600&q=80",
+                badge: ""
+            }
+        ];
+
+        // ========== Render Featured Products ==========
+        function renderFeaturedProducts() {
+            const grid = document.getElementById('featuredProducts');
+            grid.innerHTML = products.map(p => `
+                <article class="product-card">
+                    <div class="product-img">
+                        <img src="${p.image}" alt="${p.name}" loading="lazy"
+                             onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22><rect fill=%22%23f5f5f4%22 width=%22400%22 height=%22300%22/><text x=%22200%22 y=%22150%22 text-anchor=%22middle%22 fill=%22%2330B4A8%22 font-size=%2220%22>${p.name}</text></svg>'">
+                        ${p.badge ? `<span class="product-badge">${p.badge}</span>` : ''}
+                    </div>
+                    <div class="product-body">
+                        <div class="product-category">${p.category} · ${p.origin}</div>
+                        <h3>${p.name}</h3>
+                        <p class="product-en">${p.nameEn}</p>
+                        <p class="product-desc">${p.desc}</p>
+                        <div class="product-meta">
+                            <div class="product-price">¥${p.price} <small>/ ${p.priceUnit}</small></div>
                         </div>
                     </div>
                 </article>
             `).join('');
         }
 
-        // 渲染统计数据
-        function renderStats() {
-            const grid = document.getElementById('statsGrid');
-
-            if (settingsData.stats && settingsData.stats.length > 0) {
-                grid.innerHTML = settingsData.stats.map(stat => `
-                    <div class="stat-card">
-                        <div class="stat-icon">${stat.icon}</div>
-                        <div class="stat-number" data-target="${stat.value}">0</div>
-                        <div class="stat-label">${stat.label}</div>
-                    </div>
-                `).join('');
-            } else {
-                // 默认数据
-                grid.innerHTML = `
-                    <div class="stat-card">
-                        <div class="stat-icon">🍃</div>
-                        <div class="stat-number" data-target="10000">0</div>
-                        <div class="stat-label">吨/年产量</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">🌍</div>
-                        <div class="stat-number" data-target="50">0</div>
-                        <div class="stat-label">国家和地区</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">🏆</div>
-                        <div class="stat-number" data-target="200">0</div>
-                        <div class="stat-label">奖项认证</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">👥</div>
-                        <div class="stat-number" data-target="5000">0</div>
-                        <div class="stat-label">满意客户</div>
-                    </div>
-                `;
-            }
-
-            // 初始化数字动画
-            animateNumbers();
-        }
-
-        // 渲染认证
-        function renderCertifications() {
-            const grid = document.getElementById('certGrid');
-
-            if (settingsData.certifications && settingsData.certifications.length > 0) {
-                grid.innerHTML = settingsData.certifications.map(cert => `
-                    <div class="cert-card">
-                        <div class="cert-icon">${cert.icon}</div>
-                        <h3>${cert.name}</h3>
-                        <p>${cert.desc}</p>
-                    </div>
-                `).join('');
-            } else {
-                // 默认数据
-                grid.innerHTML = `
-                    <div class="cert-card">
-                        <div class="cert-icon">✓</div>
-                        <h3>ISO 9001</h3>
-                        <p>质量管理</p>
-                    </div>
-                    <div class="cert-card">
-                        <div class="cert-icon">🌿</div>
-                        <h3>有机认证</h3>
-                        <p>100%天然</p>
-                    </div>
-                    <div class="cert-card">
-                        <div class="cert-icon">🛡️</div>
-                        <h3>HACCP</h3>
-                        <p>食品安全</p>
-                    </div>
-                    <div class="cert-card">
-                        <div class="cert-icon">📍</div>
-                        <h3>地理标志</h3>
-                        <p>原产地保护</p>
-                    </div>
-                `;
-            }
-        }
-
-        // 渲染关于我们预览
-        function renderAboutPreview() {
-            if (settingsData.about) {
-                const about = settingsData.about;
-                if (about.tagline) document.getElementById('aboutTagline').textContent = about.tagline;
-                if (about.title) document.getElementById('aboutTitle').textContent = about.title;
-                if (about.content && about.content.length > 0) {
-                    document.getElementById('aboutContent').innerHTML = about.content.map(p => `<p>${p}</p>`).join('');
-                }
-                if (about.image) document.getElementById('aboutImage').src = about.image;
-
-                if (about.features && about.features.length > 0) {
-                    const featuresHtml = about.features.map(f => `
-                        <div class="feature">
-                            <span class="feature-icon">${f.icon}</span>
-                            <div>
-                                <strong>${f.title}</strong>
-                                <p>${f.desc}</p>
-                            </div>
-                        </div>
-                    `).join('');
-                    document.getElementById('aboutFeatures').innerHTML = featuresHtml;
-                }
-            }
-        }
-
-        // 渲染页脚
-        function renderFooter() {
-            if (settingsData.site) {
-                const site = settingsData.site;
-                if (site.name) {
-                    document.getElementById('footerLogoText').textContent = site.nameEn || site.name;
-                    document.getElementById('footerLogoSub').textContent = site.name;
-                }
-                if (site.description) {
-                    document.getElementById('footerBrandDesc').textContent = site.description;
-                }
-            }
-
-            if (settingsData.contact) {
-                const contact = settingsData.contact;
-                const contactHtml = [];
-                if (contact.address) contactHtml.push(`📍 ${contact.address}`);
-                if (contact.phone) contactHtml.push(`📞 ${contact.phone}`);
-                if (contact.email) contactHtml.push(`✉️ ${contact.email}`);
-                if (contact.hours) contactHtml.push(`🕐 ${contact.hours}`);
-                document.getElementById('footerContact').innerHTML = contactHtml.map(c => `<li>${c}</li>`).join('');
-            }
-
-            if (settingsData.footer) {
-                if (settingsData.footer.copyright) {
-                    document.getElementById('footerCopyright').textContent = settingsData.footer.copyright;
-                }
-            }
-
-            if (settingsData.social) {
-                const social = settingsData.social;
-                const socialHtml = [];
-                if (social.facebook) socialHtml.push(`<a href="${social.facebook}" target="_blank">Facebook</a>`);
-                if (social.instagram) socialHtml.push(`<a href="${social.instagram}" target="_blank">Instagram</a>`);
-                if (social.twitter) socialHtml.push(`<a href="${social.twitter}" target="_blank">Twitter</a>`);
-                if (socialHtml.length > 0) {
-                    document.getElementById('socialLinks').innerHTML = socialHtml.join('');
-                }
-            }
-        }
-
-        // 渲染页面Meta
-        function renderPageMeta() {
-            if (settingsData.site) {
-                const site = settingsData.site;
-                if (site.name) {
-                    document.title = `${site.name} - 优质中国茶叶出口 | Premium Chinese Tea Export`;
-                }
-                if (site.description) {
-                    document.querySelector('meta[name="description"]').setAttribute('content', site.description);
-                }
-                if (site.keywords) {
-                    document.querySelector('meta[name="keywords"]').setAttribute('content', site.keywords);
-                }
-                if (site.ogImage) {
-                    document.getElementById('ogImage').setAttribute('content', site.ogImage);
-                }
-            }
-        }
-
-        // 数字动画
-        function animateNumbers() {
-            const numbers = document.querySelectorAll('.stat-number');
-            numbers.forEach(num => {
-                const target = parseInt(num.dataset.target);
-                if (isNaN(target)) {
-                    num.textContent = num.dataset.target;
-                    return;
-                }
-                const duration = 2000;
-                const step = target / (duration / 16);
-                let current = 0;
-
-                const timer = setInterval(() => {
-                    current += step;
-                    if (current >= target) {
-                        num.textContent = target.toLocaleString() + '+';
-                        clearInterval(timer);
-                    } else {
-                        num.textContent = Math.floor(current).toLocaleString();
+        // ========== Counter Animation ==========
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target;
+                        const target = parseInt(counter.dataset.target);
+                        const duration = 2000;
+                        const step = target / (duration / 16);
+                        let current = 0;
+                        const timer = setInterval(() => {
+                            current += step;
+                            if (current >= target) {
+                                counter.textContent = target.toLocaleString() + '+';
+                                clearInterval(timer);
+                            } else {
+                                counter.textContent = Math.floor(current).toLocaleString();
+                            }
+                        }, 16);
+                        observer.unobserve(counter);
                     }
-                }, 16);
-            });
+                });
+            }, { threshold: 0.5 });
+            counters.forEach(c => observer.observe(c));
         }
 
-        // Mobile Menu Toggle
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobileMenu');
-            menu.classList.toggle('active');
+        // ========== Scroll Animations ==========
+        function initScrollAnimations() {
+            const elements = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.15 });
+            elements.forEach(el => observer.observe(el));
         }
 
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('.header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
+        // ========== Inquiry Popup ==========
+        function openInquiry() {
+            document.getElementById('inquiryPopup').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeInquiry() {
+            document.getElementById('inquiryPopup').style.display = 'none';
+            document.body.style.overflow = '';
+            sessionStorage.setItem('xf_popup_closed', '1');
+        }
+
+        function submitInquiry(event) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+            // 构建邮件或API提交内容
+            console.log('询盘提交:', data);
+
+            // 生产环境替换为真实API端点
+            alert('感谢您的询盘！\n\n我们已收到您的需求，外贸团队将在24小时内与您联系。\n\n如需紧急联系，请发送邮件至：export@xiangfeng-tea.com');
+            closeInquiry();
+            form.reset();
+        }
+
+        // Auto-open popup on first visit per session
+        function autoOpenPopup() {
+            if (!sessionStorage.getItem('xf_popup_closed')) {
+                setTimeout(() => {
+                    openInquiry();
+                }, 1500);
             }
+        }
+
+        // ========== Mobile Menu ==========
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('active');
+        }
+
+        // ========== Header Scroll ==========
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            header.classList.toggle('scrolled', window.scrollY > 50);
         });
 
-        // 初始化
-        init();
+        // ========== Init ==========
+        document.addEventListener('DOMContentLoaded', () => {
+            renderFeaturedProducts();
+            animateCounters();
+            initScrollAnimations();
+            autoOpenPopup();
+
+            // Close popup on overlay click
+            document.getElementById('inquiryPopup').addEventListener('click', function(e) {
+                if (e.target === this) closeInquiry();
+            });
+
+            // Close popup on ESC key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    const popup = document.getElementById('inquiryPopup');
+                    if (popup.style.display === 'flex') closeInquiry();
+                }
+            });
+        });
     </script>
 </body>
 </html>
