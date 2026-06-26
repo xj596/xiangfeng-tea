@@ -1,245 +1,201 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="了解湘丰茶业集团 — 中国领先的茶叶出口商，三十余年专业经验，与50多个优质茶园合作，产品出口全球50多个国家和地区。">
-    <meta name="keywords" content="湘丰茶业,茶叶出口,茶叶公司,中国茶叶,茶文化">
-    <title>关于我们 - 湘丰茶业集团 | About Xiangfeng Tea Group</title>
-    <link rel="canonical" href="https://www.xiangfeng-tea.com/about.html">
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us — Xiangfeng Tea Group</title>
+<meta name="description" content="About Xiangfeng Tea Group — a leading Chinese tea exporter since 1999, with 53,000 mu organic plantation in Hunan Province.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <!-- Header -->
-    <header class="header" id="header">
-        <div class="header-inner">
-            <a href="index.html" class="logo">
-                <div class="logo-icon">XF</div>
-                <div class="logo-text">
-                    <strong>湘丰茶业</strong>
-                    <small>Xiangfeng Tea Group</small>
-                </div>
-            </a>
-            <nav class="nav">
-                <a href="index.html">首页</a>
-                <a href="products.html">产品中心</a>
-                <a href="about.html" class="active">关于我们</a>
-                <a href="news.html">新闻资讯</a>
-                <a href="contact.html">联系我们</a>
-            </nav>
-            <div class="header-actions">
-                <a href="contact.html" class="btn btn-primary btn-sm">获取报价</a>
-            </div>
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="菜单">☰</button>
-        </div>
-    </header>
+<body data-page="about">
 
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="index.html">首页</a>
-        <a href="products.html">产品中心</a>
-        <a href="about.html" class="active">关于我们</a>
-        <a href="news.html">新闻资讯</a>
-        <a href="contact.html">联系我们</a>
+<!-- Top Bar -->
+<div class="top-bar">
+  <div class="top-bar-inner">
+    <div class="top-bar-social">
+      <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="15" height="15"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+      <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" width="15" height="15"><path fill="currentColor" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
     </div>
+    <div class="top-bar-right">
+      <span class="top-bar-contact"><span data-i18n="common.email">info@xiangfengtea.com</span></span>
+      <span class="lang-selector-target"></span>
+    </div>
+  </div>
+</div>
 
-    <!-- Page Hero -->
-    <section class="page-hero">
-        <div class="container">
-            <span class="section-tag">About Us</span>
-            <h1>关于湘丰茶业</h1>
-            <p class="section-desc">三十余年专注中国茶叶出口，用品质连接世界</p>
+<!-- Header -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="header-logo"><div class="logo-icon">茶</div><strong>Xiangfeng Tea</strong></a>
+    <nav class="main-nav" id="mainNav">
+      <ul>
+        <li><a href="index.html" data-i18n="common.home">Home</a></li>
+        <li class="nav-dropdown"><a href="products.html" data-i18n="common.products">Products</a>
+          <div class="sub-menu">
+            <a href="products.html" data-i18n="common.greenTea">Green Tea</a>
+            <a href="products.html" data-i18n="common.blackTea">Black Tea</a>
+            <a href="products.html" data-i18n="common.oolongTea">Oolong Tea</a>
+            <a href="products.html" data-i18n="common.whiteTea">White Tea</a>
+            <a href="products.html" data-i18n="common.puerTea">Pu-erh Tea</a>
+          </div>
+        </li>
+        <li><a href="about.html" class="active" data-i18n="common.about">About</a></li>
+        <li><a href="news.html" data-i18n="common.news">News</a></li>
+        <li><a href="contact.html" data-i18n="common.contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button class="btn-inquiry" onclick="openInquiry()" data-i18n="common.sendInquiry">Send Inquiry</button>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" onclick="toggleMobileMenu()">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="section-container">
+    <h2 data-i18n="about.title">About Us</h2>
+    <p data-i18n="about.subtitle">A legacy of tea excellence since 1999</p>
+  </div>
+</section>
+
+<!-- Our Story -->
+<section class="section">
+  <div class="section-container">
+    <div class="about-story">
+      <div class="about-story-img">🍃</div>
+      <div>
+        <div class="section-header" style="text-align:left;margin-bottom:20px">
+          <h3 data-i18n="about.storyTitle">Our Story</h3>
         </div>
-    </section>
+        <p style="color:var(--gray-600);margin-bottom:12px;line-height:1.8" data-i18n="about.storyP1">Xiangfeng Tea Group was founded in 1999 in Changsha, Hunan Province — one of China's most renowned tea-producing regions. What began as a family tea garden has grown into one of the largest integrated tea enterprises in China.</p>
+        <p style="color:var(--gray-600);margin-bottom:12px;line-height:1.8" data-i18n="about.storyP2">Today, we manage over 53,000 mu of organic tea plantations, operate state-of-the-art processing facilities, and export premium Chinese tea to more than 50 countries worldwide.</p>
+        <p style="color:var(--gray-600);line-height:1.8" data-i18n="about.storyP3">Our commitment to sustainable farming, traditional craftsmanship, and modern quality control has earned us international certifications including EU Organic, USDA Organic, and Rainforest Alliance.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Company Story -->
-    <section class="section bg-white">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-image-wrap">
-                    <img src="https://images.unsplash.com/photo-1558160074-4d7d8bdf4256?w=600&q=80"
-                         alt="中国茶文化传承"
-                         onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22400%22><rect fill=%22%23e0f5f3%22 width=%22600%22 height=%22400%22/><text x=%22300%22 y=%22200%22 text-anchor=%22middle%22 fill=%22%2330B4A8%22 font-size=%2224%22>湘丰茶业</text></svg>'">
-                    <div class="about-badge">
-                        <strong>30+</strong>
-                        <span>年行业积淀</span>
-                    </div>
-                </div>
-                <div class="about-content">
-                    <span class="section-tag">我们的故事</span>
-                    <h2>传承与创新<br>三十余载匠心制茶</h2>
-                    <p>湘丰茶业集团成立于中国茶叶之乡，扎根中国核心茶产区三十余年。从最初的一座小茶园起步，逐步发展成为中国茶叶出口行业的标杆企业。</p>
-                    <p>我们与中国浙江、福建、安徽、云南、江苏等省份的50多个优质茶园建立了长期稳定的战略合作关系，形成了从茶园管理、茶叶加工到国际贸易的完整产业链。</p>
-                    <p>秉承"品质为本、诚信立业"的经营理念，我们的产品远销欧洲、北美、东南亚、中东等50多个国家和地区，赢得了全球客户的一致信赖。</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Our Values -->
+<section class="section section-gray">
+  <div class="section-container">
+    <div class="section-header">
+      <h3 data-i18n="about.valuesTitle">Our Values</h3>
+    </div>
+    <div class="values-grid">
+      <div class="feature-card">
+        <div class="feature-icon">⭐</div>
+        <h4 data-i18n="about.val1Title">Quality First</h4>
+        <p data-i18n="about.val1Desc">Every batch undergoes rigorous testing to meet international standards.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🌱</div>
+        <h4 data-i18n="about.val2Title">Sustainability</h4>
+        <p data-i18n="about.val2Desc">Organic farming practices that protect the land for future generations.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💡</div>
+        <h4 data-i18n="about.val3Title">Innovation</h4>
+        <p data-i18n="about.val3Desc">Blending traditional tea-making with modern processing technology.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Values -->
-    <section class="section bg-pale">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Our Values</span>
-                <h2>核心价值观</h2>
-                <p class="section-desc">指导我们前行的信念，定义了我们是谁</p>
-            </div>
-            <div class="values-grid">
-                <div class="value-card">
-                    <div class="value-icon">🌿</div>
-                    <h3>品质至上</h3>
-                    <p>每批茶叶都经过200余项严格检测，从源头到出口全程品质可控，确保客户收到的每一片茶叶都是精品。</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">🤝</div>
-                    <h3>诚信合作</h3>
-                    <p>以诚待人，以信立世。与茶农、客户、合作伙伴建立长期互信的共赢关系。</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">🔬</div>
-                    <h3>持续创新</h3>
-                    <p>在传承传统制茶工艺的同时，引入现代科技与管理体系，不断提升产品竞争力。</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">🌍</div>
-                    <h3>可持续发展</h3>
-                    <p>倡导有机种植与生态农业，保护茶区生态环境，推动茶产业可持续发展。</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Milestones -->
+<section class="section">
+  <div class="section-container">
+    <div class="section-header">
+      <h3 data-i18n="about.milestonesTitle">Milestones</h3>
+    </div>
+    <div class="timeline" style="max-width:600px;margin:0 auto">
+      <div class="timeline-item">
+        <div class="timeline-year">1999</div>
+        <div class="timeline-title" data-i18n="about.m1999Title">Founded</div>
+        <div class="timeline-desc" data-i18n="about.m1999Desc">Xiangfeng Tea established in Changsha, Hunan Province.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2005</div>
+        <div class="timeline-title" data-i18n="about.m2005Title">Organic Certification</div>
+        <div class="timeline-desc" data-i18n="about.m2005Desc">Obtained first organic tea plantation certification.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2010</div>
+        <div class="timeline-title" data-i18n="about.m2010Title">Global Expansion</div>
+        <div class="timeline-desc" data-i18n="about.m2010Desc">Began exporting to European and North American markets.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2015</div>
+        <div class="timeline-title" data-i18n="about.m2015Title">Industrial Upgrade</div>
+        <div class="timeline-desc" data-i18n="about.m2015Desc">Built fully automated tea processing facility.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2020</div>
+        <div class="timeline-title" data-i18n="about.m2020Title">50+ Countries</div>
+        <div class="timeline-desc" data-i18n="about.m2020Desc">Export network expanded to over 50 countries worldwide.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2024</div>
+        <div class="timeline-title" data-i18n="about.m2024Title">Sustainable Future</div>
+        <div class="timeline-desc" data-i18n="about.m2024Desc">Launched carbon-neutral tea production initiative.</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Timeline -->
-    <section class="section bg-white">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Milestones</span>
-                <h2>发展历程</h2>
-                <p class="section-desc">从茶园到世界舞台的成长之路</p>
-            </div>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-year">1992</div>
-                        <h3>公司创立</h3>
-                        <p>湘丰茶业在中国茶叶核心产区正式成立，以有机茶园种植为起点。</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-year">1998</div>
-                        <h3>首次出口</h3>
-                        <p>开启国际贸易之路，产品首次出口至日本和东南亚市场。</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-year">2005</div>
-                        <h3>国际化拓展</h3>
-                        <p>成功进入欧洲和北美市场，建立海外仓储与分销网络。</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-year">2012</div>
-                        <h3>品质认证</h3>
-                        <p>通过ISO 9001质量管理体系认证及中国有机产品认证。</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-year">2018</div>
-                        <h3>产业升级</h3>
-                        <p>引进智能化生产线，年产能突破10000吨，与50+茶园建立战略合作。</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-year">2024</div>
-                        <h3>全球布局</h3>
-                        <p>产品出口覆盖50+国家和地区，服务全球5000+客户，成为中国茶叶出口领军企业。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- CTA -->
+<section class="section" style="background:var(--primary);color:var(--white);text-align:center">
+  <div class="section-container">
+    <h3 style="font-size:1.4rem;margin-bottom:8px;color:var(--white)" data-i18n="home.contactCTA">Ready to Start Your Tea Journey?</h3>
+    <p style="opacity:0.9;margin-bottom:16px" data-i18n="home.contactCTADesc">Contact our export team today for product catalogs, samples, and pricing.</p>
+    <a href="contact.html" class="hero-btn" data-i18n="home.contactCTABtn">Contact Us →</a>
+  </div>
+</section>
 
-    <!-- CTA -->
-    <section class="section cta">
-        <div class="container">
-            <div class="cta-content">
-                <h2>成为我们的合作伙伴</h2>
-                <p>无论您是希望采购优质中国茶叶，还是寻求品牌定制合作，我们都期待与您携手共赢。</p>
-                <div class="cta-buttons">
-                    <a href="contact.html" class="btn btn-white">联系我们</a>
-                    <a href="products.html" class="btn btn-outline" style="color:white;border-color:rgba(255,255,255,0.4);">浏览产品</a>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-col"><h4 data-i18n="footer.aboutCol">About Xiangfeng</h4><p data-i18n="footer.aboutText">Xiangfeng Tea Group is a leading Chinese tea exporter with 53,000 mu of organic plantations, serving importers in 50+ countries worldwide since 1999.</p></div>
+    <div class="footer-col"><h4 data-i18n="footer.productsCol">Products</h4><a href="products.html" data-i18n="common.greenTea">Green Tea</a><a href="products.html" data-i18n="common.blackTea">Black Tea</a><a href="products.html" data-i18n="common.oolongTea">Oolong Tea</a><a href="products.html" data-i18n="common.whiteTea">White Tea</a><a href="products.html" data-i18n="common.puerTea">Pu-erh Tea</a></div>
+    <div class="footer-col"><h4 data-i18n="footer.linksCol">Quick Links</h4><a href="index.html" data-i18n="common.home">Home</a><a href="about.html" data-i18n="common.about">About</a><a href="news.html" data-i18n="common.news">News</a><a href="contact.html" data-i18n="common.contact">Contact</a></div>
+    <div class="footer-col"><h4 data-i18n="footer.contactCol">Contact Info</h4><p>📍 Xiangfeng Tea Group, Changsha, Hunan, China</p><p data-i18n="common.email">📧 info@xiangfengtea.com</p><p data-i18n="common.phone">📞 +86-731-8620-1888</p></div>
+  </div>
+  <div class="footer-bottom"><span data-i18n="footer.copyright">© 2026 Xiangfeng Tea Group. All rights reserved.</span></div>
+</footer>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="index.html" class="logo" style="margin-bottom:16px;">
-                        <div class="logo-icon">XF</div>
-                        <div class="logo-text">
-                            <strong>湘丰茶业集团</strong>
-                            <small>Xiangfeng Tea Group</small>
-                        </div>
-                    </a>
-                    <p>湘丰茶业集团是中国领先的茶叶出口商，致力于将最优质的中国茶叶带给全世界。</p>
-                </div>
-                <div class="footer-col">
-                    <h4>快速导航</h4>
-                    <ul>
-                        <li><a href="index.html">首页</a></li>
-                        <li><a href="products.html">产品中心</a></li>
-                        <li><a href="about.html">关于我们</a></li>
-                        <li><a href="news.html">新闻资讯</a></li>
-                        <li><a href="contact.html">联系我们</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>产品分类</h4>
-                    <ul>
-                        <li><a href="products.html">绿茶系列</a></li>
-                        <li><a href="products.html">红茶系列</a></li>
-                        <li><a href="products.html">乌龙茶系列</a></li>
-                        <li><a href="products.html">白茶系列</a></li>
-                        <li><a href="products.html">普洱茶系列</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contact footer-col">
-                    <h4>联系方式</h4>
-                    <ul>
-                        <li>📍 中国浙江省杭州市茶韵路168号</li>
-                        <li>📞 +86 571 8888 6666</li>
-                        <li>✉️ export@xiangfeng-tea.com</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 湘丰茶业集团 版权所有</p>
-                <div class="footer-social">
-                    <a href="https://www.linkedin.com/company/xiangfeng-tea" target="_blank" rel="noopener" title="LinkedIn">in</a>
-                    <a href="https://www.facebook.com/xiangfengtea" target="_blank" rel="noopener" title="Facebook">f</a>
-                    <a href="https://www.instagram.com/xiangfeng_tea" target="_blank" rel="noopener" title="Instagram">ig</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
 
-    <script>
-        function toggleMobileMenu() {
-            document.getElementById('mobileMenu').classList.toggle('active');
-        }
-        window.addEventListener('scroll', () => {
-            const header = document.getElementById('header');
-            header.classList.toggle('scrolled', window.scrollY > 50);
-        });
-    </script>
+<!-- Popup -->
+<div class="popup-overlay" id="inquiryPopup">
+  <div class="popup-dialog">
+    <button class="popup-close" onclick="closeInquiry()" data-i18n="common.close">✕</button>
+    <h3 data-i18n="popup.title">Request Product Information</h3>
+    <p class="popup-subtitle" data-i18n="popup.subtitle">Fill in the form below and our export team will contact you shortly.</p>
+    <form onsubmit="submitInquiry(event)">
+      <div class="popup-form-group"><label data-i18n="popup.name">Your Name *</label><input type="text" required data-i18n-ph="popup.placeholderName" placeholder="John Smith"></div>
+      <div class="popup-form-group"><label data-i18n="popup.email">Email Address *</label><input type="email" required data-i18n-ph="popup.placeholderEmail" placeholder="john@company.com"></div>
+      <div class="popup-form-group"><label data-i18n="popup.company">Company Name</label><input type="text" data-i18n-ph="popup.placeholderCompany" placeholder="Your Company Ltd."></div>
+      <div class="popup-form-group"><label data-i18n="popup.phone">Phone Number</label><input type="tel" data-i18n-ph="popup.placeholderPhone" placeholder="+1 234 567 890"></div>
+      <div class="popup-form-group"><label data-i18n="popup.product">Interested Product</label><select><option value="">Select a product...</option><option>Green Tea</option><option>Black Tea</option><option>Oolong Tea</option><option>White Tea</option><option>Pu-erh Tea</option></select></div>
+      <div class="popup-form-group"><label data-i18n="popup.message">Your Requirements</label><textarea data-i18n-ph="popup.placeholderMessage" placeholder="I am interested in..."></textarea></div>
+      <button type="submit" class="popup-submit" data-i18n="popup.submit">Submit Inquiry</button>
+    </form>
+  </div>
+</div>
+
+<script src="i18n.js"></script>
+<script>
+function toggleMobileMenu(){document.getElementById('mainNav').classList.toggle('open')}
+document.addEventListener('click',function(e){var n=document.getElementById('mainNav');if(n&&n.classList.contains('open')&&!e.target.closest('#mainNav')&&!e.target.closest('#mobileMenuToggle'))n.classList.remove('open')});
+function openInquiry(){var p=document.getElementById('inquiryPopup');if(p){p.classList.add('open');document.body.style.overflow='hidden'}}
+function closeInquiry(){var p=document.getElementById('inquiryPopup');if(p){p.classList.remove('open');document.body.style.overflow=''}}
+function submitInquiry(e){e.preventDefault();alert(__('popup.success')||'Thank you!');closeInquiry()}
+document.addEventListener('DOMContentLoaded',function(){var p=document.getElementById('inquiryPopup');if(p)p.addEventListener('click',function(ev){if(ev.target===p)closeInquiry()})});
+function ub(){var b=document.getElementById('backToTop');if(b)b.classList.toggle('visible',window.scrollY>400)}
+document.addEventListener('scroll',ub);
+</script>
 </body>
 </html>
