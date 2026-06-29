@@ -22,7 +22,20 @@
     </div>
     <div class="top-bar-right">
       <span class="top-bar-contact"><svg viewBox="0 0 24 24" width="14" height="14"><path fill="currentColor" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg> <span data-i18n="common.email">info@xiangfengtea.com</span></span>
-      <span class="lang-selector-target"></span>
+      <div class="lang-selector" id="langSelector">
+        <div class="lang-current" onclick="this.parentElement.classList.toggle('open')">
+          <span class="lang-flag">🇬🇧</span>
+          <span class="lang-label">English</span>
+          <span class="arrow">▾</span>
+        </div>
+        <div class="lang-dropdown">
+          <div class="lang-option active" data-lang="en" onclick="XF_i18n.setLang('en');document.querySelectorAll('.lang-selector').forEach(function(s){s.classList.remove('open')})"><span>🇬🇧</span><span>English</span></div>
+          <div class="lang-option" data-lang="ru" onclick="XF_i18n.setLang('ru');document.querySelectorAll('.lang-selector').forEach(function(s){s.classList.remove('open')})"><span>🇷🇺</span><span>Русский</span></div>
+          <div class="lang-option" data-lang="ar" onclick="XF_i18n.setLang('ar');document.querySelectorAll('.lang-selector').forEach(function(s){s.classList.remove('open')})"><span>🇸🇦</span><span>العربية</span></div>
+          <div class="lang-option" data-lang="fr" onclick="XF_i18n.setLang('fr');document.querySelectorAll('.lang-selector').forEach(function(s){s.classList.remove('open')})"><span>🇫🇷</span><span>Français</span></div>
+          <div class="lang-option" data-lang="zh" onclick="XF_i18n.setLang('zh');document.querySelectorAll('.lang-selector').forEach(function(s){s.classList.remove('open')})"><span>🇨🇳</span><span>中文</span></div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
