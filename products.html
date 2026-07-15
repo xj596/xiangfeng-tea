@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Product details for Xiangfeng Tea Group premium teas.">
-  <title>Product Details — Xiangfeng Tea Group</title>
+  <meta name="description" content="Explore our full range of premium Chinese teas — from classic varietals to custom OEM blends.">
+  <title>Our Products — Xiangfeng Tea Group</title>
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,254 +12,179 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='28'%3E%F0%9F%8D%83%3C/text%3E%3C/svg%3E">
   <style>
-    /* Product Detail Layout */
-    .product-detail-section { padding: 2rem 0 4rem; }
-
-    /* Detail Carousel */
-    .detail-carousel {
+    /* Page-specific styles for search bar, filter bar, product count, bottom CTA */
+    .product-search-section {
+      padding: 0;
+      background: transparent;
+      margin-top: -2.5rem;
       position: relative;
+      z-index: 10;
+    }
+    .product-search-bar {
+      background: white;
+      border: 1px solid var(--border);
       border-radius: var(--radius-lg);
-      overflow: hidden;
-      background: var(--bg-light);
-      aspect-ratio: 1 / 1;
-      box-shadow: var(--shadow-md);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-lg);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr) 2fr;
+      gap: 1rem;
+      align-items: end;
     }
-    .detail-carousel-track {
-      position: relative;
-      width: 100%;
-      height: 100%;
-    }
-    .detail-carousel-slide {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      opacity: 0;
-      transition: opacity 0.5s ease;
-    }
-    .detail-carousel-slide.active {
-      opacity: 1;
-      z-index: 1;
-    }
-    .detail-carousel-slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .detail-carousel-slide .slide-emoji {
-      position: absolute;
-      top: 15px;
-      left: 15px;
-      font-size: 2rem;
-      background: rgba(255,255,255,0.9);
-      width: 50px; height: 50px;
-      border-radius: 50%;
+    .product-search-bar .search-group {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: var(--shadow-sm);
+      flex-direction: column;
+      gap: 0.4rem;
     }
-    body.rtl .detail-carousel-slide .slide-emoji {
-      left: auto;
-      right: 15px;
+    .product-search-bar .search-group label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
-    .detail-carousel-prev,
-    .detail-carousel-next {
+    .product-search-bar .search-group select {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      font-size: 0.9rem;
+      color: var(--text);
+      background: white;
+      appearance: none;
+      cursor: pointer;
+      transition: var(--transition);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='3'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+    }
+    .product-search-bar .search-group select:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(48, 180, 168, 0.1);
+    }
+    .product-search-bar .search-text-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .product-search-bar .search-text-group > div {
+      display: flex;
+      gap: 0.5rem;
+    }
+    .product-search-bar .search-text-group .input-wrap {
+      position: relative;
+      flex: 1;
+    }
+    .product-search-bar .search-text-group .input-wrap i {
       position: absolute;
+      left: 16px;
       top: 50%;
       transform: translateY(-50%);
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.9);
-      color: var(--text);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: var(--transition);
-      z-index: 5;
-      font-size: 1.4rem;
-      font-weight: 300;
-      border: none;
-      box-shadow: var(--shadow-sm);
+      color: var(--text-light);
+      pointer-events: none;
     }
-    .detail-carousel-prev:hover,
-    .detail-carousel-next:hover {
+    .product-search-bar .search-text-group input {
+      width: 100%;
+      padding: 12px 16px 12px 42px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      font-size: 0.9rem;
+      color: var(--text);
+      transition: var(--transition);
+    }
+    .product-search-bar .search-text-group input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(48, 180, 168, 0.1);
+    }
+    .product-search-bar .search-btn {
+      padding: 12px 28px;
       background: var(--primary);
       color: white;
-    }
-    .detail-carousel-prev { left: 15px; }
-    .detail-carousel-next { right: 15px; }
-    body.rtl .detail-carousel-prev { left: auto; right: 15px; }
-    body.rtl .detail-carousel-next { right: auto; left: 15px; }
-    .detail-carousel-dots {
-      position: absolute;
-      bottom: 15px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 8px;
-      z-index: 5;
-    }
-    .detail-carousel-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.6);
-      cursor: pointer;
-      transition: var(--transition);
-      border: none;
-      padding: 0;
-    }
-    .detail-carousel-dot.active {
-      background: var(--accent);
-      width: 25px;
-      border-radius: 5px;
-    }
-
-    /* Detail Info Panel */
-    .detail-info { padding: 0; }
-    .detail-info h2 {
-      font-size: 1.75rem;
-      color: var(--dark);
-      margin-bottom: 0.75rem;
-      line-height: 1.3;
-    }
-    .detail-cat {
-      display: inline-block;
-      padding: 4px 14px;
-      background: var(--primary-bg);
-      color: var(--primary);
-      border-radius: 50px;
-      font-size: 0.8rem;
-      font-weight: 500;
-      margin-bottom: 1.25rem;
-    }
-    .detail-description {
-      margin-bottom: 1.5rem;
-      line-height: 1.8;
-      color: var(--text-light);
+      border-radius: var(--radius-md);
       font-size: 0.95rem;
-      padding-bottom: 1.5rem;
-      border-bottom: 1px solid var(--border-light);
-    }
-    .detail-specs { margin-bottom: 2rem; }
-    .detail-specs h4 {
-      font-size: 1.1rem;
-      color: var(--dark);
-      margin-bottom: 1rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid var(--primary);
-      display: inline-block;
-    }
-    #detailSpecsTable {
-      width: 100%;
-      border-collapse: collapse;
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      border: 1px solid var(--border);
-    }
-    #detailSpecsTable th,
-    #detailSpecsTable td {
-      padding: 12px 16px;
-      text-align: left;
-      font-size: 0.9rem;
-      border-bottom: 1px solid var(--border-light);
-    }
-    body.rtl #detailSpecsTable th,
-    body.rtl #detailSpecsTable td { text-align: right; }
-    #detailSpecsTable th {
-      background: var(--bg-light);
-      color: var(--text);
       font-weight: 600;
-      width: 35%;
-    }
-    #detailSpecsTable td { color: var(--text-light); }
-    #detailSpecsTable tr:last-child th,
-    #detailSpecsTable tr:last-child td { border-bottom: none; }
-    .detail-inquire-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 14px 40px;
-      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
-      color: white;
-      font-size: 1.05rem;
-      font-weight: 600;
-      border-radius: var(--radius-md);
-      box-shadow: 0 4px 15px rgba(201, 169, 110, 0.3);
-      transition: all 0.4s ease;
-      margin-top: 1rem;
-      border: none;
-      cursor: pointer;
-    }
-    .detail-inquire-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(201, 169, 110, 0.5);
-      color: white;
-    }
-    .detail-back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 1.5rem;
-      font-size: 0.9rem;
-      color: var(--text-light);
+      white-space: nowrap;
       transition: var(--transition);
     }
-    .detail-back-link:hover {
+    .product-search-bar .search-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(48, 180, 168, 0.3);
+    }
+
+    /* Filter Bar */
+    .filter-bar {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+    .filter-btn {
+      padding: 8px 20px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .filter-btn:hover {
+      border-color: var(--primary);
       color: var(--primary);
-      gap: 10px;
+    }
+    .filter-btn.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+      box-shadow: 0 4px 12px rgba(48, 180, 168, 0.3);
     }
 
-    /* Related Products */
-    .related-products-section {
-      padding: 3rem 0 5rem;
-      background: var(--bg-light);
-    }
-    .related-products-section h3 {
-      font-size: 1.75rem;
-      color: var(--dark);
-      margin-bottom: 0.5rem;
+    /* Product count */
+    .product-count {
       text-align: center;
-    }
-    .related-products-section .section-subtitle {
-      text-align: center;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
       color: var(--text-light);
-      margin-bottom: 2.5rem;
-      font-size: 1rem;
+    }
+    .product-count strong {
+      color: var(--primary);
+      font-weight: 600;
     }
 
-    /* Not found state */
-    .product-not-found {
+    /* No results */
+    .no-results {
       text-align: center;
       padding: 4rem 2rem;
+      grid-column: 1 / -1;
     }
-    .product-not-found i {
-      font-size: 4rem;
+    .no-results i {
+      font-size: 3rem;
       color: var(--border);
       margin-bottom: 1rem;
     }
-    .product-not-found h2 {
-      color: var(--text);
+    .no-results h3 {
+      color: var(--text-light);
       margin-bottom: 0.5rem;
     }
-    .product-not-found p {
-      color: var(--text-light);
-      margin-bottom: 1.5rem;
-    }
 
-    /* Responsive */
+    /* Products section */
+    .products-page-section { padding: 3rem 0 5rem; }
+
+    /* Responsive search bar */
     @media (max-width: 1024px) {
-      .product-detail-layout {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
+      .product-search-bar { grid-template-columns: 1fr 1fr; }
+      .product-search-bar .search-text-group { grid-column: 1 / -1; }
+    }
+    @media (max-width: 768px) {
+      .product-search-bar { grid-template-columns: 1fr; }
     }
   </style>
 </head>
-<body data-page="product-detail">
+<body data-page="products">
 
 <!-- ============================================
      1. TOP UTILITY BAR
@@ -340,77 +265,125 @@
 </header>
 
 <!-- ============================================
-     3. PAGE BANNER (Dynamic title)
+     3. PAGE BANNER
      ============================================ -->
 <section class="page-banner">
   <div class="container">
-    <h1 id="heroTitle" data-i18n="detail.title">Product Details</h1>
+    <h1 data-i18n="products.title">Our Products</h1>
+    <p data-i18n="products.subtitle">Explore our full range of premium Chinese teas — from classic varietals to custom OEM blends.</p>
     <div class="breadcrumb">
       <a href="index.html">Home</a>
       <span>/</span>
-      <a href="products.html"><span data-i18n="common.products">Products</span></a>
-      <span>/</span>
-      <span id="breadcrumbProduct">Product</span>
+      <span data-i18n="common.products">Products</span>
     </div>
   </div>
 </section>
 
 <!-- ============================================
-     4. PRODUCT DETAIL SECTION
+     4. PRODUCT SEARCH BAR
      ============================================ -->
-<section class="product-detail-section">
+<section class="product-search-section">
   <div class="container">
-    <div class="product-detail-layout" id="detailLayout">
-      <!-- Left: Carousel -->
-      <div class="detail-carousel" id="detailCarousel">
-        <div class="detail-carousel-track" id="detailCarouselTrack"></div>
-        <button class="detail-carousel-prev" onclick="detailPrev()" aria-label="Previous">‹</button>
-        <button class="detail-carousel-next" onclick="detailNext()" aria-label="Next">›</button>
-        <div class="detail-carousel-dots" id="detailCarouselDots"></div>
+    <div class="product-search-bar">
+      <div class="search-group">
+        <label data-i18n="products.searchCategory">Tea Variety</label>
+        <select id="searchCategory">
+          <option value="" data-i18n="products.filterAll">All</option>
+          <option value="products.catGreen" data-i18n="products.catGreen">Green Tea</option>
+          <option value="products.catBlack" data-i18n="products.catBlack">Black Tea</option>
+          <option value="products.catOolong" data-i18n="products.catOolong">Oolong Tea</option>
+          <option value="products.catWhite" data-i18n="products.catWhite">White Tea</option>
+          <option value="products.catPuer" data-i18n="products.catPuer">Pu-erh Tea</option>
+          <option value="products.catOEM" data-i18n="products.catOEM">OEM/ODM</option>
+          <option value="products.catMatcha" data-i18n="products.catMatcha">Matcha</option>
+        </select>
       </div>
-
-      <!-- Right: Info -->
-      <div class="detail-info">
-        <h2 id="detailName"></h2>
-        <div class="detail-cat" id="detailCat"></div>
-        <div class="detail-description" id="detailDesc"></div>
-        <div class="detail-specs">
-          <h4 data-i18n="detail.specifications">Specifications</h4>
-          <table id="detailSpecsTable">
-            <!-- Dynamic: Origin, Packaging, Min Order, Certifications -->
-          </table>
+      <div class="search-group">
+        <label data-i18n="products.searchRegion">Region/Origin</label>
+        <select id="searchRegion">
+          <option value="">All Regions</option>
+          <option value="products.regionHunan" data-i18n="products.regionHunan">Hunan</option>
+          <option value="products.regionYunnan" data-i18n="products.regionYunnan">Yunnan</option>
+          <option value="products.regionFujian" data-i18n="products.regionFujian">Fujian</option>
+          <option value="products.regionZhejiang" data-i18n="products.regionZhejiang">Zhejiang</option>
+          <option value="products.regionAnhui" data-i18n="products.regionAnhui">Anhui</option>
+        </select>
+      </div>
+      <div class="search-group">
+        <label data-i18n="products.searchOrderType">Order Type</label>
+        <select id="searchOrderType">
+          <option value="">All Types</option>
+          <option value="products.orderBulk" data-i18n="products.orderBulk">Bulk Wholesale</option>
+          <option value="products.orderSample" data-i18n="products.orderSample">Sample Pack</option>
+          <option value="products.orderOEM" data-i18n="products.orderOEM">Custom OEM</option>
+          <option value="products.orderSpecial" data-i18n="products.orderSpecial">Special Offer</option>
+        </select>
+      </div>
+      <div class="search-text-group">
+        <label>&nbsp;</label>
+        <div>
+          <div class="input-wrap">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchText" data-i18n-placeholder="products.searchPlaceholder" placeholder="Search products...">
+          </div>
+          <button class="search-btn" onclick="doSearch()" data-i18n="products.searchBtn">Search</button>
         </div>
-        <button class="detail-inquire-btn" onclick="openInquiry(currentProductId)" data-i18n="detail.inquireProduct">Inquire About This Product</button>
-        <br>
-        <a href="products.html" class="detail-back-link" data-i18n="detail.backToProducts">← Back to Products</a>
       </div>
     </div>
-
-    <!-- Not Found State -->
-    <div class="product-not-found" id="notFound" style="display:none;">
-      <i class="fas fa-box-open"></i>
-      <h2>Product Not Found</h2>
-      <p>The product you're looking for doesn't exist or has been removed.</p>
-      <a href="products.html" class="btn btn-primary" data-i18n="detail.backToProducts">← Back to Products</a>
-    </div>
   </div>
 </section>
 
 <!-- ============================================
-     5. RELATED PRODUCTS SECTION
+     5. PRODUCTS SECTION
      ============================================ -->
-<section class="related-products-section" id="relatedSection" style="display:none;">
+<section class="products-page-section">
   <div class="container">
-    <h3 data-i18n="detail.relatedProducts">Related Products</h3>
-    <p class="section-subtitle">Explore other premium teas you might be interested in.</p>
-    <div class="products-grid" id="relatedGrid">
-      <!-- Dynamic related products -->
+
+    <!-- Filter Bar (quick filter shortcut) -->
+    <div class="filter-bar" id="filterBar">
+      <button class="filter-btn active" data-cat="all" data-i18n="common.all">All</button>
+      <button class="filter-btn" data-cat="products.catGreen" data-i18n="products.catGreen">Green Tea</button>
+      <button class="filter-btn" data-cat="products.catBlack" data-i18n="products.catBlack">Black Tea</button>
+      <button class="filter-btn" data-cat="products.catOolong" data-i18n="products.catOolong">Oolong Tea</button>
+      <button class="filter-btn" data-cat="products.catWhite" data-i18n="products.catWhite">White Tea</button>
+      <button class="filter-btn" data-cat="products.catPuer" data-i18n="products.catPuer">Pu-erh Tea</button>
+      <button class="filter-btn" data-cat="products.catOEM" data-i18n="products.catOEM">OEM/ODM</button>
+      <button class="filter-btn" data-cat="products.catMatcha" data-i18n="products.catMatcha">Matcha</button>
+    </div>
+
+    <!-- Product Count Indicator -->
+    <div class="product-count" id="productCount">
+      <strong id="productCountNum">0</strong> <span id="productCountLabel">products found</span>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="products-grid" id="productsGrid">
+      <!-- Products dynamically rendered here -->
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================
+     6. BOTTOM INQUIRY CTA
+     ============================================ -->
+<section style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);padding:4rem 0;position:relative;overflow:hidden;">
+  <div style="position:absolute;top:-50%;right:-10%;width:400px;height:400px;border-radius:50%;background:rgba(255,255,255,0.05);"></div>
+  <div style="position:absolute;bottom:-30%;left:-5%;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,0.05);"></div>
+  <div class="container" style="position:relative;">
+    <div style="max-width:700px;margin:0 auto;text-align:center;color:white;">
+      <h2 style="color:white;font-size:2rem;margin-bottom:1rem;">Can't find what you need? Send us an inquiry</h2>
+      <p style="color:rgba(255,255,255,0.9);font-size:1.1rem;margin-bottom:2rem;" data-i18n="home.ctaSubtitle">Get a personalized quote within 24 hours. No minimum for samples.</p>
+      <button class="btn btn-accent" style="font-size:1.1rem;padding:14px 40px;" onclick="openInquiry()">
+        <i class="fas fa-paper-plane"></i>
+        <span data-i18n="home.ctaBtn">Start Inquiry</span>
+      </button>
     </div>
   </div>
 </section>
 
 <!-- ============================================
-     6. FOOTER
+     7. FOOTER
      ============================================ -->
 <footer class="footer">
   <div class="container">
@@ -474,7 +447,7 @@
 </footer>
 
 <!-- ============================================
-     7. INQUIRY POPUP
+     8. INQUIRY POPUP
      ============================================ -->
 <div class="inquiry-overlay" id="inquiryOverlay" onclick="closeInquiryOverlay(event)">
   <div class="inquiry-popup" id="inquiryPopup">
@@ -527,7 +500,7 @@
         </div>
         <input type="hidden" name="csrf_token" id="csrfTokenPopup">
         <input type="hidden" name="website_url" style="display:none" tabindex="-1" autocomplete="off">
-        <input type="hidden" name="source" value="detail_popup">
+        <input type="hidden" name="source" value="products_popup">
         <button type="submit" class="inquiry-submit popup-submit">
           <span class="loading-spinner"></span>
           <span class="btn-text" data-i18n="popup.submitBtn">Submit Inquiry</span>
@@ -548,7 +521,7 @@
 </div>
 
 <!-- ============================================
-     8. BACK TO TOP
+     9. BACK TO TOP
      ============================================ -->
 <div class="back-to-top" id="backToTop" onclick="scrollToTop()">
   <i class="fas fa-arrow-up"></i>
@@ -561,14 +534,8 @@
 <script src="js/product-data.js"></script>
 <script>
 /* ============================================
-   XIANGFENG TEA — PRODUCT DETAIL PAGE LOGIC
+   XIANGFENG TEA — PRODUCTS PAGE LOGIC
    ============================================ */
-
-/* ---------- State ---------- */
-var currentProductId = null;
-var currentProduct = null;
-var detailCurrentSlide = 0;
-var detailAutoRotateInterval = null;
 
 /* ---------- i18n helper ---------- */
 function __(key) {
@@ -593,12 +560,13 @@ function escapeHtml(str) {
   return div.innerHTML;
 }
 
-/* ---------- Product Card Renderer (for related products) ---------- */
+/* ---------- Product Card Renderer (NO PRICES, TWO BUTTONS) ---------- */
 function renderProductCard(p) {
   var name = escapeHtml(__(p.nameKey));
   var cat = escapeHtml(__(p.catKey));
   var region = escapeHtml(__(p.region));
   var id = escapeHtml(p.id);
+  var minOrder = escapeHtml(p.specs.minOrder);
   return '<div class="product-card" data-cat="' + p.catKey + '">'
     + '<div class="product-card-image">'
     +   '<span class="product-card-tag">' + (p.emoji || '🍃') + ' ' + cat + '</span>'
@@ -613,6 +581,7 @@ function renderProductCard(p) {
     +   '<h3 class="product-card-title">' + name + '</h3>'
     +   '<div class="product-card-info">'
     +     '<span><i class="fas fa-map-marker-alt"></i> ' + region + '</span>'
+    +     '<span><i class="fas fa-box"></i> ' + minOrder + '</span>'
     +   '</div>'
     +   '<div class="product-card-footer">'
     +     '<a href="product-detail.html?id=' + id + '" class="btn btn-details" data-i18n="products.viewDetails">View Details</a>'
@@ -621,151 +590,87 @@ function renderProductCard(p) {
     + '</div></div>';
 }
 
-/* ---------- Load Product from URL ---------- */
-function loadProduct() {
-  var params = new URLSearchParams(window.location.search);
-  var id = params.get('id');
-  if (!id) {
-    showNotFound();
-    return;
-  }
+/* ---------- Render Products ---------- */
+function renderProducts(products) {
+  var grid = document.getElementById('productsGrid');
+  var countNum = document.getElementById('productCountNum');
+  var countLabel = document.getElementById('productCountLabel');
 
-  currentProductId = id;
-  currentProduct = XF_Products.getProductById(id);
+  countNum.textContent = products.length;
 
-  if (!currentProduct) {
-    showNotFound();
-    return;
-  }
+  var langProductsFound = {
+    en: 'products found',
+    ru: 'продуктов найдено',
+    ar: 'منتجات',
+    fr: 'produits trouvés',
+    zh: '个产品'
+  };
+  var currentLang = (typeof XF_i18n !== 'undefined') ? XF_i18n.getLang() : 'en';
+  countLabel.textContent = langProductsFound[currentLang] || 'products found';
 
-  // Update page title
-  document.title = __(currentProduct.nameKey) + ' — Xiangfeng Tea Group';
-
-  // Hero title & breadcrumb
-  document.getElementById('heroTitle').textContent = __(currentProduct.nameKey);
-  document.getElementById('breadcrumbProduct').textContent = __(currentProduct.nameKey);
-
-  // Detail info
-  document.getElementById('detailName').textContent = __(currentProduct.nameKey);
-  document.getElementById('detailCat').textContent = __(currentProduct.catKey);
-
-  // Description - resolve the descriptionKey via i18n
-  var descText = __(currentProduct.descriptionKey);
-  document.getElementById('detailDesc').textContent = descText;
-
-  // Specs table
-  renderSpecsTable(currentProduct);
-
-  // Carousel
-  renderCarousel(currentProduct.images, currentProduct.emoji);
-
-  // Related products
-  renderRelatedProducts(currentProduct);
-}
-
-/* ---------- Show Not Found ---------- */
-function showNotFound() {
-  document.getElementById('detailLayout').style.display = 'none';
-  document.getElementById('notFound').style.display = 'block';
-  document.getElementById('relatedSection').style.display = 'none';
-  document.getElementById('heroTitle').textContent = 'Product Not Found';
-}
-
-/* ---------- Render Specs Table ---------- */
-function renderSpecsTable(product) {
-  var table = document.getElementById('detailSpecsTable');
-  var originLabel = __('detail.origin');
-  var packagingLabel = __('detail.packaging');
-  var minOrderLabel = __('detail.minOrder');
-  var certificationsLabel = __('detail.certifications');
-
-  table.innerHTML =
-    '<tr><th>' + escapeHtml(originLabel) + '</th><td>' + escapeHtml(product.specs.origin) + '</td></tr>'
-    + '<tr><th>' + escapeHtml(packagingLabel) + '</th><td>' + escapeHtml(product.specs.packaging) + '</td></tr>'
-    + '<tr><th>' + escapeHtml(minOrderLabel) + '</th><td>' + escapeHtml(product.specs.minOrder) + '</td></tr>'
-    + '<tr><th>' + escapeHtml(certificationsLabel) + '</th><td>' + escapeHtml(product.specs.certifications) + '</td></tr>';
-}
-
-/* ---------- Render Carousel ---------- */
-function renderCarousel(images, emoji) {
-  var track = document.getElementById('detailCarouselTrack');
-  var dotsContainer = document.getElementById('detailCarouselDots');
-
-  track.innerHTML = images.map(function(img, i) {
-    return '<div class="detail-carousel-slide' + (i === 0 ? ' active' : '') + '" data-index="' + i + '">'
-      + (emoji ? '<div class="slide-emoji">' + emoji + '</div>' : '')
-      + '<img src="' + img + '" alt="Product image ' + (i + 1) + '" loading="' + (i === 0 ? 'eager' : 'lazy') + '">'
+  if (products.length === 0) {
+    var noResultsText = __('products.noResults');
+    grid.innerHTML = '<div class="no-results">'
+      + '<i class="fas fa-search"></i>'
+      + '<h3>' + noResultsText + '</h3>'
       + '</div>';
-  }).join('');
-
-  dotsContainer.innerHTML = images.map(function(_, i) {
-    return '<button class="detail-carousel-dot' + (i === 0 ? ' active' : '') + '" data-index="' + i + '" onclick="detailGoToSlide(' + i + ')" aria-label="Go to slide ' + (i + 1) + '"></button>';
-  }).join('');
-
-  detailCurrentSlide = 0;
-  startAutoRotate();
-}
-
-/* ---------- Carousel Navigation ---------- */
-function detailGoToSlide(index) {
-  var slides = document.querySelectorAll('.detail-carousel-slide');
-  var dots = document.querySelectorAll('.detail-carousel-dot');
-  if (slides.length === 0) return;
-
-  detailCurrentSlide = ((index % slides.length) + slides.length) % slides.length;
-
-  slides.forEach(function(s, i) { s.classList.toggle('active', i === detailCurrentSlide); });
-  dots.forEach(function(d, i) { d.classList.toggle('active', i === detailCurrentSlide); });
-}
-
-function detailPrev() {
-  detailGoToSlide(detailCurrentSlide - 1);
-  resetAutoRotate();
-}
-
-function detailNext() {
-  detailGoToSlide(detailCurrentSlide + 1);
-  resetAutoRotate();
-}
-
-/* ---------- Auto-rotate (3 seconds) ---------- */
-function startAutoRotate() {
-  stopAutoRotate();
-  detailAutoRotateInterval = setInterval(function() {
-    detailGoToSlide(detailCurrentSlide + 1);
-  }, 3000);
-}
-
-function stopAutoRotate() {
-  if (detailAutoRotateInterval) {
-    clearInterval(detailAutoRotateInterval);
-    detailAutoRotateInterval = null;
-  }
-}
-
-function resetAutoRotate() {
-  stopAutoRotate();
-  startAutoRotate();
-}
-
-/* ---------- Render Related Products ---------- */
-function renderRelatedProducts(product) {
-  var related = XF_Products.getRelatedProducts(product.id);
-  var grid = document.getElementById('relatedGrid');
-  var section = document.getElementById('relatedSection');
-
-  if (related.length === 0) {
-    section.style.display = 'none';
     return;
   }
 
-  section.style.display = 'block';
-  var display = related.slice(0, 4);
-  grid.innerHTML = display.map(renderProductCard).join('');
+  grid.innerHTML = products.map(renderProductCard).join('');
 
-  // Re-apply i18n
+  // Re-apply i18n to dynamically generated elements
   if (typeof XF_i18n !== 'undefined' && XF_i18n.applyLang) {
     XF_i18n.applyLang(XF_i18n.getLang());
+  }
+}
+
+/* ---------- Do Search ---------- */
+function doSearch() {
+  var category = document.getElementById('searchCategory').value;
+  var region = document.getElementById('searchRegion').value;
+  var orderType = document.getElementById('searchOrderType').value;
+  var searchText = document.getElementById('searchText').value.trim();
+
+  var filtered = XF_Products.filterProducts(category, region, orderType, searchText);
+  renderProducts(filtered);
+
+  // Sync filter bar
+  syncFilterBar(category || 'all');
+
+  // Scroll to grid
+  document.querySelector('.products-page-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+/* ---------- Quick Filter ---------- */
+function quickFilter(cat) {
+  document.getElementById('searchCategory').value = (cat === 'all') ? '' : cat;
+  syncFilterBar(cat);
+  doSearch();
+}
+
+/* ---------- Sync Filter Bar UI ---------- */
+function syncFilterBar(cat) {
+  document.querySelectorAll('.filter-btn').forEach(function(btn) {
+    btn.classList.toggle('active', btn.dataset.cat === cat);
+  });
+}
+
+/* ---------- Load All Products ---------- */
+function loadAllProducts() {
+  renderProducts(XF_Products.products);
+}
+
+/* ---------- Apply URL Param Filter ---------- */
+function applyUrlFilter() {
+  var params = new URLSearchParams(window.location.search);
+  var cat = params.get('cat');
+  if (cat) {
+    document.getElementById('searchCategory').value = cat;
+    syncFilterBar(cat);
+    doSearch();
+  } else {
+    loadAllProducts();
   }
 }
 
@@ -782,8 +687,6 @@ function openInquiry(productId) {
   var overlay = document.getElementById('inquiryOverlay');
   var successDiv = document.getElementById('inquirySuccess');
   var form = document.getElementById('inquiryForm');
-
-  currentProductId = productId || currentProductId;
 
   if (successDiv) successDiv.classList.remove('active');
   if (form) form.reset();
@@ -904,23 +807,9 @@ function initBackToTop() {
 
 /* ---------- Language Change Re-render ---------- */
 function reRenderOnLangChange() {
-  if (currentProduct) {
-    // Re-render dynamic content with new language
-    document.getElementById('detailCat').textContent = __(currentProduct.catKey);
-    document.getElementById('detailDesc').textContent = __(currentProduct.descriptionKey);
-    renderSpecsTable(currentProduct);
-    renderRelatedProducts(currentProduct);
-  }
-
+  doSearch();
   if (typeof XF_i18n !== 'undefined' && XF_i18n.applyLang) {
     XF_i18n.applyLang(XF_i18n.getLang());
-    // Re-set dynamic text that would be overwritten by applyLang
-    if (currentProduct) {
-      document.getElementById('heroTitle').textContent = __(currentProduct.nameKey);
-      document.getElementById('detailName').textContent = __(currentProduct.nameKey);
-      document.getElementById('detailCat').textContent = __(currentProduct.catKey);
-      document.getElementById('detailDesc').textContent = __(currentProduct.descriptionKey);
-    }
   }
 }
 
@@ -935,17 +824,23 @@ function reRenderOnLangChange() {
 
 /* ---------- Initialize on DOM Ready ---------- */
 document.addEventListener('DOMContentLoaded', function() {
+  // Filter bar click handlers
+  document.querySelectorAll('.filter-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      quickFilter(btn.dataset.cat);
+    });
+  });
+
+  // Search text Enter key
+  document.getElementById('searchText').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') doSearch();
+  });
+
+  // Apply URL filter if present, else load all
   setTimeout(function() {
-    loadProduct();
+    applyUrlFilter();
     initBackToTop();
   }, 100);
-
-  // Pause auto-rotate on hover
-  var carousel = document.getElementById('detailCarousel');
-  if (carousel) {
-    carousel.addEventListener('mouseenter', stopAutoRotate);
-    carousel.addEventListener('mouseleave', startAutoRotate);
-  }
 });
 
 // Close mobile menu when clicking outside
@@ -966,9 +861,6 @@ document.addEventListener('keydown', function(e) {
     closeInquiry();
   }
 });
-
-// Cleanup on page unload
-window.addEventListener('beforeunload', stopAutoRotate);
 </script>
 
 </body>
