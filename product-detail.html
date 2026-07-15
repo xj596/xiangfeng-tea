@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Product details for Xiangfeng Tea Group premium teas.">
+  <title>Product Details — Xiangfeng Tea Group</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='28'%3E%F0%9F%8D%83%3C/text%3E%3C/svg%3E">
+  <style>
+    /* Product Detail Layout */
+    .product-detail-section { padding: 2rem 0 4rem; }
+
+    /* Detail Carousel */
+    .detail-carousel {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--bg-light);
+      aspect-ratio: 1 / 1;
+      box-shadow: var(--shadow-md);
+    }
+    .detail-carousel-track {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    .detail-carousel-slide {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    .detail-carousel-slide.active {
+      opacity: 1;
+      z-index: 1;
+    }
+    .detail-carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .detail-carousel-slide .slide-emoji {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      font-size: 2rem;
+      background: rgba(255,255,255,0.9);
+      width: 50px; height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-sm);
+    }
+    body.rtl .detail-carousel-slide .slide-emoji {
+      left: auto;
+      right: 15px;
+    }
+    .detail-carousel-prev,
+    .detail-carousel-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.9);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+      z-index: 5;
+      font-size: 1.4rem;
+      font-weight: 300;
+      border: none;
+      box-shadow: var(--shadow-sm);
+    }
+    .detail-carousel-prev:hover,
+    .detail-carousel-next:hover {
+      background: var(--primary);
+      color: white;
+    }
+    .detail-carousel-prev { left: 15px; }
+    .detail-carousel-next { right: 15px; }
+    body.rtl .detail-carousel-prev { left: auto; right: 15px; }
+    body.rtl .detail-carousel-next { right: auto; left: 15px; }
+    .detail-carousel-dots {
+      position: absolute;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      z-index: 5;
+    }
+    .detail-carousel-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.6);
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+      padding: 0;
+    }
+    .detail-carousel-dot.active {
+      background: var(--accent);
+      width: 25px;
+      border-radius: 5px;
+    }
+
+    /* Detail Info Panel */
+    .detail-info { padding: 0; }
+    .detail-info h2 {
+      font-size: 1.75rem;
+      color: var(--dark);
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+    .detail-cat {
+      display: inline-block;
+      padding: 4px 14px;
+      background: var(--primary-bg);
+      color: var(--primary);
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin-bottom: 1.25rem;
+    }
+    .detail-description {
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+      color: var(--text-light);
+      font-size: 0.95rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .detail-specs { margin-bottom: 2rem; }
+    .detail-specs h4 {
+      font-size: 1.1rem;
+      color: var(--dark);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--primary);
+      display: inline-block;
+    }
+    #detailSpecsTable {
+      width: 100%;
+      border-collapse: collapse;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    #detailSpecsTable th,
+    #detailSpecsTable td {
+      padding: 12px 16px;
+      text-align: left;
+      font-size: 0.9rem;
+      border-bottom: 1px solid var(--border-light);
+    }
+    body.rtl #detailSpecsTable th,
+    body.rtl #detailSpecsTable td { text-align: right; }
+    #detailSpecsTable th {
+      background: var(--bg-light);
+      color: var(--text);
+      font-weight: 600;
+      width: 35%;
+    }
+    #detailSpecsTable td { color: var(--text-light); }
+    #detailSpecsTable tr:last-child th,
+    #detailSpecsTable tr:last-child td { border-bottom: none; }
+    .detail-inquire-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 40px;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+      color: white;
+      font-size: 1.05rem;
+      font-weight: 600;
+      border-radius: var(--radius-md);
+      box-shadow: 0 4px 15px rgba(201, 169, 110, 0.3);
+      transition: all 0.4s ease;
+      margin-top: 1rem;
+      border: none;
+      cursor: pointer;
+    }
+    .detail-inquire-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(201, 169, 110, 0.5);
+      color: white;
+    }
+    .detail-back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--text-light);
+      transition: var(--transition);
+    }
+    .detail-back-link:hover {
+      color: var(--primary);
+      gap: 10px;
+    }
+
+    /* Related Products */
+    .related-products-section {
+      padding: 3rem 0 5rem;
+      background: var(--bg-light);
+    }
+    .related-products-section h3 {
+      font-size: 1.75rem;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    .related-products-section .section-subtitle {
+      text-align: center;
+      color: var(--text-light);
+      margin-bottom: 2.5rem;
+      font-size: 1rem;
+    }
+
+    /* Not found state */
+    .product-not-found {
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+    .product-not-found i {
+      font-size: 4rem;
+      color: var(--border);
+      margin-bottom: 1rem;
+    }
+    .product-not-found h2 {
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+    .product-not-found p {
+      color: var(--text-light);
+      margin-bottom: 1.5rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .product-detail-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+  </style>
+</head>
+<body data-page="product-detail">
+
+<!-- ============================================
+     1. TOP UTILITY BAR
+     ============================================ -->
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-left">
+      <a href="mailto:export@xiangfengtea.com" title="Email"><i class="fas fa-envelope"></i> export@xiangfengtea.com</a>
+      <a href="tel:+8673188000000" title="Phone"><i class="fas fa-phone-alt"></i> +86 731 8800 0000</a>
+    </div>
+    <div class="topbar-right">
+      <a href="https://www.linkedin.com" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://www.facebook.com" target="_blank" rel="noopener" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com" target="_blank" rel="noopener" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://wa.me/8613800000000" target="_blank" rel="noopener" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      <span id="lang-selector"></span>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================
+     2. MAIN HEADER
+     ============================================ -->
+<header class="header" id="header">
+  <div class="container">
+    <a href="index.html" class="logo">
+      <span style="font-size:2rem;">🍃</span>
+      <div class="logo-text">
+        Xiangfeng
+        <span>Tea Group</span>
+      </div>
+    </a>
+
+    <nav class="nav" id="navMenu">
+      <div class="nav-item">
+        <a href="index.html" class="nav-link" data-i18n="common.home">Home</a>
+      </div>
+      <div class="nav-item">
+        <a href="certs.html" class="nav-link" data-i18n="common.certsHonors">Certifications</a>
+      </div>
+      <div class="nav-item">
+        <a href="about.html" class="nav-link" data-i18n="common.about">About Us</a>
+      </div>
+      <div class="nav-item">
+        <a href="products.html" class="nav-link active">
+          <span data-i18n="common.products">Products Center</span>
+          <i class="fas fa-chevron-down"></i>
+        </a>
+        <div class="nav-dropdown">
+          <a href="products.html?cat=products.catGreen"><span data-i18n="products.catGreen">Green Tea</span></a>
+          <a href="products.html?cat=products.catBlack"><span data-i18n="products.catBlack">Black Tea</span></a>
+          <a href="products.html?cat=products.catOolong"><span data-i18n="products.catOolong">Oolong Tea</span></a>
+          <a href="products.html?cat=products.catWhite"><span data-i18n="products.catWhite">White Tea</span></a>
+          <a href="products.html?cat=products.catPuer"><span data-i18n="products.catPuer">Pu-erh Tea</span></a>
+          <a href="products.html?cat=products.catOEM"><span data-i18n="common.oem">OEM/ODM</span></a>
+          <a href="products.html?cat=products.catMatcha"><span data-i18n="common.matcha">Matcha</span></a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="events.html" class="nav-link" data-i18n="common.events">Exhibition Events</a>
+      </div>
+      <div class="nav-item">
+        <a href="news.html" class="nav-link" data-i18n="common.news">News</a>
+      </div>
+      <div class="nav-item">
+        <a href="contact.html" class="nav-link" data-i18n="common.contact">Contact Us</a>
+      </div>
+      <button class="nav-inquiry-btn" onclick="openInquiry()">
+        <i class="fas fa-paper-plane"></i>
+        <span data-i18n="common.inquiry">Inquiry</span>
+      </button>
+    </nav>
+
+    <div class="mobile-menu-toggle" id="mobileToggle" onclick="toggleMobileMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================
+     3. PAGE BANNER (Dynamic title)
+     ============================================ -->
+<section class="page-banner">
+  <div class="container">
+    <h1 id="heroTitle" data-i18n="detail.title">Product Details</h1>
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>/</span>
+      <a href="products.html"><span data-i18n="common.products">Products</span></a>
+      <span>/</span>
+      <span id="breadcrumbProduct">Product</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     4. PRODUCT DETAIL SECTION
+     ============================================ -->
+<section class="product-detail-section">
+  <div class="container">
+    <div class="product-detail-layout" id="detailLayout">
+      <!-- Left: Carousel -->
+      <div class="detail-carousel" id="detailCarousel">
+        <div class="detail-carousel-track" id="detailCarouselTrack"></div>
+        <button class="detail-carousel-prev" onclick="detailPrev()" aria-label="Previous">‹</button>
+        <button class="detail-carousel-next" onclick="detailNext()" aria-label="Next">›</button>
+        <div class="detail-carousel-dots" id="detailCarouselDots"></div>
+      </div>
+
+      <!-- Right: Info -->
+      <div class="detail-info">
+        <h2 id="detailName"></h2>
+        <div class="detail-cat" id="detailCat"></div>
+        <div class="detail-description" id="detailDesc"></div>
+        <div class="detail-specs">
+          <h4 data-i18n="detail.specifications">Specifications</h4>
+          <table id="detailSpecsTable">
+            <!-- Dynamic: Origin, Packaging, Min Order, Certifications -->
+          </table>
+        </div>
+        <button class="detail-inquire-btn" onclick="openInquiry(currentProductId)" data-i18n="detail.inquireProduct">Inquire About This Product</button>
+        <br>
+        <a href="products.html" class="detail-back-link" data-i18n="detail.backToProducts">← Back to Products</a>
+      </div>
+    </div>
+
+    <!-- Not Found State -->
+    <div class="product-not-found" id="notFound" style="display:none;">
+      <i class="fas fa-box-open"></i>
+      <h2>Product Not Found</h2>
+      <p>The product you're looking for doesn't exist or has been removed.</p>
+      <a href="products.html" class="btn btn-primary" data-i18n="detail.backToProducts">← Back to Products</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     5. RELATED PRODUCTS SECTION
+     ============================================ -->
+<section class="related-products-section" id="relatedSection" style="display:none;">
+  <div class="container">
+    <h3 data-i18n="detail.relatedProducts">Related Products</h3>
+    <p class="section-subtitle">Explore other premium teas you might be interested in.</p>
+    <div class="products-grid" id="relatedGrid">
+      <!-- Dynamic related products -->
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     6. FOOTER
+     ============================================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <span style="font-size:1.5rem;">🍃</span>
+          <div class="logo-text">
+            Xiangfeng
+            <span>Tea Group</span>
+          </div>
+        </div>
+        <p data-i18n="footer.aboutDesc">A leading Chinese tea export enterprise, delivering premium teas worldwide since 1996.</p>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.facebook.com" target="_blank" rel="noopener" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com" target="_blank" rel="noopener" title="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/8613800000000" target="_blank" rel="noopener" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4 class="footer-title" data-i18n="footer.productsTitle">Products</h4>
+        <ul class="footer-links">
+          <li><a href="products.html?cat=products.catGreen"><span data-i18n="products.catGreen">Green Tea</span></a></li>
+          <li><a href="products.html?cat=products.catBlack"><span data-i18n="products.catBlack">Black Tea</span></a></li>
+          <li><a href="products.html?cat=products.catOolong"><span data-i18n="products.catOolong">Oolong Tea</span></a></li>
+          <li><a href="products.html?cat=products.catWhite"><span data-i18n="products.catWhite">White Tea</span></a></li>
+          <li><a href="products.html?cat=products.catPuer"><span data-i18n="products.catPuer">Pu-erh Tea</span></a></li>
+          <li><a href="products.html?cat=products.catOEM"><span data-i18n="common.oem">OEM/ODM</span></a></li>
+          <li><a href="products.html?cat=products.catMatcha"><span data-i18n="common.matcha">Matcha</span></a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-title" data-i18n="footer.quickLinks">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html"><span data-i18n="common.about">About Us</span></a></li>
+          <li><a href="news.html"><span data-i18n="common.news">News</span></a></li>
+          <li><a href="certs.html"><span data-i18n="common.certsHonors">资质和荣誉</span></a></li>
+          <li><a href="contact.html"><span data-i18n="common.contact">Contact</span></a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-title" data-i18n="footer.contactTitle">Contact Us</h4>
+        <ul class="footer-contact">
+          <li><i class="fas fa-map-marker-alt"></i> <span>No.88 Tea Avenue, Changsha, Hunan, China 410000</span></li>
+          <li><i class="fas fa-phone-alt"></i> <span>+86 731 8800 0000</span></li>
+          <li><i class="fas fa-envelope"></i> <span>export@xiangfengtea.com</span></li>
+          <li><i class="fab fa-whatsapp"></i> <span>+86 138 0000 0000</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>&copy; 1996–2026 Xiangfeng Tea Group. <span data-i18n="footer.rights">All rights reserved.</span></div>
+      <div>
+        <a href="#" data-i18n="footer.privacy">Privacy Policy</a> ·
+        <a href="#" data-i18n="footer.terms">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================
+     7. INQUIRY POPUP
+     ============================================ -->
+<div class="inquiry-overlay" id="inquiryOverlay" onclick="closeInquiryOverlay(event)">
+  <div class="inquiry-popup" id="inquiryPopup">
+    <div class="inquiry-header">
+      <h3 data-i18n="popup.title">Product Inquiry</h3>
+      <div class="inquiry-close" onclick="closeInquiry()">
+        <i class="fas fa-times"></i>
+      </div>
+    </div>
+    <div class="inquiry-body">
+      <form class="inquiry-form" id="inquiryForm" onsubmit="submitInquiry(event)">
+        <div class="form-group">
+          <label><span data-i18n="popup.name">Your Name</span> <span class="required">*</span></label>
+          <input type="text" name="name" required>
+        </div>
+        <div class="form-group">
+          <label><span data-i18n="popup.company">Company / Brand</span></label>
+          <input type="text" name="company">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label><span data-i18n="popup.email">Email</span> <span class="required">*</span></label>
+            <input type="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label><span data-i18n="popup.phone">Phone / WhatsApp</span></label>
+            <input type="tel" name="phone">
+          </div>
+        </div>
+        <div class="form-group">
+          <label><span data-i18n="contact.productInterest">Product Interest</span> <span class="required">*</span></label>
+          <select name="product_interest" id="inquiryProductSelect" required>
+            <option value="">-- Select --</option>
+            <option value="green_tea" data-i18n="products.catGreen">Green Tea</option>
+            <option value="black_tea" data-i18n="products.catBlack">Black Tea</option>
+            <option value="oolong_tea" data-i18n="products.catOolong">Oolong Tea</option>
+            <option value="white_tea" data-i18n="products.catWhite">White Tea</option>
+            <option value="puer_tea" data-i18n="products.catPuer">Pu-erh Tea</option>
+            <option value="oem" data-i18n="common.oem">OEM/ODM</option>
+            <option value="matcha" data-i18n="common.matcha">Matcha</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label><span data-i18n="popup.quantity">Estimated Quantity</span></label>
+          <input type="text" name="quantity" placeholder="e.g. 500kg, 1 ton, 10 tons">
+        </div>
+        <div class="form-group">
+          <label><span data-i18n="popup.message">Message</span> <span class="required">*</span></label>
+          <textarea name="message" rows="4" required data-i18n-placeholder="popup.messagePlaceholder" placeholder="Tell us about your requirements..."></textarea>
+        </div>
+        <input type="hidden" name="csrf_token" id="csrfTokenPopup">
+        <input type="hidden" name="website_url" style="display:none" tabindex="-1" autocomplete="off">
+        <input type="hidden" name="source" value="detail_popup">
+        <button type="submit" class="inquiry-submit popup-submit">
+          <span class="loading-spinner"></span>
+          <span class="btn-text" data-i18n="popup.submitBtn">Submit Inquiry</span>
+        </button>
+      </form>
+    </div>
+    <div class="inquiry-success-animation" id="inquirySuccess">
+      <div class="success-checkmark">
+        <i class="fas fa-check"></i>
+      </div>
+      <h3 data-i18n="popup.successTitle">Inquiry Submitted!</h3>
+      <p data-i18n="popup.successDesc">Our export team will contact you within 24 hours.</p>
+      <button class="btn btn-primary mt-4" onclick="closeInquiry()" style="margin-top:2rem;">
+        <span data-i18n="common.close">Close</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================
+     8. BACK TO TOP
+     ============================================ -->
+<div class="back-to-top" id="backToTop" onclick="scrollToTop()">
+  <i class="fas fa-arrow-up"></i>
+</div>
+
+<!-- ============================================
+     SCRIPTS
+     ============================================ -->
+<script src="js/i18n.js"></script>
+<script src="js/product-data.js"></script>
+<script>
+/* ============================================
+   XIANGFENG TEA — PRODUCT DETAIL PAGE LOGIC
+   ============================================ */
+
+/* ---------- State ---------- */
+var currentProductId = null;
+var currentProduct = null;
+var detailCurrentSlide = 0;
+var detailAutoRotateInterval = null;
+
+/* ---------- i18n helper ---------- */
+function __(key) {
+  if (typeof XF_i18n !== 'undefined' && XF_i18n.t) {
+    return XF_i18n.t(key);
+  }
+  return key;
+}
+
+/* ---------- CSRF Token Generator ---------- */
+function generateToken() {
+  var timestamp = Date.now();
+  var random = Math.random().toString(36).substring(2, 15);
+  return timestamp + '_' + random;
+}
+
+/* ---------- HTML Escape Helper (XSS prevention) ---------- */
+function escapeHtml(str) {
+  if (!str) return '';
+  var div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
+
+/* ---------- Product Card Renderer (for related products) ---------- */
+function renderProductCard(p) {
+  var name = escapeHtml(__(p.nameKey));
+  var cat = escapeHtml(__(p.catKey));
+  var region = escapeHtml(__(p.region));
+  var id = escapeHtml(p.id);
+  return '<div class="product-card" data-cat="' + p.catKey + '">'
+    + '<div class="product-card-image">'
+    +   '<span class="product-card-tag">' + (p.emoji || '🍃') + ' ' + cat + '</span>'
+    +   '<img src="' + (p.images[0] || 'https://video.aultras-tea.com/wulongcha.png') + '" alt="' + name + '" style="width:100%;height:100%;object-fit:cover;" onerror="this.src=\'https://video.aultras-tea.com/wulongcha.png\'">'
+    +   '<div class="product-card-actions">'
+    +     '<a href="product-detail.html?id=' + id + '" class="btn-view"><span data-i18n="products.viewDetails">View Details</span></a>'
+    +     '<button class="btn-inquire" onclick="openInquiry(\'' + id + '\')"><span data-i18n="common.inquiry">Inquire</span></button>'
+    +   '</div>'
+    + '</div>'
+    + '<div class="product-card-body">'
+    +   '<div class="product-card-category">' + cat + '</div>'
+    +   '<h3 class="product-card-title">' + name + '</h3>'
+    +   '<div class="product-card-info">'
+    +     '<span><i class="fas fa-map-marker-alt"></i> ' + region + '</span>'
+    +   '</div>'
+    +   '<div class="product-card-footer">'
+    +     '<a href="product-detail.html?id=' + id + '" class="btn btn-details" data-i18n="products.viewDetails">View Details</a>'
+    +     '<button class="btn btn-inquire-now" onclick="openInquiry(\'' + id + '\')" data-i18n="common.inquiry">Inquire</button>'
+    +   '</div>'
+    + '</div></div>';
+}
+
+/* ---------- Load Product from URL ---------- */
+function loadProduct() {
+  var params = new URLSearchParams(window.location.search);
+  var id = params.get('id');
+  if (!id) {
+    showNotFound();
+    return;
+  }
+
+  currentProductId = id;
+  currentProduct = XF_Products.getProductById(id);
+
+  if (!currentProduct) {
+    showNotFound();
+    return;
+  }
+
+  // Update page title
+  document.title = __(currentProduct.nameKey) + ' — Xiangfeng Tea Group';
+
+  // Hero title & breadcrumb
+  document.getElementById('heroTitle').textContent = __(currentProduct.nameKey);
+  document.getElementById('breadcrumbProduct').textContent = __(currentProduct.nameKey);
+
+  // Detail info
+  document.getElementById('detailName').textContent = __(currentProduct.nameKey);
+  document.getElementById('detailCat').textContent = __(currentProduct.catKey);
+
+  // Description - resolve the descriptionKey via i18n
+  var descText = __(currentProduct.descriptionKey);
+  document.getElementById('detailDesc').textContent = descText;
+
+  // Specs table
+  renderSpecsTable(currentProduct);
+
+  // Carousel
+  renderCarousel(currentProduct.images, currentProduct.emoji);
+
+  // Related products
+  renderRelatedProducts(currentProduct);
+}
+
+/* ---------- Show Not Found ---------- */
+function showNotFound() {
+  document.getElementById('detailLayout').style.display = 'none';
+  document.getElementById('notFound').style.display = 'block';
+  document.getElementById('relatedSection').style.display = 'none';
+  document.getElementById('heroTitle').textContent = 'Product Not Found';
+}
+
+/* ---------- Render Specs Table ---------- */
+function renderSpecsTable(product) {
+  var table = document.getElementById('detailSpecsTable');
+  var originLabel = __('detail.origin');
+  var packagingLabel = __('detail.packaging');
+  var minOrderLabel = __('detail.minOrder');
+  var certificationsLabel = __('detail.certifications');
+
+  table.innerHTML =
+    '<tr><th>' + escapeHtml(originLabel) + '</th><td>' + escapeHtml(product.specs.origin) + '</td></tr>'
+    + '<tr><th>' + escapeHtml(packagingLabel) + '</th><td>' + escapeHtml(product.specs.packaging) + '</td></tr>'
+    + '<tr><th>' + escapeHtml(minOrderLabel) + '</th><td>' + escapeHtml(product.specs.minOrder) + '</td></tr>'
+    + '<tr><th>' + escapeHtml(certificationsLabel) + '</th><td>' + escapeHtml(product.specs.certifications) + '</td></tr>';
+}
+
+/* ---------- Render Carousel ---------- */
+function renderCarousel(images, emoji) {
+  var track = document.getElementById('detailCarouselTrack');
+  var dotsContainer = document.getElementById('detailCarouselDots');
+
+  track.innerHTML = images.map(function(img, i) {
+    return '<div class="detail-carousel-slide' + (i === 0 ? ' active' : '') + '" data-index="' + i + '">'
+      + (emoji ? '<div class="slide-emoji">' + emoji + '</div>' : '')
+      + '<img src="' + img + '" alt="Product image ' + (i + 1) + '" loading="' + (i === 0 ? 'eager' : 'lazy') + '">'
+      + '</div>';
+  }).join('');
+
+  dotsContainer.innerHTML = images.map(function(_, i) {
+    return '<button class="detail-carousel-dot' + (i === 0 ? ' active' : '') + '" data-index="' + i + '" onclick="detailGoToSlide(' + i + ')" aria-label="Go to slide ' + (i + 1) + '"></button>';
+  }).join('');
+
+  detailCurrentSlide = 0;
+  startAutoRotate();
+}
+
+/* ---------- Carousel Navigation ---------- */
+function detailGoToSlide(index) {
+  var slides = document.querySelectorAll('.detail-carousel-slide');
+  var dots = document.querySelectorAll('.detail-carousel-dot');
+  if (slides.length === 0) return;
+
+  detailCurrentSlide = ((index % slides.length) + slides.length) % slides.length;
+
+  slides.forEach(function(s, i) { s.classList.toggle('active', i === detailCurrentSlide); });
+  dots.forEach(function(d, i) { d.classList.toggle('active', i === detailCurrentSlide); });
+}
+
+function detailPrev() {
+  detailGoToSlide(detailCurrentSlide - 1);
+  resetAutoRotate();
+}
+
+function detailNext() {
+  detailGoToSlide(detailCurrentSlide + 1);
+  resetAutoRotate();
+}
+
+/* ---------- Auto-rotate (3 seconds) ---------- */
+function startAutoRotate() {
+  stopAutoRotate();
+  detailAutoRotateInterval = setInterval(function() {
+    detailGoToSlide(detailCurrentSlide + 1);
+  }, 3000);
+}
+
+function stopAutoRotate() {
+  if (detailAutoRotateInterval) {
+    clearInterval(detailAutoRotateInterval);
+    detailAutoRotateInterval = null;
+  }
+}
+
+function resetAutoRotate() {
+  stopAutoRotate();
+  startAutoRotate();
+}
+
+/* ---------- Render Related Products ---------- */
+function renderRelatedProducts(product) {
+  var related = XF_Products.getRelatedProducts(product.id);
+  var grid = document.getElementById('relatedGrid');
+  var section = document.getElementById('relatedSection');
+
+  if (related.length === 0) {
+    section.style.display = 'none';
+    return;
+  }
+
+  section.style.display = 'block';
+  var display = related.slice(0, 4);
+  grid.innerHTML = display.map(renderProductCard).join('');
+
+  // Re-apply i18n
+  if (typeof XF_i18n !== 'undefined' && XF_i18n.applyLang) {
+    XF_i18n.applyLang(XF_i18n.getLang());
+  }
+}
+
+/* ---------- Mobile Menu Toggle ---------- */
+function toggleMobileMenu() {
+  var nav = document.getElementById('navMenu');
+  var toggle = document.getElementById('mobileToggle');
+  if (nav) nav.classList.toggle('active');
+  if (toggle) toggle.classList.toggle('active');
+}
+
+/* ---------- Inquiry Popup ---------- */
+function openInquiry(productId) {
+  var overlay = document.getElementById('inquiryOverlay');
+  var successDiv = document.getElementById('inquirySuccess');
+  var form = document.getElementById('inquiryForm');
+
+  currentProductId = productId || currentProductId;
+
+  if (successDiv) successDiv.classList.remove('active');
+  if (form) form.reset();
+  if (form) form.style.display = '';
+
+  // Generate CSRF token
+  var token = generateToken();
+  var tokenInput = document.getElementById('csrfTokenPopup');
+  if (tokenInput) tokenInput.value = token;
+  try { sessionStorage.setItem('xf_csrf_token', token); } catch(e) {}
+
+  if (overlay) {
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  if (productId) {
+    var product = XF_Products.getProductById(productId);
+    if (product) {
+      var select = document.getElementById('inquiryProductSelect');
+      if (select) {
+        var catMap = {
+          'products.catGreen': 'green_tea',
+          'products.catBlack': 'black_tea',
+          'products.catOolong': 'oolong_tea',
+          'products.catWhite': 'white_tea',
+          'products.catPuer': 'puer_tea',
+          'products.catOEM': 'oem',
+          'products.catMatcha': 'matcha'
+        };
+        var val = catMap[product.catKey];
+        if (val) select.value = val;
+      }
+    }
+  }
+}
+
+function closeInquiry() {
+  var overlay = document.getElementById('inquiryOverlay');
+  if (overlay) {
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+}
+
+function closeInquiryOverlay(event) {
+  if (event.target === event.currentTarget) {
+    closeInquiry();
+  }
+}
+
+/* ---------- Inquiry Form Submission ---------- */
+function submitInquiry(e) {
+  e.preventDefault();
+  var form = e.target;
+  var submitBtn = form.querySelector('.popup-submit');
+  submitBtn.classList.add('form-submitting');
+  submitBtn.querySelector('.btn-text').textContent = __('popup.submitting') || 'Submitting...';
+
+  var formData = new FormData(form);
+  fetch('inquiry-submit.php', {
+    method: 'POST',
+    body: formData
+  })
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+      submitBtn.classList.remove('form-submitting');
+      submitBtn.querySelector('.btn-text').textContent = __('popup.submitBtn') || 'Submit Inquiry';
+      if (data.success) {
+        showInquirySuccess();
+      } else {
+        alert(data.message || 'Submission failed. Please try again.');
+      }
+    })
+    .catch(function() {
+      submitBtn.classList.remove('form-submitting');
+      submitBtn.querySelector('.btn-text').textContent = __('popup.submitBtn') || 'Submit Inquiry';
+      showInquirySuccess();
+    });
+}
+
+function showInquirySuccess() {
+  var form = document.getElementById('inquiryForm');
+  var successDiv = document.getElementById('inquirySuccess');
+  if (form) form.style.display = 'none';
+  if (successDiv) {
+    successDiv.classList.add('active');
+  }
+}
+
+/* ---------- Back to Top ---------- */
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function initBackToTop() {
+  var btn = document.getElementById('backToTop');
+  if (!btn) return;
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 400) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+
+      var header = document.getElementById('header');
+      var topbar = document.querySelector('.topbar');
+      window.addEventListener('scroll', function() {
+        if (header) {
+          header.classList.toggle('scrolled', window.scrollY > 50);
+        }
+        if (topbar) {
+          topbar.classList.toggle('scrolled', window.scrollY > 10);
+        }
+      });
+}
+
+/* ---------- Language Change Re-render ---------- */
+function reRenderOnLangChange() {
+  if (currentProduct) {
+    // Re-render dynamic content with new language
+    document.getElementById('detailCat').textContent = __(currentProduct.catKey);
+    document.getElementById('detailDesc').textContent = __(currentProduct.descriptionKey);
+    renderSpecsTable(currentProduct);
+    renderRelatedProducts(currentProduct);
+  }
+
+  if (typeof XF_i18n !== 'undefined' && XF_i18n.applyLang) {
+    XF_i18n.applyLang(XF_i18n.getLang());
+    // Re-set dynamic text that would be overwritten by applyLang
+    if (currentProduct) {
+      document.getElementById('heroTitle').textContent = __(currentProduct.nameKey);
+      document.getElementById('detailName').textContent = __(currentProduct.nameKey);
+      document.getElementById('detailCat').textContent = __(currentProduct.catKey);
+      document.getElementById('detailDesc').textContent = __(currentProduct.descriptionKey);
+    }
+  }
+}
+
+(function patchI18n() {
+  if (typeof XF_i18n === 'undefined') return;
+  var origSetLang = XF_i18n.setLang;
+  XF_i18n.setLang = function(lang) {
+    origSetLang(lang);
+    reRenderOnLangChange();
+  };
+})();
+
+/* ---------- Initialize on DOM Ready ---------- */
+document.addEventListener('DOMContentLoaded', function() {
+  setTimeout(function() {
+    loadProduct();
+    initBackToTop();
+  }, 100);
+
+  // Pause auto-rotate on hover
+  var carousel = document.getElementById('detailCarousel');
+  if (carousel) {
+    carousel.addEventListener('mouseenter', stopAutoRotate);
+    carousel.addEventListener('mouseleave', startAutoRotate);
+  }
+});
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', function(e) {
+  var nav = document.getElementById('navMenu');
+  var toggle = document.getElementById('mobileToggle');
+  if (nav && nav.classList.contains('active') && toggle) {
+    if (!nav.contains(e.target) && !toggle.contains(e.target)) {
+      nav.classList.remove('active');
+      toggle.classList.remove('active');
+    }
+  }
+});
+
+// Close inquiry on Escape key
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    closeInquiry();
+  }
+});
+
+// Cleanup on page unload
+window.addEventListener('beforeunload', stopAutoRotate);
+</script>
+
+</body>
+</html>
