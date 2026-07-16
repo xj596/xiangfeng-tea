@@ -4,31 +4,293 @@
     <meta charset="UTF-8">
   <link rel="icon" type="image/png" href="https://video.aultras-tea.com/%E6%B9%98%E4%B8%B0logo%E5%B9%BF%E5%91%8A%E8%AF%AD-06.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Learn about Xiangfeng Tea Group - a leading B2B Chinese tea exporter with 53,000 mu plantations, exporting to 50+ countries since 1999.">
-    <title data-i18n="about.title">About Us - Xiangfeng Tea Group</title>
+    <meta name="description" content="Xiangfeng Tea Group Certifications & Honors - EU Organic, USDA Organic, Rainforest Alliance, ISO 22000, HACCP, and World Tea Expo Gold Award.">
+    <title data-i18n="certs.title">Certifications & Honors - Xiangfeng Tea Group</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* ===== Certs Page Specific Styles ===== */
+        .certs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .cert-badge-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cert-badge-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .cert-badge-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .cert-badge-card:hover::before {
+            opacity: 1;
+        }
+
+        .cert-badge-icon {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 1.25rem;
+            border-radius: 50%;
+            background: var(--primary-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            transition: var(--transition);
+        }
+
+        .cert-badge-card:hover .cert-badge-icon {
+            background: var(--primary);
+            transform: scale(1.1);
+        }
+
+        .cert-badge-card h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.75rem;
+        }
+
+        .cert-badge-card p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .cert-badge-year {
+            display: inline-block;
+            padding: 4px 14px;
+            background: var(--primary-bg);
+            color: var(--primary);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* ===== Honors Timeline ===== */
+        .honors-timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .honors-timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 3px;
+            background: linear-gradient(180deg, var(--primary) 0%, var(--accent) 100%);
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .honor-item {
+            position: relative;
+            width: 50%;
+            padding: 1.5rem 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .honor-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+            padding-right: 3rem;
+        }
+
+        .honor-item:nth-child(even) {
+            left: 50%;
+            text-align: left;
+            padding-left: 3rem;
+        }
+
+        .honor-dot {
+            position: absolute;
+            top: 1.75rem;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 4px solid white;
+            box-shadow: 0 0 0 3px var(--accent);
+            z-index: 2;
+        }
+
+        .honor-item:nth-child(odd) .honor-dot {
+            right: -9px;
+        }
+
+        .honor-item:nth-child(even) .honor-dot {
+            left: -9px;
+        }
+
+        .honor-year {
+            display: inline-block;
+            padding: 4px 16px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .honor-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .honor-desc {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* ===== Quality Commitment ===== */
+        .quality-commitment {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            background: white;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            position: relative;
+        }
+
+        .quality-commitment-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            box-shadow: 0 4px 15px rgba(48, 180, 168, 0.3);
+        }
+
+        .quality-commitment h3 {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .quality-commitment p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+
+        .quality-features {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .quality-feature {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .quality-feature i {
+            color: var(--success);
+            font-size: 1.1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .certs-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .honors-timeline::before {
+                left: 20px;
+            }
+
+            .honor-item {
+                width: 100%;
+                left: 0 !important;
+                text-align: left !important;
+                padding-left: 3rem !important;
+                padding-right: 1rem !important;
+            }
+
+            .honor-item .honor-dot {
+                left: 11px !important;
+                right: auto !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .certs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .quality-features {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- ==================== TOP BAR ==================== -->
     <div class="topbar">
-  <div class="container">
-    <div class="topbar-left">
-      <a href="mailto:export@xiangfengtea.com" title="Email"><i class="fas fa-envelope"></i> export@xiangfengtea.com</a>
-      <a href="tel:+8673188000000" title="Phone"><i class="fas fa-phone-alt"></i> +86 731 8800 0000</a>
+        <div class="container">
+            <div class="topbar-left">
+                <a href="mailto:export@xiangfengtea.com" title="Email"><i class="fas fa-envelope"></i> export@xiangfengtea.com</a>
+                <a href="tel:+8673188000000" title="Phone"><i class="fas fa-phone-alt"></i> +86 731 8800 0000</a>
+            </div>
+            <div class="topbar-right">
+                <a href="https://www.linkedin.com" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.facebook.com" target="_blank" rel="noopener" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com" target="_blank" rel="noopener" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/8613800000000" target="_blank" rel="noopener" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <span id="lang-selector"></span>
+            </div>
+        </div>
     </div>
-    <div class="topbar-right">
-      <a href="https://www.linkedin.com" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-      <a href="https://www.facebook.com" target="_blank" rel="noopener" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-      <a href="https://www.instagram.com" target="_blank" rel="noopener" title="Instagram"><i class="fab fa-instagram"></i></a>
-      <a href="https://wa.me/8613800000000" target="_blank" rel="noopener" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-      <span id="lang-selector"></span>
-    </div>
-  </div>
-</div>
 
     <!-- ==================== HEADER ==================== -->
     <header class="header" id="header">
@@ -45,10 +307,10 @@
                     <a href="index.html" class="nav-link" data-i18n="common.home">Home</a>
                 </div>
                 <div class="nav-item">
-                    <a href="certs.html" class="nav-link" data-i18n="common.certsHonors">Certifications</a>
+                    <a href="certs.html" class="nav-link active" data-i18n="common.certsHonors">Certifications</a>
                 </div>
                 <div class="nav-item">
-                    <a href="about.html" class="nav-link active" data-i18n="common.about">About Us</a>
+                    <a href="about.html" class="nav-link" data-i18n="common.about">About Us</a>
                 </div>
                 <div class="nav-item">
                     <a href="products.html" class="nav-link">
@@ -88,249 +350,131 @@
     <!-- ==================== PAGE HERO ==================== -->
     <section class="page-banner">
         <div class="container">
-            <h1 data-i18n="about.title">About Xiangfeng Tea Group</h1>
-            <p data-i18n="about.productionDesc">From plantation to packaging, every step is carefully controlled</p>
+            <h1 data-i18n="certs.title">Certifications &amp; Honors</h1>
+            <p data-i18n="certs.subtitle">Our commitment to quality is validated by international authorities</p>
             <div class="breadcrumb">
                 <a href="index.html" data-i18n="common.home">Home</a>
                 <span>/</span>
-                <span data-i18n="common.about">About Us</span>
+                <span data-i18n="common.certsHonors">Certifications &amp; Honors</span>
             </div>
         </div>
     </section>
 
-    <!-- ==================== COMPANY OVERVIEW ==================== -->
+    <!-- ==================== CERTIFICATIONS GRID ==================== -->
     <section class="section" style="background: white;">
         <div class="container">
-            <div class="section-title" style="text-align: center; max-width: 800px; margin: 0 auto 3rem;">
-                <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-light);" data-i18n-html="about.overview">
-                    Founded in 1999, Xiangfeng Tea Group has grown from a small family plantation in Hunan Province into one of China's largest B2B tea exporters. With <strong>53,000 mu</strong> of organic tea plantations across 6 provinces, <strong>3 state-of-the-art processing facilities</strong>, and partnerships with <strong>2,000+ family farms</strong>, we deliver premium Chinese teas to over <strong>50 countries</strong> worldwide. Our annual production capacity exceeds <strong>50,000 tons</strong>.
-                </p>
-            </div>
-            <div class="global-stats" style="grid-template-columns: repeat(4, 1fr);">
-                <div class="global-stat-card">
-                    <div class="stat-number">53,000</div>
-                    <div class="stat-label" data-i18n="about.statPlantation">Mu Plantation</div>
-                </div>
-                <div class="global-stat-card">
-                    <div class="stat-number">50+</div>
-                    <div class="stat-label" data-i18n="common.countries">Countries</div>
-                </div>
-                <div class="global-stat-card">
-                    <div class="stat-number">25+</div>
-                    <div class="stat-label" data-i18n="common.years">Years</div>
-                </div>
-                <div class="global-stat-card">
-                    <div class="stat-number">50,000</div>
-                    <div class="stat-label" data-i18n="about.statTons">Tons / Year</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== SECTION 1: PRODUCTION & PROCESSING ==================== -->
-    <section class="about-production-flow" style="background: var(--bg-light);">
-        <div class="container">
             <div class="section-title">
-                <h2 data-i18n="about.productionTitle">Production &amp; Processing</h2>
-                <p data-i18n="about.productionDesc">From plantation to packaging, every step is carefully controlled</p>
+                <h2 data-i18n="certs.sectionTitle">International Certifications</h2>
+                <p data-i18n="certs.sectionDesc">Every certificate represents our unwavering commitment to quality, safety, and sustainability</p>
             </div>
-            <div class="production-timeline">
-                <div class="production-step">
-                    <div class="production-step-icon">
-                        <i class="fas fa-seedling"></i>
-                    </div>
-                    <h4 data-i18n="about.step1Harvest">Harvesting</h4>
-                    <p data-i18n="about.step1Desc">53,000 mu of organic tea plantation across 6 provinces. Hand-picked by 20,000+ skilled workers during peak season, ensuring only the finest buds and leaves are selected.</p>
-                </div>
-                <div class="production-step">
-                    <div class="production-step-icon">
-                        <i class="fas fa-magnifying-glass"></i>
-                    </div>
-                    <h4 data-i18n="about.step2Sort">Sorting &amp; Grading</h4>
-                    <p data-i18n="about.step2Desc">Rigorous multi-stage selection process using both AI-powered optical sorters and experienced tea masters. Graded by leaf size, shape, color, and aroma profile.</p>
-                </div>
-                <div class="production-step">
-                    <div class="production-step-icon">
-                        <i class="fas fa-fire"></i>
-                    </div>
-                    <h4 data-i18n="about.step3Process">Processing &amp; Fermentation</h4>
-                    <p data-i18n="about.step3Desc">State-of-the-art facilities with automated temperature and humidity control. Traditional craftsmanship combined with modern processing technology across 32 dedicated production lines.</p>
-                </div>
-                <div class="production-step">
-                    <div class="production-step-icon">
-                        <i class="fas fa-box"></i>
-                    </div>
-                    <h4 data-i18n="about.step4Pack">Packaging &amp; QC</h4>
-                    <p data-i18n="about.step4Desc">Multi-layer quality inspection at every stage. Metal detection, microbiological testing, and sensory evaluation before final packaging in food-grade, export-compliant materials.</p>
-                </div>
-                <div class="production-step">
-                    <div class="production-step-icon">
-                        <i class="fas fa-ship"></i>
-                    </div>
-                    <h4 data-i18n="about.step5Ship">Global Shipping</h4>
-                    <p data-i18n="about.step5Desc">Efficient logistics network reaching 50+ countries via sea freight, air cargo, and China-Europe Railway Express. Full customs documentation and certificate of origin provided.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== SECTION 2: GLOBAL SALES NETWORK ==================== -->
-    <section class="about-global-map" style="background: white;">
-        <div class="container">
-            <div class="section-title">
-                <h2 data-i18n="about.globalTitle">Global Sales Network</h2>
-                <p data-i18n="about.globalDesc">Exporting premium Chinese tea to 50+ countries worldwide</p>
-            </div>
-            <div class="global-map-container">
-                <div class="global-map-placeholder">
-                    <svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg" style="width: 100%; max-width: 600px;">
-                        <!-- World map simplified -->
-                        <rect width="800" height="450" fill="#E8F6F5" rx="8"/>
-                        <!-- North America -->
-                        <path d="M50,60 L200,60 L220,150 L190,200 L100,250 L40,200 L30,130 Z" fill="#C9E7E4" stroke="#30B4A8" stroke-width="1.5"/>
-                        <!-- South America -->
-                        <path d="M120,260 L170,260 L180,400 L100,420 L80,340 Z" fill="#C9E7E4" stroke="#30B4A8" stroke-width="1.5"/>
-                        <!-- Europe -->
-                        <path d="M370,40 L480,30 L520,60 L510,150 L450,170 L380,160 L340,120 L340,70 Z" fill="#C9E7E4" stroke="#30B4A8" stroke-width="1.5"/>
-                        <!-- Africa -->
-                        <path d="M360,170 L440,160 L480,240 L460,340 L380,350 L340,290 L330,220 Z" fill="#C9E7E4" stroke="#30B4A8" stroke-width="1.5"/>
-                        <!-- Asia -->
-                        <path d="M480,30 L680,20 L750,80 L730,180 L650,250 L580,220 L530,180 L510,100 L490,60 Z" fill="#DFF0EE" stroke="#30B4A8" stroke-width="1.5"/>
-                        <!-- Australia -->
-                        <path d="M600,310 L700,300 L720,360 L650,380 L590,350 Z" fill="#C9E7E4" stroke="#30B4A8" stroke-width="1.5"/>
-                        <!-- China highlighted -->
-                        <path d="M560,75 L630,65 L660,100 L650,160 L610,180 L560,170 L540,130 Z" fill="#30B4A8" stroke="#249186" stroke-width="1.5"/>
-                        <text x="586" y="128" text-anchor="middle" fill="white" font-size="9" font-weight="bold">CHINA</text>
-                        <!-- Export pins -->
-                        <circle cx="120" cy="150" r="5" fill="#C9A96E" stroke="white" stroke-width="1.5"/>
-                        <circle cx="130" cy="300" r="5" fill="#C9A96E" stroke="white" stroke-width="1.5"/>
-                        <circle cx="420" cy="100" r="5" fill="#C9A96E" stroke="white" stroke-width="1.5"/>
-                        <circle cx="390" cy="260" r="5" fill="#C9A96E" stroke="white" stroke-width="1.5"/>
-                        <circle cx="510" cy="300" r="5" fill="#C9A96E" stroke="white" stroke-width="1.5"/>
-                        <circle cx="650" cy="340" r="5" fill="#C9A96E" stroke="white" stroke-width="1.5"/>
-                    </svg>
-                </div>
-                <div>
-                    <div class="global-stats">
-                        <div class="global-stat-card">
-                            <div class="stat-number">50+</div>
-                            <div class="stat-label" data-i18n="common.countries">Countries</div>
-                        </div>
-                        <div class="global-stat-card">
-                            <div class="stat-number">5</div>
-                            <div class="stat-label" data-i18n="about.statContinents">Continents</div>
-                        </div>
-                        <div class="global-stat-card">
-                            <div class="stat-number">200+</div>
-                            <div class="stat-label" data-i18n="about.statImporters">Importers</div>
-                        </div>
-                        <div class="global-stat-card">
-                            <div class="stat-number">5,000+</div>
-                            <div class="stat-label" data-i18n="about.statContainers">Containers/Year</div>
-                        </div>
-                    </div>
-                    <div class="global-countries">
-                        <h4 data-i18n="about.keyMarkets">Key Markets</h4>
-                        <div class="country-tags">
-                            <span class="country-tag" data-i18n="about.marketEurope">🇪🇺 Europe</span>
-                            <span class="country-tag" data-i18n="about.marketNA">🇺🇸 North America</span>
-                            <span class="country-tag" data-i18n="about.marketME">🇸🇦 Middle East</span>
-                            <span class="country-tag" data-i18n="about.marketEA">🇯🇵 East Asia</span>
-                            <span class="country-tag" data-i18n="about.marketOceania">🇦🇺 Oceania</span>
-                            <span class="country-tag" data-i18n="about.marketAfrica">🇦🇫 Africa</span>
-                            <span class="country-tag" data-i18n="about.marketRussia">🇷🇺 Russia &amp; CIS</span>
-                            <span class="country-tag" data-i18n="about.marketSA">🇧🇷 South America</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== SECTION 3: QUALITY CONTROL & CERTIFICATIONS ==================== -->
-    <section class="about-quality-section" style="background: var(--bg-light);">
-        <div class="container">
-            <div class="section-title">
-                <h2 data-i18n="about.qcTitle">Quality Control &amp; Certifications</h2>
-                <p data-i18n="about.qcDesc">Rigorous quality standards backed by international certifications</p>
-            </div>
-            <div class="qc-process">
-                <div class="qc-step">
-                    <i class="fas fa-flask"></i>
-                    <h4 data-i18n="about.qcLabTitle">Lab Testing</h4>
-                    <p data-i18n="about.qcLabDesc">Pesticide residue, heavy metals, and microbiological analysis for every batch</p>
-                </div>
-                <div class="qc-step">
-                    <i class="fas fa-clipboard-check"></i>
-                    <h4 data-i18n="about.qcAuditTitle">Process Audit</h4>
-                    <p data-i18n="about.qcAuditDesc">ISO 22000 &amp; HACCP compliant production with regular third-party audits</p>
-                </div>
-                <div class="qc-step">
-                    <i class="fas fa-eye"></i>
-                    <h4 data-i18n="about.qcSensoryTitle">Sensory Panel</h4>
-                    <p data-i18n="about.qcSensoryDesc">Expert tea tasters evaluate aroma, flavor, liquor color, and leaf appearance</p>
-                </div>
-                <div class="qc-step">
-                    <i class="fas fa-certificate"></i>
-                    <h4 data-i18n="about.qcTraceTitle">Traceability</h4>
-                    <p data-i18n="about.qcTraceDesc">Complete batch traceability from plantation to shipment via QR code system</p>
-                </div>
-                <div class="qc-step">
-                    <i class="fas fa-globe"></i>
-                    <h4 data-i18n="about.qcGlobalTitle">Global Standards</h4>
-                    <p data-i18n="about.qcGlobalDesc">Compliance with EU MRL, FDA, and destination country regulations</p>
-                </div>
-            </div>
-            <h3 style="text-align:center; margin-bottom: 2rem; color: var(--dark);" data-i18n="about.certSectionTitle">Our Certifications</h3>
-            <div class="cert-badges-grid">
-                <a href="certs.html" class="cert-badge-card">
-                    <div class="cert-icon">
-                        <i class="fas fa-leaf"></i>
-                    </div>
+            <div class="certs-grid">
+                <div class="cert-badge-card">
+                    <div class="cert-badge-icon">🇪🇺</div>
                     <h4 data-i18n="certs.euOrganic">EU Organic Certification</h4>
-                    <p data-i18n="about.certEuDesc">Compliant with EU Regulation (EC) No 834/2007</p>
-                    <span style="display:inline-block; margin-top: 0.75rem; color: var(--primary); font-size: 0.85rem; font-weight: 500;" data-i18n="about.learnMore">Learn More →</span>
-                </a>
-                <a href="certs.html" class="cert-badge-card">
-                    <div class="cert-icon">
-                        <i class="fas fa-seedling"></i>
-                    </div>
+                    <p data-i18n="certs.euDesc">Certified compliant with EU Regulation (EC) No 834/2007 and 889/2008. Our organic tea plantations undergo annual inspections by EU-accredited certification bodies to ensure zero pesticide residues and sustainable farming practices.</p>
+                    <div class="cert-badge-year" data-i18n="certs.certSince2005">Certified since 2005</div>
+                </div>
+
+                <div class="cert-badge-card">
+                    <div class="cert-badge-icon">🇺🇸</div>
                     <h4 data-i18n="certs.usdaOrganic">USDA Organic Certification</h4>
-                    <p data-i18n="about.certUsdaDesc">NOP certified for the United States market</p>
-                    <span style="display:inline-block; margin-top: 0.75rem; color: var(--primary); font-size: 0.85rem; font-weight: 500;" data-i18n="about.learnMore">Learn More →</span>
-                </a>
-                <a href="certs.html" class="cert-badge-card">
-                    <div class="cert-icon">
-                        <i class="fas fa-tree"></i>
-                    </div>
+                    <p data-i18n="certs.usdaDesc">Certified under the USDA National Organic Program (NOP) standards. Our products meet the strict requirements for the United States organic market, verified by USDA-accredited certifying agents.</p>
+                    <div class="cert-badge-year" data-i18n="certs.certSince2008">Certified since 2008</div>
+                </div>
+
+                <div class="cert-badge-card">
+                    <div class="cert-badge-icon">🌿</div>
                     <h4 data-i18n="certs.rainforest">Rainforest Alliance</h4>
-                    <p data-i18n="about.certRainDesc">Sustainable farming &amp; ethical sourcing certified</p>
-                    <span style="display:inline-block; margin-top: 0.75rem; color: var(--primary); font-size: 0.85rem; font-weight: 500;" data-i18n="about.learnMore">Learn More →</span>
-                </a>
-                <a href="certs.html" class="cert-badge-card">
-                    <div class="cert-icon">
-                        <i class="fas fa-shield-halved"></i>
-                    </div>
+                    <p data-i18n="certs.rainDesc">Rainforest Alliance Certified™ for sustainable agriculture. This certification verifies that our tea is grown and harvested to meet rigorous environmental, social, and economic standards that conserve biodiversity.</p>
+                    <div class="cert-badge-year" data-i18n="certs.certSince2012">Certified since 2012</div>
+                </div>
+
+                <div class="cert-badge-card">
+                    <div class="cert-badge-icon">🛡️</div>
                     <h4 data-i18n="certs.iso22000">ISO 22000 Food Safety</h4>
-                    <p data-i18n="about.certIsoDesc">International food safety management system</p>
-                    <span style="display:inline-block; margin-top: 0.75rem; color: var(--primary); font-size: 0.85rem; font-weight: 500;" data-i18n="about.learnMore">Learn More →</span>
-                </a>
-                <a href="certs.html" class="cert-badge-card">
-                    <div class="cert-icon">
-                        <i class="fas fa-check-double"></i>
-                    </div>
+                    <p data-i18n="certs.isoDesc">ISO 22000:2018 certified food safety management system. Covers the entire supply chain from primary production to final consumer, ensuring systematic hazard control at every stage.</p>
+                    <div class="cert-badge-year" data-i18n="certs.certSince2010">Certified since 2010</div>
+                </div>
+
+                <div class="cert-badge-card">
+                    <div class="cert-badge-icon">✅</div>
                     <h4 data-i18n="certs.haccp">HACCP Certification</h4>
-                    <p data-i18n="about.certHaccpDesc">Hazard analysis and critical control points</p>
-                    <span style="display:inline-block; margin-top: 0.75rem; color: var(--primary); font-size: 0.85rem; font-weight: 500;" data-i18n="about.learnMore">Learn More →</span>
-                </a>
-                <a href="certs.html" class="cert-badge-card">
-                    <div class="cert-icon">
-                        <i class="fas fa-trophy"></i>
-                    </div>
+                    <p data-i18n="certs.haccpDesc">Hazard Analysis and Critical Control Points (HACCP) certified. A systematic preventive approach to food safety that addresses physical, chemical, and biological hazards throughout production.</p>
+                    <div class="cert-badge-year" data-i18n="certs.certSince2009">Certified since 2009</div>
+                </div>
+
+                <div class="cert-badge-card">
+                    <div class="cert-badge-icon">🏆</div>
                     <h4 data-i18n="certs.goldAward">World Tea Expo Gold Award</h4>
-                    <p data-i18n="about.certGoldDesc">Highest honor at the 2026 World Tea Expo</p>
-                    <span style="display:inline-block; margin-top: 0.75rem; color: var(--primary); font-size: 0.85rem; font-weight: 500;" data-i18n="about.learnMore">Learn More →</span>
-                </a>
+                    <p data-i18n="certs.goldDesc">The highest honor awarded at the 2026 World Tea Expo, recognizing our premium Maojian green tea for exceptional quality, flavor, and packaging. Selected from over 1,500 entries worldwide.</p>
+                    <div class="cert-badge-year" data-i18n="certs.awarded2026">Awarded 2026</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== HONORS & AWARDS TIMELINE ==================== -->
+    <section class="section" style="background: var(--bg-light);">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-i18n="certs.honorsTitle">Honors &amp; Awards</h2>
+                <p data-i18n="certs.honorsDesc">Recognition of excellence from industry authorities and international organizations</p>
+            </div>
+            <div class="honors-timeline">
+                <div class="honor-item">
+                    <div class="honor-dot"></div>
+                    <span class="honor-year">2026</span>
+                    <h3 class="honor-title" data-i18n="certs.honor1Title">World Tea Expo Gold Award</h3>
+                    <p class="honor-desc" data-i18n="certs.honor1Desc">Awarded the highest honor at the World Tea Expo in Las Vegas for our premium Hunan Maojian green tea. Selected from over 1,500 entries by a panel of 50+ international tea experts.</p>
+                </div>
+
+                <div class="honor-item">
+                    <div class="honor-dot"></div>
+                    <span class="honor-year">2024</span>
+                    <h3 class="honor-title" data-i18n="certs.honor2Title">China Export Excellence Award</h3>
+                    <p class="honor-desc" data-i18n="certs.honor2Desc">Recognized by the China Tea Marketing Association (CTMA) for outstanding contribution to Chinese tea exports. Ranked among the top 10 tea export enterprises by volume and value.</p>
+                </div>
+
+                <div class="honor-item">
+                    <div class="honor-dot"></div>
+                    <span class="honor-year">2022</span>
+                    <h3 class="honor-title" data-i18n="certs.honor3Title">Sustainable Business Award</h3>
+                    <p class="honor-desc" data-i18n="certs.honor3Desc">Honored by the Sustainable Agriculture Initiative (SAI) Platform for our commitment to environmentally responsible farming. Recognized for supporting 2,000+ family farms with fair trade pricing.</p>
+                </div>
+
+                <div class="honor-item">
+                    <div class="honor-dot"></div>
+                    <span class="honor-year">2020</span>
+                    <h3 class="honor-title" data-i18n="certs.honor4Title">Industry Innovation Award</h3>
+                    <p class="honor-desc" data-i18n="certs.honor4Desc">Awarded by the China Tea Science Society for pioneering AI-powered optical sorting technology in tea processing. Our innovation improved grading accuracy by 40% and reduced waste by 25%.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== QUALITY COMMITMENT SECTION ==================== -->
+    <section class="section" style="background: white;">
+        <div class="container">
+            <div class="quality-commitment">
+                <div class="quality-commitment-icon">
+                    <i class="fas fa-award"></i>
+                </div>
+                <h3 data-i18n="certs.qualityTitle">Our Quality Commitment</h3>
+                <p data-i18n-html="certs.qualityDesc">Quality is not a destination — it is a continuous journey. At Xiangfeng Tea Group, we invest over <strong>5% of annual revenue</strong> in quality improvement initiatives, from upgrading processing equipment to training our 500+ quality control staff. Every certification and award we hold is a milestone, not an endpoint. We are committed to ongoing enhancement of our quality management systems, adopting the latest food safety technologies, and exceeding the evolving standards of global tea markets.</p>
+                <div class="quality-features">
+                    <div class="quality-feature">
+                        <i class="fas fa-check-circle"></i> <span data-i18n="certs.qc500Staff">500+ QC Staff</span>
+                    </div>
+                    <div class="quality-feature">
+                        <i class="fas fa-check-circle"></i> <span data-i18n="certs.qc100Batch">100% Batch Testing</span>
+                    </div>
+                    <div class="quality-feature">
+                        <i class="fas fa-check-circle"></i> <span data-i18n="certs.qcFullTrace">Full Traceability</span>
+                    </div>
+                    <div class="quality-feature">
+                        <i class="fas fa-check-circle"></i> <span data-i18n="certs.qcAnnualAudit">Annual Third-Party Audits</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -338,10 +482,10 @@
     <!-- ==================== CTA SECTION ==================== -->
     <section class="section" style="background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%); padding: 4rem 0; color: white; text-align: center;">
         <div class="container">
-            <h2 style="color: white; font-size: 2rem; margin-bottom: 1rem;" data-i18n="about.ctaTitle">Ready to Start Your Tea Journey?</h2>
-            <p style="color: rgba(255,255,255,0.85); font-size: 1.1rem; max-width: 600px; margin: 0 auto 2rem; line-height: 1.8;" data-i18n="about.ctaDesc">Get in touch with our export team for product catalogs, samples, and competitive pricing. We respond within 24 hours.</p>
+            <h2 style="color: white; font-size: 2rem; margin-bottom: 1rem;" data-i18n="certs.ctaTitle">Want to Learn More About Our Quality Standards?</h2>
+            <p style="color: rgba(255,255,255,0.85); font-size: 1.1rem; max-width: 600px; margin: 0 auto 2rem; line-height: 1.8;" data-i18n="certs.ctaDesc">Request our full certification documents, lab test reports, or schedule a virtual factory tour. Our quality team is ready to answer your questions.</p>
             <a href="contact.html" class="btn btn-accent" style="background: white; color: var(--primary); font-size: 1.05rem; padding: 14px 36px; border-radius: 50px;">
-                <i class="fas fa-envelope"></i> <span data-i18n="about.ctaBtn">Contact Us Now</span>
+                <i class="fas fa-envelope"></i> <span data-i18n="certs.ctaBtn">Contact Quality Team</span>
             </a>
         </div>
     </section>
@@ -498,7 +642,7 @@
       return timestamp + '_' + random;
     }
 
-    /* ---------- HTML Escape Helper (XSS prevention) ---------- */
+    /* ---------- HTML Escape Helper ---------- */
     function escapeHtml(str) {
       if (!str) return '';
       var div = document.createElement('div');

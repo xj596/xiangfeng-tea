@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="https://video.aultras-tea.com/%E6%B9%98%E4%B8%B0logo%E5%B9%BF%E5%91%8A%E8%AF%AD-06.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact Us — Xiangfeng Tea Group</title>
 <meta name="description" content="Contact Xiangfeng Tea Group for product inquiries, sample requests, and partnership opportunities. Premium Chinese tea exporter.">
@@ -405,8 +406,8 @@ body.rtl .contact-info-card:hover {
             <a href="products.html" class="quick-link-tag" data-i18n="products.catOolong">Oolong Tea</a>
             <a href="products.html" class="quick-link-tag" data-i18n="common.oem">OEM/ODM</a>
             <a href="products.html" class="quick-link-tag" data-i18n="common.matcha">Matcha</a>
-            <a href="certs.html" class="quick-link-tag" data-i18n="common.certsHonors">资质和荣誉</a>
-            <a href="about.html" class="quick-link-tag" data-i18n="common.about">关于我们</a>
+            <a href="certs.html" class="quick-link-tag" data-i18n="common.certsHonors">Certifications</a>
+            <a href="about.html" class="quick-link-tag" data-i18n="common.about">About Us</a>
           </div>
         </div>
       </div>
@@ -417,8 +418,6 @@ body.rtl .contact-info-card:hover {
         <p class="form-subtitle" data-i18n="contact.subtitle">Reach out for inquiries, samples, or partnership opportunities.</p>
 
         <form id="contactForm" onsubmit="handleContactSubmit(event)">
-          <input type="hidden" name="source" value="contact">
-          <input type="hidden" name="csrf_token" id="csrfTokenContact">
 
           <div class="form-group">
             <label data-i18n="contact.name">Your Name <span class="required">*</span></label>
@@ -515,9 +514,9 @@ body.rtl .contact-info-card:hover {
         <h4 class="footer-title" data-i18n="footer.quickLinks">Quick Links</h4>
         <ul class="footer-links">
           <li><a href="index.html" data-i18n="common.home">Home</a></li>
-          <li><a href="about.html" data-i18n="common.about">关于我们</a></li>
+          <li><a href="about.html" data-i18n="common.about">About Us</a></li>
           <li><a href="news.html" data-i18n="common.news">News</a></li>
-          <li><a href="certs.html" data-i18n="common.certsHonors">资质和荣誉</a></li>
+          <li><a href="certs.html" data-i18n="common.certsHonors">Certifications</a></li>
           <li><a href="contact.html" data-i18n="common.contact">Contact</a></li>
         </ul>
       </div>
@@ -596,9 +595,6 @@ body.rtl .contact-info-card:hover {
           <label><span data-i18n="popup.message">Message</span> <span class="required">*</span></label>
           <textarea name="message" rows="4" required data-i18n-placeholder="popup.messagePlaceholder" placeholder="Tell us about your requirements..."></textarea>
         </div>
-        <input type="hidden" name="csrf_token" id="csrfTokenPopup">
-        <input type="hidden" name="website_url" style="display:none" tabindex="-1" autocomplete="off">
-        <input type="hidden" name="source" value="contact_popup">
         <button type="submit" class="inquiry-submit popup-submit">
           <span class="loading-spinner"></span>
           <span class="btn-text" data-i18n="popup.submitBtn">Submit Inquiry</span>
@@ -706,27 +702,47 @@ function closeInquiryOverlay(event) {
 function submitInquiry(e) {
   e.preventDefault();
   var form = e.target;
-  var submitBtn = form.querySelector('.popup-submit');
-  submitBtn.classList.add('form-submitting');
-  submitBtn.querySelector('.btn-text').textContent = __('popup.submitting') || 'Submitting...';
 
-  var formData = new FormData(form);
-  fetch('inquiry-submit.php', { method: 'POST', body: formData })
-    .then(function(res) { return res.json(); })
-    .then(function(data) {
-      submitBtn.classList.remove('form-submitting');
-      submitBtn.querySelector('.btn-text').textContent = __('popup.submitBtn') || 'Submit Inquiry';
-      if (data.success) {
-        showInquirySuccess();
-      } else {
-        alert(data.message || 'Submission failed. Please try again.');
-      }
-    })
-    .catch(function() {
-      submitBtn.classList.remove('form-submitting');
-      submitBtn.querySelector('.btn-text').textContent = __('popup.submitBtn') || 'Submit Inquiry';
-      showInquirySuccess();
-    });
+  // Collect form data
+  var name = form.querySelector('[name="name"]').value || '';
+  var company = form.querySelector('[name="company"]').value || '';
+  var email = form.querySelector('[name="email"]').value || '';
+  var phone = form.querySelector('[name="phone"]').value || '';
+  var product = form.querySelector('[name="product_interest"]').value || '';
+  var quantity = form.querySelector('[name="quantity"]').value || '';
+  var message = form.querySelector('[name="message"]').value || '';
+
+  // Basic validation
+  if (!name || !email || !message) {
+    alert(__('popup.fillRequired') || 'Please fill in all required fields.');
+    return;
+  }
+
+  // Build mailto link
+  var toEmail = 'export@xiangfengtea.com';
+  var subject = 'Tea Inquiry from ' + name + (company ? ' (' + company + ')' : '');
+  var body = 'Dear Xiangfeng Tea Export Team,\n\n';
+  body += 'I would like to inquire about your tea products. Here are my details:\n\n';
+  body += 'Name: ' + name + '\n';
+  if (company) body += 'Company: ' + company + '\n';
+  body += 'Email: ' + email + '\n';
+  if (phone) body += 'Phone/WhatsApp: ' + phone + '\n';
+  if (product) body += 'Product Interest: ' + product + '\n';
+  if (quantity) body += 'Estimated Quantity: ' + quantity + '\n';
+  body += '\nMessage:\n' + message + '\n\n';
+  body += 'Looking forward to your reply.\n\nBest regards,\n' + name;
+
+  // Encode and open mailto
+  var mailtoUrl = 'mailto:' + toEmail + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  var link = document.createElement('a');
+  link.href = mailtoUrl;
+  link.style.display = 'none';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+
+  // Show success message in popup
+  showInquirySuccess();
 }
 
 function showInquirySuccess() {

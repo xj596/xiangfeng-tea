@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='28'%3E%F0%9F%8D%83%3C/text%3E%3C/svg%3E">
+  <link rel="icon" type="image/png" href="https://video.aultras-tea.com/%E6%B9%98%E4%B8%B0logo%E5%B9%BF%E5%91%8A%E8%AF%AD-06.png">
   <style>
     /* Events Page Specific Styles */
     .events-page-section {
@@ -287,9 +287,9 @@
 <section class="page-banner">
   <div class="container">
     <h1 data-i18n="events.title">Exhibition Events</h1>
-    <p>Meet us at international tea and food trade shows around the world</p>
+    <p data-i18n="events.bannerDesc">Meet us at international tea and food trade shows around the world</p>
     <div class="breadcrumb">
-      <a href="index.html">Home</a>
+      <a href="index.html" data-i18n="common.home">Home</a>
       <span>/</span>
       <span data-i18n="common.events">Exhibition Events</span>
     </div>
@@ -304,9 +304,9 @@
 
     <!-- Filter Bar -->
     <div class="events-filter-bar" id="eventsFilterBar">
-      <button class="events-filter-btn active" data-filter="all">All Events</button>
-      <button class="events-filter-btn" data-filter="upcoming">Upcoming</button>
-      <button class="events-filter-btn" data-filter="past">Past Events</button>
+      <button class="events-filter-btn active" data-filter="all" data-i18n="events.filterAll">All Events</button>
+      <button class="events-filter-btn" data-filter="upcoming" data-i18n="events.filterUpcoming">Upcoming</button>
+      <button class="events-filter-btn" data-filter="past" data-i18n="events.filterPast">Past Events</button>
     </div>
 
     <!-- Upcoming Events -->
@@ -316,7 +316,7 @@
         <div class="event-card-image">
           <img src="https://video.aultras-tea.com/wulongcha.png" alt="World Tea Expo 2027" onerror="this.src='https://video.aultras-tea.com/wulongcha.png'">
           <div class="event-date-badge">Mar 2027</div>
-          <div class="event-status-upcoming">Upcoming</div>
+          <div class="event-status-upcoming" data-i18n="events.upcomingBadge">Upcoming</div>
         </div>
         <div class="event-card-body">
           <div class="event-card-meta">
@@ -324,16 +324,16 @@
             <span><i class="fas fa-map-marker-alt"></i> Las Vegas, USA</span>
             <span><i class="fas fa-building"></i> Las Vegas Convention Center</span>
           </div>
-          <h3 class="event-card-title">World Tea Expo 2027</h3>
-          <p class="event-card-desc">The leading B2B trade show for the global tea industry. Connect with buyers, distributors, and tea professionals from over 50 countries. We will showcase our latest premium tea collections and OEM capabilities.</p>
+          <h3 class="event-card-title" data-i18n="events.e1Title">World Tea Expo 2027</h3>
+          <p class="event-card-desc" data-i18n="events.e1Desc">The leading B2B trade show for the global tea industry. Connect with buyers, distributors, and tea professionals from over 50 countries. We will showcase our latest premium tea collections and OEM capabilities.</p>
           <div class="event-card-tags">
-            <span class="event-tag">Global B2B</span>
-            <span class="event-tag">New Products</span>
-            <span class="event-tag">OEM/ODM</span>
+            <span class="event-tag" data-i18n="events.e1Tag1">Global B2B</span>
+            <span class="event-tag" data-i18n="events.e1Tag2">New Products</span>
+            <span class="event-tag" data-i18n="events.e1Tag3">OEM/ODM</span>
           </div>
           <div class="event-card-actions">
-            <a href="contact.html" class="btn btn-primary">Schedule Meeting</a>
-            <button class="btn btn-outline" onclick="openInquiry()">Request Invitation</button>
+            <a href="contact.html" class="btn btn-primary"><span data-i18n="events.scheduleMeeting">Schedule Meeting</span></a>
+            <button class="btn btn-outline" onclick="openInquiry()"><span data-i18n="events.requestInvitation">Request Invitation</span></button>
           </div>
         </div>
       </div>
@@ -343,7 +343,7 @@
         <div class="event-card-image">
           <img src="https://video.aultras-tea.com/wulongcha.png" alt="SIAL China 2027" onerror="this.src='https://video.aultras-tea.com/wulongcha.png'">
           <div class="event-date-badge">May 2027</div>
-          <div class="event-status-upcoming">Upcoming</div>
+          <div class="event-status-upcoming" data-i18n="events.upcomingBadge">Upcoming</div>
         </div>
         <div class="event-card-body">
           <div class="event-card-meta">
@@ -351,16 +351,16 @@
             <span><i class="fas fa-map-marker-alt"></i> Shanghai, China</span>
             <span><i class="fas fa-building"></i> Shanghai New International Expo Centre</span>
           </div>
-          <h3 class="event-card-title">SIAL China 2027</h3>
-          <p class="event-card-desc">Asia's largest food and beverage innovation exhibition. A key platform for reaching Asian and global buyers. We'll present our full range of Chinese teas with live tasting sessions at Booth T-218.</p>
+          <h3 class="event-card-title" data-i18n="events.e2Title">SIAL China 2027</h3>
+          <p class="event-card-desc" data-i18n="events.e2Desc">Asia's largest food and beverage innovation exhibition. A key platform for reaching Asian and global buyers. We'll present our full range of Chinese teas with live tasting sessions at Booth T-218.</p>
           <div class="event-card-tags">
-            <span class="event-tag">Food &amp; Beverage</span>
-            <span class="event-tag">Asia Market</span>
-            <span class="event-tag">Live Tasting</span>
+            <span class="event-tag" data-i18n="events.e2Tag1">Food &amp; Beverage</span>
+            <span class="event-tag" data-i18n="events.e2Tag2">Asia Market</span>
+            <span class="event-tag" data-i18n="events.e2Tag3">Live Tasting</span>
           </div>
           <div class="event-card-actions">
-            <a href="contact.html" class="btn btn-primary">Schedule Meeting</a>
-            <button class="btn btn-outline" onclick="openInquiry()">Request Invitation</button>
+            <a href="contact.html" class="btn btn-primary"><span data-i18n="events.scheduleMeeting">Schedule Meeting</span></a>
+            <button class="btn btn-outline" onclick="openInquiry()"><span data-i18n="events.requestInvitation">Request Invitation</span></button>
           </div>
         </div>
       </div>
@@ -370,7 +370,7 @@
         <div class="event-card-image">
           <img src="https://video.aultras-tea.com/wulongcha.png" alt="Anuga 2027" onerror="this.src='https://video.aultras-tea.com/wulongcha.png'">
           <div class="event-date-badge">Oct 2027</div>
-          <div class="event-status-upcoming">Upcoming</div>
+          <div class="event-status-upcoming" data-i18n="events.upcomingBadge">Upcoming</div>
         </div>
         <div class="event-card-body">
           <div class="event-card-meta">
@@ -378,16 +378,15 @@
             <span><i class="fas fa-map-marker-alt"></i> Cologne, Germany</span>
             <span><i class="fas fa-building"></i> Koelnmesse</span>
           </div>
-          <h3 class="event-card-title">Anuga 2027 — World's Leading Food Fair</h3>
-          <p class="event-card-desc">The world's most important food and beverage trade fair. With 7,900+ exhibitors from 118 countries, this is an essential stop for building the European and global distribution network.</p>
+          <h3 class="event-card-title" data-i18n="events.e3Title">Anuga 2027 — World's Leading Food Fair</h3>
+          <p class="event-card-desc" data-i18n="events.e3Desc">The world's most important food and beverage trade fair. With 7,900+ exhibitors from 118 countries, this is an essential stop for building the European and global distribution network.</p>
           <div class="event-card-tags">
-            <span class="event-tag">European Market</span>
-            <span class="event-tag">Global Food Fair</span>
-            <span class="event-tag">Premium Brands</span>
+            <span class="event-tag" data-i18n="events.e3Tag1">European Market</span>
+            <span class="event-tag" data-i18n="events.e3Tag3">Premium Brands</span>
           </div>
           <div class="event-card-actions">
-            <a href="contact.html" class="btn btn-primary">Schedule Meeting</a>
-            <button class="btn btn-outline" onclick="openInquiry()">Request Invitation</button>
+            <a href="contact.html" class="btn btn-primary"><span data-i18n="events.scheduleMeeting">Schedule Meeting</span></a>
+            <button class="btn btn-outline" onclick="openInquiry()"><span data-i18n="events.requestInvitation">Request Invitation</span></button>
           </div>
         </div>
       </div>
@@ -395,14 +394,14 @@
 
     <!-- Past Events Timeline -->
     <div class="event-timeline" id="pastEvents">
-      <h2 class="event-timeline-title">Past Exhibitions</h2>
+      <h2 class="event-timeline-title" data-i18n="events.pastTitle">Past Exhibitions</h2>
 
       <!-- Past Event 1 -->
       <div class="event-card" data-type="past">
         <div class="event-card-image">
           <img src="https://video.aultras-tea.com/wulongcha.png" alt="World Tea Expo 2026" onerror="this.src='https://video.aultras-tea.com/wulongcha.png'">
           <div class="event-date-badge">Mar 2026</div>
-          <div class="event-status-past">Completed</div>
+          <div class="event-status-past" data-i18n="events.completedBadge">Completed</div>
         </div>
         <div class="event-card-body">
           <div class="event-card-meta">
@@ -410,12 +409,12 @@
             <span><i class="fas fa-map-marker-alt"></i> Las Vegas, USA</span>
             <span><i class="fas fa-building"></i> Las Vegas Convention Center</span>
           </div>
-          <h3 class="event-card-title">World Tea Expo 2026</h3>
-          <p class="event-card-desc">Successfully connected with 200+ international buyers. Won the "Best Tea Exhibitor" award. Secured distribution agreements with 15 new partners across North America and Europe.</p>
+          <h3 class="event-card-title" data-i18n="events.e4Title">World Tea Expo 2026</h3>
+          <p class="event-card-desc" data-i18n="events.e4Desc">Successfully connected with 200+ international buyers. Won the "Best Tea Exhibitor" award. Secured distribution agreements with 15 new partners across North America and Europe.</p>
           <div class="event-card-tags">
-            <span class="event-tag">Award Winner</span>
-            <span class="event-tag">200+ Buyers</span>
-            <span class="event-tag">15 New Partners</span>
+            <span class="event-tag" data-i18n="events.e4Tag1">Award Winner</span>
+            <span class="event-tag" data-i18n="events.e4Tag2">200+ Buyers</span>
+            <span class="event-tag" data-i18n="events.e4Tag3">15 New Partners</span>
           </div>
         </div>
       </div>
@@ -425,7 +424,7 @@
         <div class="event-card-image">
           <img src="https://video.aultras-tea.com/wulongcha.png" alt="Gulfood 2026" onerror="this.src='https://video.aultras-tea.com/wulongcha.png'">
           <div class="event-date-badge">Feb 2026</div>
-          <div class="event-status-past">Completed</div>
+          <div class="event-status-past" data-i18n="events.completedBadge">Completed</div>
         </div>
         <div class="event-card-body">
           <div class="event-card-meta">
@@ -433,12 +432,12 @@
             <span><i class="fas fa-map-marker-alt"></i> Dubai, UAE</span>
             <span><i class="fas fa-building"></i> Dubai World Trade Centre</span>
           </div>
-          <h3 class="event-card-title">Gulfood 2026</h3>
-          <p class="event-card-desc">The largest annual food &amp; beverage trade exhibition in the Middle East. Established strong partnerships with GCC distributors and expanded our presence in the MENA region.</p>
+          <h3 class="event-card-title" data-i18n="events.e5Title">Gulfood 2026</h3>
+          <p class="event-card-desc" data-i18n="events.e5Desc">The largest annual food &amp; beverage trade exhibition in the Middle East. Established strong partnerships with GCC distributors and expanded our presence in the MENA region.</p>
           <div class="event-card-tags">
-            <span class="event-tag">Middle East</span>
-            <span class="event-tag">MENA Region</span>
-            <span class="event-tag">GCC Partners</span>
+            <span class="event-tag" data-i18n="events.e5Tag1">Middle East</span>
+            <span class="event-tag" data-i18n="events.e5Tag2">MENA Region</span>
+            <span class="event-tag" data-i18n="events.e5Tag3">GCC Partners</span>
           </div>
         </div>
       </div>
@@ -448,7 +447,7 @@
         <div class="event-card-image">
           <img src="https://video.aultras-tea.com/wulongcha.png" alt="SIAL Paris 2024" onerror="this.src='https://video.aultras-tea.com/wulongcha.png'">
           <div class="event-date-badge">Oct 2024</div>
-          <div class="event-status-past">Completed</div>
+          <div class="event-status-past" data-i18n="events.completedBadge">Completed</div>
         </div>
         <div class="event-card-body">
           <div class="event-card-meta">
@@ -456,12 +455,12 @@
             <span><i class="fas fa-map-marker-alt"></i> Paris, France</span>
             <span><i class="fas fa-building"></i> Paris Nord Villepinte</span>
           </div>
-          <h3 class="event-card-title">SIAL Paris 2024</h3>
-          <p class="event-card-desc">The world's largest food innovation exhibition. Showcased our organic and specialty tea lines to European buyers. Generated significant interest in our Rainforest Alliance certified products.</p>
+          <h3 class="event-card-title" data-i18n="events.e6Title">SIAL Paris 2024</h3>
+          <p class="event-card-desc" data-i18n="events.e6Desc">The world's largest food innovation exhibition. Showcased our organic and specialty tea lines to European buyers. Generated significant interest in our Rainforest Alliance certified products.</p>
           <div class="event-card-tags">
-            <span class="event-tag">Organic Tea</span>
-            <span class="event-tag">European Market</span>
-            <span class="event-tag">Rainforest Alliance</span>
+            <span class="event-tag" data-i18n="events.e6Tag1">Organic Tea</span>
+            <span class="event-tag" data-i18n="events.e6Tag2">European Market</span>
+            <span class="event-tag" data-i18n="events.e6Tag3">Rainforest Alliance</span>
           </div>
         </div>
       </div>
@@ -478,10 +477,10 @@
   <div style="position:absolute;bottom:-30%;left:-5%;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,0.05);"></div>
   <div class="container" style="position:relative;">
     <div style="max-width:700px;margin:0 auto;text-align:center;color:white;">
-      <h2 style="color:white;font-size:2rem;margin-bottom:1rem;">Want to meet us at an upcoming show?</h2>
-      <p style="color:rgba(255,255,255,0.9);font-size:1.1rem;margin-bottom:2rem;">Schedule a one-on-one meeting with our export team at any of our upcoming exhibitions.</p>
+      <h2 style="color:white;font-size:2rem;margin-bottom:1rem;" data-i18n="events.ctaTitle">Want to meet us at an upcoming show?</h2>
+      <p style="color:rgba(255,255,255,0.9);font-size:1.1rem;margin-bottom:2rem;" data-i18n="events.ctaDesc">Schedule a one-on-one meeting with our export team at any of our upcoming exhibitions.</p>
       <a href="contact.html" class="btn btn-accent" style="font-size:1.1rem;padding:14px 40px;">
-        <i class="fas fa-calendar-check"></i> Book a Meeting
+        <i class="fas fa-calendar-check"></i> <span data-i18n="events.ctaBtn">Book a Meeting</span>
       </a>
     </div>
   </div>
@@ -605,9 +604,6 @@
           <label><span data-i18n="popup.message">Message</span> <span class="required">*</span></label>
           <textarea name="message" rows="4" required data-i18n-placeholder="popup.messagePlaceholder" placeholder="Tell us about your requirements..."></textarea>
         </div>
-        <input type="hidden" name="csrf_token" id="csrfTokenPopup">
-        <input type="hidden" name="website_url" style="display:none" tabindex="-1" autocomplete="off">
-        <input type="hidden" name="source" value="events_popup">
         <button type="submit" class="inquiry-submit popup-submit">
           <span class="loading-spinner"></span>
           <span class="btn-text" data-i18n="popup.submitBtn">Submit Inquiry</span>
@@ -724,27 +720,47 @@ function closeInquiryOverlay(event) {
 function submitInquiry(e) {
   e.preventDefault();
   var form = e.target;
-  var submitBtn = form.querySelector('.popup-submit');
-  submitBtn.classList.add('form-submitting');
-  submitBtn.querySelector('.btn-text').textContent = __('popup.submitting') || 'Submitting...';
 
-  var formData = new FormData(form);
-  fetch('inquiry-submit.php', { method: 'POST', body: formData })
-    .then(function(res) { return res.json(); })
-    .then(function(data) {
-      submitBtn.classList.remove('form-submitting');
-      submitBtn.querySelector('.btn-text').textContent = __('popup.submitBtn') || 'Submit Inquiry';
-      if (data.success) {
-        showInquirySuccess();
-      } else {
-        alert(data.message || 'Submission failed. Please try again.');
-      }
-    })
-    .catch(function() {
-      submitBtn.classList.remove('form-submitting');
-      submitBtn.querySelector('.btn-text').textContent = __('popup.submitBtn') || 'Submit Inquiry';
-      showInquirySuccess();
-    });
+  // Collect form data
+  var name = form.querySelector('[name="name"]').value || '';
+  var company = form.querySelector('[name="company"]').value || '';
+  var email = form.querySelector('[name="email"]').value || '';
+  var phone = form.querySelector('[name="phone"]').value || '';
+  var product = form.querySelector('[name="product_interest"]').value || '';
+  var quantity = form.querySelector('[name="quantity"]').value || '';
+  var message = form.querySelector('[name="message"]').value || '';
+
+  // Basic validation
+  if (!name || !email || !message) {
+    alert(__('popup.fillRequired') || 'Please fill in all required fields.');
+    return;
+  }
+
+  // Build mailto link
+  var toEmail = 'export@xiangfengtea.com';
+  var subject = 'Tea Inquiry from ' + name + (company ? ' (' + company + ')' : '');
+  var body = 'Dear Xiangfeng Tea Export Team,\n\n';
+  body += 'I would like to inquire about your tea products. Here are my details:\n\n';
+  body += 'Name: ' + name + '\n';
+  if (company) body += 'Company: ' + company + '\n';
+  body += 'Email: ' + email + '\n';
+  if (phone) body += 'Phone/WhatsApp: ' + phone + '\n';
+  if (product) body += 'Product Interest: ' + product + '\n';
+  if (quantity) body += 'Estimated Quantity: ' + quantity + '\n';
+  body += '\nMessage:\n' + message + '\n\n';
+  body += 'Looking forward to your reply.\n\nBest regards,\n' + name;
+
+  // Encode and open mailto
+  var mailtoUrl = 'mailto:' + toEmail + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  var link = document.createElement('a');
+  link.href = mailtoUrl;
+  link.style.display = 'none';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+
+  // Show success message in popup
+  showInquirySuccess();
 }
 
 function showInquirySuccess() {

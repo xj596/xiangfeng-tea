@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="https://video.aultras-tea.com/%E6%B9%98%E4%B8%B0logo%E5%B9%BF%E5%91%8A%E8%AF%AD-06.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>News & Updates — Xiangfeng Tea Group</title>
 <meta name="description" content="Latest news and updates from Xiangfeng Tea Group — product launches, trade show appearances, and industry insights.">
@@ -140,9 +141,9 @@
         <h4 class="footer-title" data-i18n="footer.quickLinks">Quick Links</h4>
         <ul class="footer-links">
           <li><a href="index.html" data-i18n="common.home">Home</a></li>
-          <li><a href="about.html" data-i18n="common.about">关于我们</a></li>
+          <li><a href="about.html" data-i18n="common.about">About Us</a></li>
           <li><a href="news.html" data-i18n="common.news">News</a></li>
-          <li><a href="certs.html" data-i18n="common.certsHonors">资质和荣誉</a></li>
+          <li><a href="certs.html" data-i18n="common.certsHonors">Certifications</a></li>
           <li><a href="contact.html" data-i18n="common.contact">Contact</a></li>
         </ul>
       </div>
@@ -180,8 +181,6 @@
     </div>
     <div class="inquiry-body">
       <form class="inquiry-form" id="inquiryForm" onsubmit="submitInquiry(event)">
-        <input type="hidden" name="source" value="popup">
-        <input type="hidden" name="csrf_token" id="csrfTokenPopup">
         <div class="form-group">
           <label data-i18n="popup.name">Your Name <span class="required">*</span></label>
           <input type="text" name="name" required data-i18n-placeholder="popup.name" placeholder="John Smith">
@@ -293,27 +292,47 @@ function closeInquiryOverlay(event) {
 function submitInquiry(e) {
   e.preventDefault();
   var form = e.target;
-  var btn = form.querySelector('.popup-submit');
-  btn.classList.add('form-submitting');
-  btn.querySelector('.btn-text').textContent = __('popup.submitting') || 'Submitting...';
 
-  var formData = new FormData(form);
-  fetch('inquiry-submit.php', { method: 'POST', body: formData })
-    .then(function(res) { return res.json(); })
-    .then(function(data) {
-      btn.classList.remove('form-submitting');
-      if (data.success) {
-        showInquirySuccess();
-      } else {
-        btn.querySelector('.btn-text').textContent = __('popup.submitBtn') || 'Submit Inquiry';
-        alert(data.message || 'Error. Please try again.');
-      }
-    })
-    .catch(function() {
-      btn.classList.remove('form-submitting');
-      btn.querySelector('.btn-text').textContent = __('popup.submitBtn') || 'Submit Inquiry';
-      showInquirySuccess();
-    });
+  // Collect form data
+  var name = form.querySelector('[name="name"]').value || '';
+  var company = form.querySelector('[name="company"]').value || '';
+  var email = form.querySelector('[name="email"]').value || '';
+  var phone = form.querySelector('[name="phone"]').value || '';
+  var product = form.querySelector('[name="product_interest"]').value || '';
+  var quantity = form.querySelector('[name="quantity"]').value || '';
+  var message = form.querySelector('[name="message"]').value || '';
+
+  // Basic validation
+  if (!name || !email || !message) {
+    alert(__('popup.fillRequired') || 'Please fill in all required fields.');
+    return;
+  }
+
+  // Build mailto link
+  var toEmail = 'export@xiangfengtea.com';
+  var subject = 'Tea Inquiry from ' + name + (company ? ' (' + company + ')' : '');
+  var body = 'Dear Xiangfeng Tea Export Team,\n\n';
+  body += 'I would like to inquire about your tea products. Here are my details:\n\n';
+  body += 'Name: ' + name + '\n';
+  if (company) body += 'Company: ' + company + '\n';
+  body += 'Email: ' + email + '\n';
+  if (phone) body += 'Phone/WhatsApp: ' + phone + '\n';
+  if (product) body += 'Product Interest: ' + product + '\n';
+  if (quantity) body += 'Estimated Quantity: ' + quantity + '\n';
+  body += '\nMessage:\n' + message + '\n\n';
+  body += 'Looking forward to your reply.\n\nBest regards,\n' + name;
+
+  // Encode and open mailto
+  var mailtoUrl = 'mailto:' + toEmail + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  var link = document.createElement('a');
+  link.href = mailtoUrl;
+  link.style.display = 'none';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+
+  // Show success message in popup
+  showInquirySuccess();
 }
 
 function showInquirySuccess() {
@@ -375,76 +394,95 @@ document.addEventListener('keydown', function(e) {
 });
 
 /* ====== News Data ====== */
-  return [
-    {
-      date: '2026-06-20',
-      dateText: 'Jun 20, 2026',
-      category: 'company',
-      categoryLabel: 'Company',
-      title: 'Xiangfeng Tea Wins Gold at World Tea Expo 2026',
-      desc: 'Our premium Hunan Maojian green tea was awarded the Gold Medal at the prestigious World Tea Expo in Las Vegas, recognized for its exceptional floral aroma and sweet aftertaste. This marks our third international gold award in five years.'
-    },
-    {
-      date: '2026-06-10',
-      dateText: 'Jun 10, 2026',
-      category: 'industry',
-      categoryLabel: 'Industry',
-      title: 'New EU Organic Certification for Black Tea Line',
-      desc: 'Our entire black tea collection — including Dianhong, Keemun, and Lapsang Souchong — has now received EU Organic certification. This milestone opens new opportunities with European importers and strengthens our commitment to certified quality.'
-    },
-    {
-      date: '2026-05-28',
-      dateText: 'May 28, 2026',
-      category: 'company',
-      categoryLabel: 'Company',
-      title: 'Sustainable Farming Initiative Expands to 53,000 Mu',
-      desc: 'Our organic tea plantation expansion has reached a new milestone of 53,000 mu across Hunan, Yunnan, and Fujian provinces. The initiative, certified by the Rainforest Alliance, supports over 2,000 family farms with fair trade pricing.'
-    },
-    {
-      date: '2026-05-15',
-      dateText: 'May 15, 2026',
-      category: 'events',
-      categoryLabel: 'Events',
-      title: 'Xiangfeng Tea Group Partners with Middle East Distributors',
-      desc: 'New distribution agreements have been signed with leading tea importers in the UAE, Saudi Arabia, and Qatar. The partnerships will make our premium Chinese teas available across the GCC region, with dedicated Arabic-language product support.'
-    },
-    {
-      date: '2026-04-22',
-      dateText: 'Apr 22, 2026',
-      category: 'industry',
-      categoryLabel: 'Industry',
-      title: 'Earth Day: Carbon-Neutral Tea Production Launched',
-      desc: 'In celebration of Earth Day, we launched an industry-first carbon-neutral tea production initiative across all three processing facilities. The program includes solar-powered processing, biodegradable packaging options, and a tree-planting partnership.'
-    }
-  ];
-}
+var newsData = [
+  {
+    id: 1,
+    date: '2026-06-15',
+    category: 'company',
+    titleKey: 'news.title1',
+    excerptKey: 'news.excerpt1',
+    image: 'https://video.aultras-tea.com/wulongcha.png'
+  },
+  {
+    id: 2,
+    date: '2026-05-28',
+    category: 'industry',
+    titleKey: 'news.title2',
+    excerptKey: 'news.excerpt2',
+    image: 'https://video.aultras-tea.com/wulongcha.png'
+  },
+  {
+    id: 3,
+    date: '2026-05-10',
+    category: 'events',
+    titleKey: 'news.title3',
+    excerptKey: 'news.excerpt3',
+    image: 'https://video.aultras-tea.com/wulongcha.png'
+  },
+  {
+    id: 4,
+    date: '2026-04-22',
+    category: 'company',
+    titleKey: 'news.title4',
+    excerptKey: 'news.excerpt4',
+    image: 'https://video.aultras-tea.com/wulongcha.png'
+  },
+  {
+    id: 5,
+    date: '2026-03-18',
+    category: 'events',
+    titleKey: 'news.title5',
+    excerptKey: 'news.excerpt5',
+    image: 'https://video.aultras-tea.com/wulongcha.png'
+  },
+  {
+    id: 6,
+    date: '2026-02-14',
+    category: 'industry',
+    titleKey: 'news.title6',
+    excerptKey: 'news.excerpt6',
+    image: 'https://video.aultras-tea.com/wulongcha.png'
+  }
+];
 
 /* ====== Render News Grid ====== */
 function renderNews() {
   var container = document.getElementById('newsGrid');
   if (!container) return;
 
-  var news = getNewsData();
-  container.innerHTML = news.map(function(n) {
+  container.innerHTML = newsData.map(function(n) {
+    var title = escapeHtml(__(n.titleKey));
+    var excerpt = escapeHtml(__(n.excerptKey));
+    var dateLabel = escapeHtml(n.date);
     return '<div class="news-card">' +
       '<div class="news-card-image">' +
-        '<div style="width:100%;height:100%;background:linear-gradient(135deg,var(--primary-bg),var(--primary-light));display:flex;align-items:center;justify-content:center;font-size:3rem;color:var(--primary);">' +
-          '<i class="fas fa-newspaper"></i>' +
-        '</div>' +
-        '<span class="news-card-date">' + n.dateText + '</span>' +
+        '<img src="' + n.image + '" alt="' + title + '" onerror="this.style.display=\'none\';this.parentElement.style.background=\'linear-gradient(135deg,var(--primary-bg),var(--primary-light))\'">' +
+        '<span class="news-card-date">' + dateLabel + '</span>' +
       '</div>' +
       '<div class="news-card-body">' +
-        '<span style="display:inline-block;padding:3px 12px;background:var(--primary-bg);color:var(--primary);border-radius:50px;font-size:0.75rem;font-weight:500;margin-bottom:0.75rem;text-transform:uppercase;letter-spacing:0.5px;">' + n.categoryLabel + '</span>' +
-        '<h3><a href="#" onclick="return false">' + n.title + '</a></h3>' +
-        '<p>' + n.desc + '</p>' +
-        '<a href="#" class="read-more" onclick="return false" data-i18n="news.readMore">Read More <i class="fas fa-arrow-right"></i></a>' +
+        '<span style="display:inline-block;padding:3px 12px;background:var(--primary-bg);color:var(--primary);border-radius:50px;font-size:0.75rem;font-weight:500;margin-bottom:0.75rem;text-transform:uppercase;letter-spacing:0.5px;">' + __(n.category === 'company' ? 'news.catCompany' : n.category === 'industry' ? 'news.catIndustry' : 'news.catEvents') + '</span>' +
+        '<h3><a href="#" onclick="return false">' + title + '</a></h3>' +
+        '<p>' + excerpt + '</p>' +
+        '<a href="#" class="read-more" onclick="return false" data-i18n="common.readMore">' + __('common.readMore') + ' <i class="fas fa-arrow-right"></i></a>' +
       '</div>' +
     '</div>';
   }).join('');
+
+  // Re-apply i18n to dynamically generated elements
+  if (typeof XF_i18n !== 'undefined' && XF_i18n.applyLang) {
+    XF_i18n.applyLang(XF_i18n.getLang());
+  }
 }
 
 /* Re-render on language change */
-document.addEventListener('xf_lang_change', renderNews);
+(function patchI18n() {
+  if (typeof XF_i18n === 'undefined') return;
+  var origSetLang = XF_i18n.setLang;
+  XF_i18n.setLang = function(lang) {
+    origSetLang(lang);
+    renderNews();
+  };
+})();
 </script>
 </body>
 </html>

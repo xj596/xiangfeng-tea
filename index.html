@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='28'%3E%F0%9F%8D%83%3C/text%3E%3C/svg%3E">
+  <link rel="icon" type="image/png" href="https://video.aultras-tea.com/%E6%B9%98%E4%B8%B0logo%E5%B9%BF%E5%91%8A%E8%AF%AD-06.png">
 </head>
 <body>
 
@@ -97,7 +97,7 @@
 <section class="hero" id="hero">
   <div class="hero-slider" id="heroSlider">
     <div class="hero-slide active" style="background: linear-gradient(135deg, #1a3a2e, #2d5a3d);">
-      <img src="https://video.aultras-tea.com/wulongcha.png"
+      <img src="https://video.aultras-tea.com/%E9%9B%86%E5%9B%A2%E5%A4%96%E8%B4%B8%E7%BD%91%E7%AB%99%E9%A6%96%E5%9B%BE1.jpg"
            onerror="this.style.display='none'"
            alt="Tea Plantation">
       <div class="container">
@@ -114,7 +114,7 @@
     </div>
 
     <div class="hero-slide" style="background: linear-gradient(135deg, #3a2a1a, #5a4530);">
-      <img src="https://video.aultras-tea.com/wulongcha.png"
+      <img src="https://video.aultras-tea.com/%E9%9B%86%E5%9B%A2%E5%A4%96%E8%B4%B8%E7%BD%91%E7%AB%99%E9%A6%96%E5%9B%BE2.jpg"
            onerror="this.style.display='none'"
            alt="Tea Processing">
       <div class="container">
@@ -131,7 +131,7 @@
     </div>
 
     <div class="hero-slide" style="background: linear-gradient(135deg, #1a2a3a, #2d3a5a);">
-      <img src="https://video.aultras-tea.com/wulongcha.png"
+      <img src="https://video.aultras-tea.com/%E9%9B%86%E5%9B%A2%E5%A4%96%E8%B4%B8%E7%BD%91%E7%AB%99%E9%A6%96%E5%9B%BE3.jpg"
            onerror="this.style.display='none'"
            alt="Tea Ceremony">
       <div class="container">
@@ -415,7 +415,7 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html"><span data-i18n="common.about">About Us</span></a></li>
           <li><a href="news.html"><span data-i18n="common.news">News</span></a></li>
-          <li><a href="certs.html"><span data-i18n="common.certsHonors">资质和荣誉</span></a></li>
+          <li><a href="certs.html"><span data-i18n="common.certsHonors">Certifications</span></a></li>
           <li><a href="contact.html"><span data-i18n="common.contact">Contact</span></a></li>
         </ul>
       </div>
@@ -494,9 +494,6 @@
           <label><span data-i18n="popup.message">Message</span> <span class="required">*</span></label>
           <textarea name="message" rows="4" required data-i18n-placeholder="popup.messagePlaceholder" placeholder="Tell us about your requirements..."></textarea>
         </div>
-        <input type="hidden" name="csrf_token" id="csrfTokenPopup">
-        <input type="hidden" name="website_url" style="display:none" tabindex="-1" autocomplete="off">
-        <input type="hidden" name="source" value="index_popup">
         <button type="submit" class="inquiry-submit popup-submit">
           <span class="loading-spinner"></span>
           <span class="btn-text" data-i18n="popup.submitBtn">Submit Inquiry</span>
@@ -733,6 +730,30 @@ var newsData = [
     titleKey: 'news.title3',
     excerptKey: 'news.excerpt3',
     image: 'https://video.aultras-tea.com/wulongcha.png'
+  },
+  {
+    id: 4,
+    date: '2026-04-22',
+    category: 'company',
+    titleKey: 'news.title4',
+    excerptKey: 'news.excerpt4',
+    image: 'https://video.aultras-tea.com/wulongcha.png'
+  },
+  {
+    id: 5,
+    date: '2026-03-18',
+    category: 'events',
+    titleKey: 'news.title5',
+    excerptKey: 'news.excerpt5',
+    image: 'https://video.aultras-tea.com/wulongcha.png'
+  },
+  {
+    id: 6,
+    date: '2026-02-14',
+    category: 'industry',
+    titleKey: 'news.title6',
+    excerptKey: 'news.excerpt6',
+    image: 'https://video.aultras-tea.com/wulongcha.png'
   }
 ];
 
@@ -874,31 +895,47 @@ function closeInquiryOverlay(event) {
 function submitInquiry(e) {
   e.preventDefault();
   var form = e.target;
-  var submitBtn = form.querySelector('.popup-submit');
-  submitBtn.classList.add('form-submitting');
-  submitBtn.querySelector('.btn-text').textContent = __('popup.submitting') || 'Submitting...';
 
-  var formData = new FormData(form);
-  fetch('inquiry-submit.php', {
-    method: 'POST',
-    body: formData
-  })
-    .then(function(res) { return res.json(); })
-    .then(function(data) {
-      submitBtn.classList.remove('form-submitting');
-      submitBtn.querySelector('.btn-text').textContent = __('popup.submitBtn') || 'Submit Inquiry';
-      if (data.success) {
-        showInquirySuccess();
-      } else {
-        alert(data.message || 'Submission failed. Please try again.');
-      }
-    })
-    .catch(function() {
-      submitBtn.classList.remove('form-submitting');
-      submitBtn.querySelector('.btn-text').textContent = __('popup.submitBtn') || 'Submit Inquiry';
-      // Fallback: show success anyway for demo (since no PHP backend in static)
-      showInquirySuccess();
-    });
+  // Collect form data
+  var name = form.querySelector('[name="name"]').value || '';
+  var company = form.querySelector('[name="company"]').value || '';
+  var email = form.querySelector('[name="email"]').value || '';
+  var phone = form.querySelector('[name="phone"]').value || '';
+  var product = form.querySelector('[name="product_interest"]').value || '';
+  var quantity = form.querySelector('[name="quantity"]').value || '';
+  var message = form.querySelector('[name="message"]').value || '';
+
+  // Basic validation
+  if (!name || !email || !message) {
+    alert(__('popup.fillRequired') || 'Please fill in all required fields.');
+    return;
+  }
+
+  // Build mailto link
+  var toEmail = 'export@xiangfengtea.com';
+  var subject = 'Tea Inquiry from ' + name + (company ? ' (' + company + ')' : '');
+  var body = 'Dear Xiangfeng Tea Export Team,\n\n';
+  body += 'I would like to inquire about your tea products. Here are my details:\n\n';
+  body += 'Name: ' + name + '\n';
+  if (company) body += 'Company: ' + company + '\n';
+  body += 'Email: ' + email + '\n';
+  if (phone) body += 'Phone/WhatsApp: ' + phone + '\n';
+  if (product) body += 'Product Interest: ' + product + '\n';
+  if (quantity) body += 'Estimated Quantity: ' + quantity + '\n';
+  body += '\nMessage:\n' + message + '\n\n';
+  body += 'Looking forward to your reply.\n\nBest regards,\n' + name;
+
+  // Encode and open mailto
+  var mailtoUrl = 'mailto:' + toEmail + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  var link = document.createElement('a');
+  link.href = mailtoUrl;
+  link.style.display = 'none';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+
+  // Show success message in popup
+  showInquirySuccess();
 }
 
 function showInquirySuccess() {

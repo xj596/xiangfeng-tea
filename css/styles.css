@@ -232,8 +232,8 @@ body.rtl h4, body.rtl h5, body.rtl h6 {
    4. TOP BAR
    ============================================ */
 .topbar {
-  background: var(--dark);
-  color: rgba(255,255,255,0.7);
+  background: var(--primary);
+  color: rgba(255,255,255,0.9);
   font-size: 0.8rem;
   height: var(--topbar-height);
   display: flex;
@@ -246,7 +246,7 @@ body.rtl h4, body.rtl h5, body.rtl h6 {
 }
 
 .topbar.scrolled {
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(48,180,168,0.3);
 }
 
 .topbar .container {
@@ -268,12 +268,12 @@ body.rtl h4, body.rtl h5, body.rtl h6 {
 }
 
 .topbar a {
-  color: rgba(255,255,255,0.7);
+  color: rgba(255,255,255,0.9);
   transition: var(--transition);
 }
 
 .topbar a:hover {
-  color: var(--accent);
+  color: white;
 }
 
 .topbar-language select {

@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='28'%3E%F0%9F%8D%83%3C/text%3E%3C/svg%3E">
+  <link rel="icon" type="image/png" href="https://video.aultras-tea.com/%E6%B9%98%E4%B8%B0logo%E5%B9%BF%E5%91%8A%E8%AF%AD-06.png">
   <style>
     /* Page-specific styles for search bar, filter bar, product count, bottom CTA */
     .product-search-section {
@@ -372,7 +372,7 @@
   <div style="position:absolute;bottom:-30%;left:-5%;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,0.05);"></div>
   <div class="container" style="position:relative;">
     <div style="max-width:700px;margin:0 auto;text-align:center;color:white;">
-      <h2 style="color:white;font-size:2rem;margin-bottom:1rem;">Can't find what you need? Send us an inquiry</h2>
+      <h2 style="color:white;font-size:2rem;margin-bottom:1rem;" data-i18n="products.cantFind">Can't find what you need? Send us an inquiry</h2>
       <p style="color:rgba(255,255,255,0.9);font-size:1.1rem;margin-bottom:2rem;" data-i18n="home.ctaSubtitle">Get a personalized quote within 24 hours. No minimum for samples.</p>
       <button class="btn btn-accent" style="font-size:1.1rem;padding:14px 40px;" onclick="openInquiry()">
         <i class="fas fa-paper-plane"></i>
@@ -422,7 +422,7 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html"><span data-i18n="common.about">About Us</span></a></li>
           <li><a href="news.html"><span data-i18n="common.news">News</span></a></li>
-          <li><a href="certs.html"><span data-i18n="common.certsHonors">资质和荣誉</span></a></li>
+          <li><a href="certs.html"><span data-i18n="common.certsHonors">Certifications</span></a></li>
           <li><a href="contact.html"><span data-i18n="common.contact">Contact</span></a></li>
         </ul>
       </div>
@@ -498,9 +498,6 @@
           <label><span data-i18n="popup.message">Message</span> <span class="required">*</span></label>
           <textarea name="message" rows="4" required data-i18n-placeholder="popup.messagePlaceholder" placeholder="Tell us about your requirements..."></textarea>
         </div>
-        <input type="hidden" name="csrf_token" id="csrfTokenPopup">
-        <input type="hidden" name="website_url" style="display:none" tabindex="-1" autocomplete="off">
-        <input type="hidden" name="source" value="products_popup">
         <button type="submit" class="inquiry-submit popup-submit">
           <span class="loading-spinner"></span>
           <span class="btn-text" data-i18n="popup.submitBtn">Submit Inquiry</span>
@@ -742,30 +739,47 @@ function closeInquiryOverlay(event) {
 function submitInquiry(e) {
   e.preventDefault();
   var form = e.target;
-  var submitBtn = form.querySelector('.popup-submit');
-  submitBtn.classList.add('form-submitting');
-  submitBtn.querySelector('.btn-text').textContent = __('popup.submitting') || 'Submitting...';
 
-  var formData = new FormData(form);
-  fetch('inquiry-submit.php', {
-    method: 'POST',
-    body: formData
-  })
-    .then(function(res) { return res.json(); })
-    .then(function(data) {
-      submitBtn.classList.remove('form-submitting');
-      submitBtn.querySelector('.btn-text').textContent = __('popup.submitBtn') || 'Submit Inquiry';
-      if (data.success) {
-        showInquirySuccess();
-      } else {
-        alert(data.message || 'Submission failed. Please try again.');
-      }
-    })
-    .catch(function() {
-      submitBtn.classList.remove('form-submitting');
-      submitBtn.querySelector('.btn-text').textContent = __('popup.submitBtn') || 'Submit Inquiry';
-      showInquirySuccess();
-    });
+  // Collect form data
+  var name = form.querySelector('[name="name"]').value || '';
+  var company = form.querySelector('[name="company"]').value || '';
+  var email = form.querySelector('[name="email"]').value || '';
+  var phone = form.querySelector('[name="phone"]').value || '';
+  var product = form.querySelector('[name="product_interest"]').value || '';
+  var quantity = form.querySelector('[name="quantity"]').value || '';
+  var message = form.querySelector('[name="message"]').value || '';
+
+  // Basic validation
+  if (!name || !email || !message) {
+    alert(__('popup.fillRequired') || 'Please fill in all required fields.');
+    return;
+  }
+
+  // Build mailto link
+  var toEmail = 'export@xiangfengtea.com';
+  var subject = 'Tea Inquiry from ' + name + (company ? ' (' + company + ')' : '');
+  var body = 'Dear Xiangfeng Tea Export Team,\n\n';
+  body += 'I would like to inquire about your tea products. Here are my details:\n\n';
+  body += 'Name: ' + name + '\n';
+  if (company) body += 'Company: ' + company + '\n';
+  body += 'Email: ' + email + '\n';
+  if (phone) body += 'Phone/WhatsApp: ' + phone + '\n';
+  if (product) body += 'Product Interest: ' + product + '\n';
+  if (quantity) body += 'Estimated Quantity: ' + quantity + '\n';
+  body += '\nMessage:\n' + message + '\n\n';
+  body += 'Looking forward to your reply.\n\nBest regards,\n' + name;
+
+  // Encode and open mailto
+  var mailtoUrl = 'mailto:' + toEmail + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  var link = document.createElement('a');
+  link.href = mailtoUrl;
+  link.style.display = 'none';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+
+  // Show success message in popup
+  showInquirySuccess();
 }
 
 function showInquirySuccess() {
